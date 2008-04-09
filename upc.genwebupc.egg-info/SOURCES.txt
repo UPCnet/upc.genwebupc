@@ -1,0 +1,14 @@
+README.txt
+setup.cfg
+setup.py
+upc/__init__.py
+upc.genwebupc.egg-info/PKG-INFO
+upc.genwebupc.egg-info/SOURCES.txt
+upc.genwebupc.egg-info/dependency_links.txt
+upc.genwebupc.egg-info/entry_points.txt
+upc.genwebupc.egg-info/namespace_packages.txt
+upc.genwebupc.egg-info/not-zip-safe
+upc.genwebupc.egg-info/requires.txt
+upc.genwebupc.egg-info/top_level.txt
+upc/genwebupc/__init__.py
+upc/genwebupc/tests.py

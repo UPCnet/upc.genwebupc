@@ -1,0 +1,9 @@
+Changelog for upc.genwebupc
+
+    (name of developer listed in brackets)
+
+upc.genwebupc - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+
