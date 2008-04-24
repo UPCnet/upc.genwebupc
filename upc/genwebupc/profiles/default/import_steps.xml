@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<import-steps>
+ <import-step id="upc.genwebupc.various"
+               version="20080424-01"
+               handler="upc.genwebupc.setuphandlers.setupVarious"
+               title="genWeb UPC: miscellaneous import steps">
+    <dependency step="various" />
+    Various import steps that are not handled by GS import/export
+    handlers.
+ </import-step>  
+</import-steps>

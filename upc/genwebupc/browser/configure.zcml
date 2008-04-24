@@ -1,0 +1,12 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="upc.genwebupc">
+    
+
+    <browser:resourceDirectory
+        name="upc.genwebupc.images"
+        directory="images"
+        />
+    
+</configure>
