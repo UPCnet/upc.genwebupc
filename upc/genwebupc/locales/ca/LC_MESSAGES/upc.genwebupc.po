@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <ploneteam@upcnet.es>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: ca\n"
+"Language-Name: Catalan\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: upc.genwebupc\n"
+
+#: browser/capsaleraSuperior.pt
+msgid "identificat"
+msgstr "Identifica't"
+
+#: browser/calendar.pt
+msgid "calendari_title"
+msgstr "Calendari"
+
+#: browser/calendar.pt
+msgid "esdeveniments_reunions"
+msgstr "Esdeveniments i reunions."
+
+#: browser/calendar.pt
+msgid "avui"
+msgstr "Avui"
