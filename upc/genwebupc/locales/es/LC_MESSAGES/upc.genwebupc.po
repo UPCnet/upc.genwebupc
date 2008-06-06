@@ -21,3 +21,19 @@ msgstr "Identificate"
 #: browser/capsaleraSuperior.pt
 msgid "cercaavançada"
 msgstr "Búsqueda avanzada"
+
+#: browser/calendar.pt
+msgid "calendari_title"
+msgstr "Calendario"
+
+#: browser/calendar.pt
+msgid "esdeveniments_reunions"
+msgstr "Eventos y reuniones."
+
+#: browser/calendar.pt
+msgid "avui"
+msgstr "Hoy"
+
+#: browser/calendar.pt
+msgid "inici"
+msgstr "Inicio"

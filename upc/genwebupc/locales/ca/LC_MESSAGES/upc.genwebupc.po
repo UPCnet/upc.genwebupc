@@ -18,6 +18,10 @@ msgstr ""
 msgid "identificat"
 msgstr "Identifica't"
 
+#: browser/capsaleraSuperior.pt
+msgid "cercaavançada"
+msgstr "Cerca avançada"
+
 #: browser/calendar.pt
 msgid "calendari_title"
 msgstr "Calendari"
@@ -29,3 +33,7 @@ msgstr "Esdeveniments i reunions."
 #: browser/calendar.pt
 msgid "avui"
 msgstr "Avui"
+
+#: browser/calendar.pt
+msgid "inici"
+msgstr "Inici"
