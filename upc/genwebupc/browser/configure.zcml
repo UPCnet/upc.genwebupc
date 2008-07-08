@@ -2,8 +2,18 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="upc.genwebupc">
-    
 
+<!-- Control Panel -->
+    
+    <adapter factory=".controlpanel.GenWebControlPanelAdapter" />
+
+    <browser:page
+      name="genwebupc-controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".controlpanel.GenWebControlPanel"
+      permission="cmf.ManagePortal"
+      />
+    
     <browser:resourceDirectory
         name="upc.genwebupc.images"
         directory="images"
