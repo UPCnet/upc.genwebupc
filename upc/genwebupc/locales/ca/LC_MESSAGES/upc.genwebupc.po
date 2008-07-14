@@ -1,5 +1,5 @@
 msgid ""
-msgstr ""
+msgstr "" 
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
@@ -19,7 +19,7 @@ msgid "identificat"
 msgstr "Identifica't"
 
 #: browser/capsaleraSuperior.pt
-msgid "cercaavançada"
+msgid "cercaavancada"
 msgstr "Cerca avançada"
 
 #: browser/calendar.pt
@@ -37,3 +37,9 @@ msgstr "Avui"
 #: browser/calendar.pt
 msgid "inici"
 msgstr "Inici"
+
+msgid "nom_usuari"
+msgstr "Usuari"
+
+msgid "genweb-logout"
+msgstr "Desconnecta"

@@ -19,7 +19,7 @@ msgid "identificat"
 msgstr "Identificate"
 
 #: browser/capsaleraSuperior.pt
-msgid "cercaavançada"
+msgid "cercaavancada"
 msgstr "Búsqueda avanzada"
 
 #: browser/calendar.pt
@@ -37,3 +37,10 @@ msgstr "Hoy"
 #: browser/calendar.pt
 msgid "inici"
 msgstr "Inicio"
+
+msgid "nom_usuari"
+msgstr "Usuario"
+
+msgid "genweb-logout"
+msgstr "Desconectar"
+
