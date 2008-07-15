@@ -18,5 +18,13 @@
         name="upc.genwebupc.images"
         directory="images"
         />
-    
+
+<!-- Home Page Neutre --> 
+    <browser:page
+      name="homepage"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".homepage.HomePageView"
+      permission="zope2.View"
+      />
+
 </configure>

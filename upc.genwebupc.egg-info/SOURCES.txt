@@ -17,6 +17,7 @@ upc.genwebupc.egg-info/requires.txt
 upc.genwebupc.egg-info/top_level.txt
 upc/genwebupc/__init__.py
 upc/genwebupc/configure.zcml
+upc/genwebupc/gen_locales.sh
 upc/genwebupc/setuphandlers.py
 upc/genwebupc/tests.py
 upc/genwebupc/version.txt
