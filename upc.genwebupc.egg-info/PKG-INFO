@@ -1,6 +1,10 @@
 Metadata-Version: 1.0
 Name: upc.genwebupc
+<<<<<<< .mine
+Version: 0.1dev-r127
+=======
 Version: 0.1dev-r90
+>>>>>>> .r140
 Summary: Paquet de funcionalitats de genwebupc
 Home-page: https://devel.upcnet.es/trac/genwebupc
 Author: PloneTeam@UPCnet
