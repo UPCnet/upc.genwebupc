@@ -18,8 +18,8 @@ class IgenWebControlPanelSchema(Interface):
                               default=True)
     
     columna1 = zope.schema.List(__name__='columna1', title=u"Contingut de la columna 1",value_type=zope.schema.Choice(values=['Agenda', 'Noticies', 'Noticies_Actualitat']), default=[])
-    columna2 = zope.schema.List(__name__='columna2', title=u"Contingut de la columna 2",value_type=zope.schema.Choice(values=['Agenda_mini', 'Calendari', 'Actualitat_Noticies_mini','Enquesta']), default=[])
-    columna3 = zope.schema.List(__name__='columna3', title=u"Contingut de la columna 3",value_type=zope.schema.Choice(values=['Agenda_mini', 'Calendari', 'Actualitat_Noticies_mini','Enquesta']), default=[])
+    columna2 = zope.schema.List(__name__='columna2', title=u"Contingut de la columna 2",value_type=zope.schema.Choice(values=['Agenda_Calendari_petit', 'Actualitat_Noticies_petit']), default=[])
+    columna3 = zope.schema.List(__name__='columna3', title=u"Contingut de la columna 3",value_type=zope.schema.Choice(values=['Agenda_mini', 'Actualitat_Noticies_mini','Banners', 'Enquesta']), default=[])
     
 class IgenWebControlPanel(IgenWebControlPanelSchema, ISkinsSchema):
     """ Marker interface de la unio del schema especific de genweb i el dels skins estandar
