@@ -21,24 +21,43 @@ from plone.fieldsets.fieldsets import FormFieldsets
 
 from persistent import Persistent
 
-from upc.genwebupc.browser.interfaces import IgenWebControlPanel, IgenWebUtility, IgenWebControlPanelSchemaGeneral, IgenWebControlPanelSchemaEspecifics
+from upc.genwebupc.browser.interfaces import *
 from plone.app.controlpanel.skins import ISkinsSchema 
 
 class GenWebControlPanelUtility(Persistent):
     """Clase que implementa la utilitat i la fa persistent
     """
     implements(IgenWebUtility)
-    especial = False
+    
+    # de la pestanya general
     columna1 = []
     columna2 = []
     columna3 = []
-    
+
+    # de la pestanya d'especifics
     especific1=''
     especific2=''
     especific3=''
     especific4=''
     especific5=''
     especific6=''
+
+    imatgedefonsprops=''
+
+    barraidiomesbool = False
+    
+    # de la pestanya d'informació
+    titolespai = ''
+    firmaunitat = ''
+    enllaslogotip = ''
+    contacteid = ''
+    contactegmaps = ''
+    
+    # de la pestanya de sabors
+    tipusintranet = ''
+    titolcapsaleraMaster = ''
+    idestudiMaster = ''
+    idtitulacioMaster = ''
 
 class GenWebControlPanelAdapter(SchemaAdapterBase):
 
@@ -60,16 +79,6 @@ class GenWebControlPanelAdapter(SchemaAdapterBase):
 
     theme = property(get_theme, set_theme)
 
-    @apply
-    def especial():
-        def get(self):
-            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            return gw_util.especial
-        def set(self, value):
-            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            gw_util.especial = value
-        return property(get, set)
-    
     @apply
     def columna1():
         def get(self):
@@ -159,19 +168,140 @@ class GenWebControlPanelAdapter(SchemaAdapterBase):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
             gw_util.especific1 = value
         return property(get, set)
+
+    @apply
+    def imatgedefonsprops():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.imatgedefonsprops
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.imatgedefonsprops = value
+        return property(get, set)
+
+    @apply
+    def barraidiomesbool():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.barraidiomesbool
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.barraidiomesbool = value
+        return property(get, set)
+
+    @apply
+    def titolespai():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.titolespai
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.titolespai = value
+        return property(get, set)
+
+    @apply
+    def firmaunitat():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.firmaunitat
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.firmaunitat = value
+        return property(get, set)
+
+    @apply
+    def enllaslogotip():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.enllaslogotip
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.enllaslogotip = value
+        return property(get, set)
+
+    @apply
+    def contacteid():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.contacteid
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.contacteid = value
+        return property(get, set)
+
+    @apply
+    def contactegmaps():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.contactegmaps
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.contactegmaps = value
+        return property(get, set)
+
+    @apply
+    def tipusintranet():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.tipusintranet
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.tipusintranet = value
+        return property(get, set)
+
+    @apply
+    def titolcapsaleraMaster():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.titolcapsaleraMaster
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.titolcapsaleraMaster = value
+        return property(get, set)
+
+    @apply
+    def idestudiMaster():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.idestudiMaster
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.idestudiMaster = value
+        return property(get, set)
+
+    @apply
+    def idtitulacioMaster():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.idtitulacioMaster
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.idtitulacioMaster = value
+        return property(get, set)
+                                        
+    
     
 general = FormFieldsets(ISkinsSchema['theme'], IgenWebControlPanelSchemaGeneral)
 general.id = 'genWebControlPanelgeneral'
-general.label = _(u'label_gwcp_opcions_generals', default=u'General')
+general.label = _(u'label_gwcp_general', default=u'General')
 general['theme'].custom_widget = DropdownChoiceWidget
 
 especifics = FormFieldsets(IgenWebControlPanelSchemaEspecifics)
 especifics.id = 'genWebControlPanelespecifics'
-especifics.label = _(u'label_gwcp_opcions_generals', default=u'Especific')
+especifics.label = _(u'label_gwcp_especifics', default=u'Especific')
+
+informacio = FormFieldsets(IgenWebControlPanelSchemaInformacio)
+informacio.id = 'genWebControlPanelinformacio'
+informacio.label = _(u'label_gwcp_informacio', default=u'Informacio')
+
+sabors = FormFieldsets(IgenWebControlPanelSchemaSabors)
+sabors.id = 'genWebControlPanelsabors'
+sabors.label = _(u'label_gwcp_sabors', default=u'Sabors')
+sabors['tipusintranet'].custom_widget = DropdownChoiceWidget
 
 class GenWebControlPanel(ControlPanelForm):
 
-    form_fields = FormFieldsets(general, especifics)
+    form_fields = FormFieldsets(general, informacio, especifics, sabors)
 
     #form_fields = form_fields.select('theme','especial','columna1','columna2','columna3')
     #form_fields.fieldsets[0] = form_fields.fieldsets[0].select('theme','especial','columna1','columna2','columna3')
