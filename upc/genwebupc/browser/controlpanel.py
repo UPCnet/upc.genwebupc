@@ -17,10 +17,12 @@ from plone.app.controlpanel.widgets import DropdownChoiceWidget
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 
+from plone.fieldsets.fieldsets import FormFieldsets
+
 from persistent import Persistent
 
-from upc.genwebupc.browser.interfaces import IgenWebControlPanel, IgenWebUtility
-
+from upc.genwebupc.browser.interfaces import IgenWebControlPanel, IgenWebUtility, IgenWebControlPanelSchemaGeneral, IgenWebControlPanelSchemaEspecifics
+from plone.app.controlpanel.skins import ISkinsSchema 
 
 class GenWebControlPanelUtility(Persistent):
     """Clase que implementa la utilitat i la fa persistent
@@ -30,6 +32,13 @@ class GenWebControlPanelUtility(Persistent):
     columna1 = []
     columna2 = []
     columna3 = []
+    
+    especific1=''
+    especific2=''
+    especific3=''
+    especific4=''
+    especific5=''
+    especific6=''
 
 class GenWebControlPanelAdapter(SchemaAdapterBase):
 
@@ -91,11 +100,81 @@ class GenWebControlPanelAdapter(SchemaAdapterBase):
             gw_util.columna3 = value
         return property(get, set)
 
+    @apply
+    def especific1():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.especific1
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.especific1 = value
+        return property(get, set)
+
+    @apply
+    def especific2():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.especific1
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.especific1 = value
+        return property(get, set)
+
+    @apply
+    def especific3():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.especific1
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.especific1 = value
+        return property(get, set)
+
+    @apply
+    def especific4():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.especific1
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.especific1 = value
+        return property(get, set)
+
+    @apply
+    def especific5():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.especific1
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.especific1 = value
+        return property(get, set)            
+
+    @apply
+    def especific6():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.especific1
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.especific1 = value
+        return property(get, set)
+    
+general = FormFieldsets(ISkinsSchema['theme'], IgenWebControlPanelSchemaGeneral)
+general.id = 'genWebControlPanelgeneral'
+general.label = _(u'label_gwcp_opcions_generals', default=u'General')
+general['theme'].custom_widget = DropdownChoiceWidget
+
+especifics = FormFieldsets(IgenWebControlPanelSchemaEspecifics)
+especifics.id = 'genWebControlPanelespecifics'
+especifics.label = _(u'label_gwcp_opcions_generals', default=u'Especific')
+
 class GenWebControlPanel(ControlPanelForm):
 
-    form_fields = FormFields(IgenWebControlPanel)
-    form_fields = form_fields.select('theme','especial','columna1','columna2','columna3')
-    form_fields['theme'].custom_widget = DropdownChoiceWidget
+    form_fields = FormFieldsets(general, especifics)
+
+    #form_fields = form_fields.select('theme','especial','columna1','columna2','columna3')
+    #form_fields.fieldsets[0] = form_fields.fieldsets[0].select('theme','especial','columna1','columna2','columna3')
 
     label = _("genWeb settings")
     description = _("Settings that configures the behaviour.")
