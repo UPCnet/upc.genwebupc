@@ -39,7 +39,7 @@ class IgenWebControlPanelSchemaInformacio(Interface):
 class IgenWebControlPanelSchemaSabors(Interface):
     """ Marker interface de la pestanya de la informació sobre els sabors        
     """
-    tipusintranet = zope.schema.Choice(values=['Visible', 'Discreta'], required=False)
+    tipusintranet = zope.schema.Choice(title=_(u'Tipus de intranet'), values=['Visible', 'Discreta'], required=False)
     titolcapsaleraMaster = zope.schema.TextLine(title=_(u'Titol de capsalera del master'),required=False)
     idestudiMaster = zope.schema.TextLine(title=_(u'id_estudi'),required=False)
     idtitulacioMaster = zope.schema.TextLine(title=_(u'id_titulacio'),required=False)

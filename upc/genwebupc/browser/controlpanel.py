@@ -307,5 +307,5 @@ class GenWebControlPanel(ControlPanelForm):
     #form_fields.fieldsets[0] = form_fields.fieldsets[0].select('theme','especial','columna1','columna2','columna3')
 
     label = _("genWeb settings")
-    description = _("Settings that configures the behaviour.")
+    description = _("Settings that configures the behaviour of the genWeb.")
     form_name = _("genWeb settings")

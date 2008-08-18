@@ -24,8 +24,6 @@ upc/genwebupc/version.txt
 upc/genwebupc/browser/__init__.py
 upc/genwebupc/browser/configure.zcml
 upc/genwebupc/browser/controlpanel.py
-upc/genwebupc/browser/homepage.pt
-upc/genwebupc/browser/homepage.py
 upc/genwebupc/browser/interfaces.py
 upc/genwebupc/browser/images/cpgenweb.png
 upc/genwebupc/locales/ca/LC_MESSAGES/upc.genwebupc.po
