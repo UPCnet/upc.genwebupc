@@ -47,8 +47,12 @@ class GenWebControlPanelUtility(Persistent):
     barraidiomesbool = False
     
     # de la pestanya d'informació
-    titolespai = ''
-    firmaunitat = ''
+    titolespai_ca = ''
+    titolespai_en =''
+    titolespai_es = ''
+    firmaunitat_ca = ''
+    firmaunitat_en = ''
+    firmaunitat_es = ''
     enllaslogotip = ''
     contacteid = ''
     contactegmaps = ''
@@ -190,23 +194,63 @@ class GenWebControlPanelAdapter(SchemaAdapterBase):
         return property(get, set)
 
     @apply
-    def titolespai():
+    def titolespai_ca():
         def get(self):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            return gw_util.titolespai
+            return gw_util.titolespai_ca
         def set(self, value):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            gw_util.titolespai = value
+            gw_util.titolespai_ca = value
         return property(get, set)
 
     @apply
-    def firmaunitat():
+    def titolespai_en():
         def get(self):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            return gw_util.firmaunitat
+            return gw_util.titolespai_en
         def set(self, value):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            gw_util.firmaunitat = value
+            gw_util.titolespai_en = value
+        return property(get, set)
+
+    @apply
+    def titolespai_es():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.titolespai_es
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.titolespai_es = value
+        return property(get, set)
+            
+    @apply
+    def firmaunitat_ca():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.firmaunitat_ca
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.firmaunitat_ca = value
+        return property(get, set)
+
+    @apply
+    def firmaunitat_en():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.firmaunitat_en
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.firmaunitat_en = value
+        return property(get, set)
+
+    @apply
+    def firmaunitat_es():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.firmaunitat_es
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.firmaunitat_es = value
         return property(get, set)
 
     @apply
