@@ -30,12 +30,12 @@ class IgenWebControlPanelSchemaEspecifics(Interface):
 class IgenWebControlPanelSchemaInformacio(Interface):
     """ Marker interface de la pestanya dels literals        
     """
-    titolespai_ca = zope.schema.TextLine(title=_(u'Titol de l\'espai en catala'),required=False)
-    titolespai_en = zope.schema.TextLine(title=_(u'Titol de l\'espai en angles'),required=False)
-    titolespai_es = zope.schema.TextLine(title=_(u'Titol de l\'espai en castella'),required=False)
-    firmaunitat_ca = zope.schema.TextLine(title=_(u'Firma de la unitat en catala'),required=False)
-    firmaunitat_en = zope.schema.TextLine(title=_(u'Firma de la unitat en angles'),required=False)
-    firmaunitat_es = zope.schema.TextLine(title=_(u'Firma de la unitat en castella'),required=False)
+    titolespai_ca = zope.schema.TextLine(title=_(u'Titol de l\'espai &nbsp;&nbsp;-&nbsp;&nbsp; [catala]'),required=False)
+    titolespai_es = zope.schema.TextLine(title=_(u'Titol de l\'espai &nbsp;&nbsp;-&nbsp;&nbsp; [castella]'),required=False)
+    titolespai_en = zope.schema.TextLine(title=_(u'Titol de l\'espai &nbsp;&nbsp;-&nbsp;&nbsp; [angles]'),required=False)    
+    firmaunitat_ca = zope.schema.TextLine(title=_(u'Firma de la unitat &nbsp;&nbsp;-&nbsp;&nbsp; [catala]'),required=False)
+    firmaunitat_es = zope.schema.TextLine(title=_(u'Firma de la unitat &nbsp;&nbsp;-&nbsp;&nbsp; [castella]'),required=False)
+    firmaunitat_en = zope.schema.TextLine(title=_(u'Firma de la unitat &nbsp;&nbsp;-&nbsp;&nbsp; [angles]'),required=False)
     enllaslogotip = zope.schema.TextLine(title=_(u'Enllac logotip de la unitat'),required=False)
     contacteid = zope.schema.TextLine(title=_(u'ID de la BBDD de UBs'),required=False)
     contactegmaps = zope.schema.TextLine(title=_(u'Codi URL google maps'),required=False)
