@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 from zope.interface import Interface, Attribute
 from plone.app.controlpanel.skins import ISkinsSchema 
 import zope.schema 
@@ -25,17 +26,16 @@ class IgenWebControlPanelSchemaEspecifics(Interface):
     
     imatgedefonsprops = zope.schema.TextLine(title=_(u'Tipus de repeat de la imatge de fons (?)'),required=False)
 
-    barraidiomesbool = zope.schema.Bool(title=_(u'Mostrar barra de idiomes?'),required=False)
 
 class IgenWebControlPanelSchemaInformacio(Interface):
     """ Marker interface de la pestanya dels literals        
     """
-    titolespai_ca = zope.schema.TextLine(title=_(u'Titol de l\'espai &nbsp;&nbsp;-&nbsp;&nbsp; [catala]'),required=False)
-    titolespai_es = zope.schema.TextLine(title=_(u'Titol de l\'espai &nbsp;&nbsp;-&nbsp;&nbsp; [castella]'),required=False)
-    titolespai_en = zope.schema.TextLine(title=_(u'Titol de l\'espai &nbsp;&nbsp;-&nbsp;&nbsp; [angles]'),required=False)    
-    firmaunitat_ca = zope.schema.TextLine(title=_(u'Firma de la unitat &nbsp;&nbsp;-&nbsp;&nbsp; [catala]'),required=False)
-    firmaunitat_es = zope.schema.TextLine(title=_(u'Firma de la unitat &nbsp;&nbsp;-&nbsp;&nbsp; [castella]'),required=False)
-    firmaunitat_en = zope.schema.TextLine(title=_(u'Firma de la unitat &nbsp;&nbsp;-&nbsp;&nbsp; [angles]'),required=False)
+    titolespai_ca = zope.schema.TextLine(title=_(u'Titol de l\'espai - [catala]'),required=False)
+    titolespai_es = zope.schema.TextLine(title=_(u'Titol de l\'espai - [castella]'),required=False)
+    titolespai_en = zope.schema.TextLine(title=_(u'Titol de l\'espai - [angles]'),required=False)    
+    firmaunitat_ca = zope.schema.TextLine(title=_(u'Firma de la unitat - [catala]'),required=False)
+    firmaunitat_es = zope.schema.TextLine(title=_(u'Firma de la unitat - [castella]'),required=False)
+    firmaunitat_en = zope.schema.TextLine(title=_(u'Firma de la unitat - [angles]'),required=False)
     enllaslogotip = zope.schema.TextLine(title=_(u'Enllac logotip de la unitat'),required=False)
     contacteid = zope.schema.TextLine(title=_(u'ID de la BBDD de UBs'),required=False)
     contactegmaps = zope.schema.TextLine(title=_(u'Codi URL google maps'),required=False)
