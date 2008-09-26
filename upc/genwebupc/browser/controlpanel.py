@@ -196,7 +196,6 @@ class GenWebControlPanelAdapter(SchemaAdapterBase):
     @apply
     def titolespai_ca():
         def get(self):
-            import pdb;pdb.set_trace()
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
             return gw_util.titolespai_ca
         def set(self, value):
