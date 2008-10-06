@@ -1,0 +1,126 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xml:lang="en" lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="upc.genwebupc">
+
+<body>
+
+<metal:block metal:fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border', 1)" />
+
+<div metal:fill-slot="main">
+ 
+
+<div tal:replace="structure provider:plone.abovecontenttitle" />
+
+
+<h1>Contacte</h1>
+
+<div class="agendaContingut contacte" style="padding: 5px;"
+	 tal:define="utils context/@@upc.genweb.utils">
+	 
+	<h5 style="font-family: Arial,Helvetica,Verdana,sans-serif; font-size: 14px;"
+		tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).direccion.decode('iso-8859-1').encode('utf-8')">Servei de Comunicació i Promoció</h5>
+	
+	<div tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).direccion.decode('iso-8859-1').encode('utf-8')">
+		<span>Adreça</span>Edifici BO (Bolet)
+	</div>
+	
+	<div tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).telefono.decode('iso-8859-1').encode('utf-8')">
+		<span>Telèfon</span>93 401 76 76
+	</div>
+	
+	<div tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).fax.decode('iso-8859-1').encode('utf-8')">
+		<span>Fax</span>93 401 78 79
+	</div>
+	
+	<a tal:attributes="href python: 'mailto: ' + utils.getDatabaseInformation(utils.getGWConfig().contacteid).email.decode('iso-8859-1').encode('utf-8')"
+	   tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).email.decode('iso-8859-1').encode('utf-8')">
+		 <span>A/e</span>
+	</a>
+</div>
+
+<div tal:define="utils context/@@upc.genweb.utils">
+
+	<div tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).direccion.decode('iso-8859-1').encode('utf-8')">
+		<span class="contacteSpan">Direcció</span>José Luís Vivanco
+	</div>
+	
+	<a 	tal:attributes="href python: '#'"
+		tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).personal.decode('iso-8859-1').encode('utf-8')">
+		<span class="contacteSpan">Personal</span>
+	</a>
+	
+	<div><span class="contacteSpan">ICO</span><a href="#">Plànols i transports</a></div>
+
+	<br/>
+
+	<div tal:replace="structure python: utils.getGWConfig().contactegmaps"></div>		
+	
+</div>
+
+<h2>Formulari de contacte</h2>
+
+		<form action="."
+		      tal:attributes="action request/URL" 
+		      method="post"
+		      class="enableAutoFocus"
+		      enctype="multipart/form-data">
+		     
+		<tal:block tal:repeat="widget view/widgets">
+		
+		<legend>Detalls dels comentaris</legend> 
+		
+		<tal:hidesomefields>
+		
+		<fieldset>
+		
+		                        <div class="field"
+		                             tal:define="description widget/hint;
+		                                         error widget/error"
+		                             tal:attributes="class python:'field'+(error and ' error' or '')">
+		              
+		                            <label i18n:translate=""
+		                                   tal:attributes="for widget/name"
+		                                   tal:content="widget/label">
+		                                label
+		                            </label>
+		
+		                            <span class="fieldRequired"
+		                                  title="Required"
+		                                  i18n:attributes="title title_required;"
+		                                  i18n:translate="label_required"
+		                                  tal:condition="widget/required">
+		                                (Required)
+		                            </span>
+		
+		                            <div class="formHelp"
+		                                 i18n:translate=""
+		                                 tal:content="description"
+		                                 tal:condition="description">
+		                                field description
+		                            </div>
+		
+		                            <div tal:condition="error"
+		                                 tal:content="structure error">
+		                                The Error
+		                            </div>
+		
+		                            <div class="widget" tal:content="structure widget">
+		                                <input type="text" />
+		                            </div>
+		                        </div>
+		
+			</fieldset>
+		
+		</tal:hidesomefields>
+		</tal:block>
+
+		</form>
+</div>      
+
+</body>
+</html>

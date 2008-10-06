@@ -6,6 +6,8 @@
     i18n_domain="upc.genwebupc">
     
     <include package=".browser" />
+    <include package="collective.lead" />
+    
     <five:registerPackage package="." initialize=".initialize" />
 
     <i18n:registerTranslations directory="locales" />
@@ -17,5 +19,14 @@
       directory="profiles/default"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
+    <!-- Register database configuration utilities -->
+    <utility
+        provides="collective.lead.interfaces.IDatabase"
+        factory=".db.ExtractInformation"
+        name="upcnet.database"
+        />
+        
+	<utility factory=".extractInfo.ExtractInfo" />
       
 </configure>

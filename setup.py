@@ -26,6 +26,8 @@ setup(name='upc.genwebupc',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          "MySQL-python",
+          'collective.lead>=1.0b3,<2.0dev',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

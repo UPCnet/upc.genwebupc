@@ -52,3 +52,37 @@ class IgenWebControlPanel(IgenWebControlPanelSchemaGeneral, ISkinsSchema, IgenWe
     """ Marker interface de la unio del schema especific de genweb i el dels skins estandar
         de plone i segregat en la pestanya principal
     """  
+
+# Entities found in the database
+
+class IDatos(Interface):
+    """ Interface que será implementada por la clase python donde se mapearán las columnas de la tabla sql
+    """
+    
+class IExtractInfo(Interface):
+    """ Realiza los querys
+    """    
+
+    def getDatos(netid):
+        """ Retorna datos de acuerdo a un id
+        """
+
+class IFormulario(Interface):
+    """Define the fields of our form
+    """
+    
+    nombre = zope.schema.TextLine(title=_(u'Nom'),
+                                        description=_(u'Inseriu el vostre nom complet'),
+                                        required=True)
+                              
+    destinatario = zope.schema.TextLine(title=_(u'A/e'),
+                                        description=_(u'Si us plau escriviu, la vostra adreça de correu  electrònic'),
+                                        required=True)
+ 
+    asunto = zope.schema.TextLine(title=_(u'Assumpte'),
+                                        description=_(u'Si us plau, entreu l\'assumpte del missatge que voleu enviar'),
+                                        required=True)
+
+    mensaje = zope.schema.TextLine(title=_(u'Missatge'),
+                                        description=_(u'Si us plau, escriviu el missatge que voleu enviar'),
+                                        required=True)
