@@ -27,22 +27,22 @@
 		Servei de Comunicació i Promoció
 	</h5>
 	
-	<div>Adreça</div>
+	<div class="contacteSpan">Adreça</div>
 	<div tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).direccion.decode('iso-8859-1').encode('utf-8')">
 		Edifici BO (Bolet)
 	</div>
 	
-	<div>Telèfon</div>
+	<div class="contacteSpan">Telèfon</div>
 	<div tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).telefono.decode('iso-8859-1').encode('utf-8')">
 		93 401 76 76
 	</div>
 	
-	<div>Fax</div>
+	<div class="contacteSpan">Fax</div>
 	<div tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).fax.decode('iso-8859-1').encode('utf-8')">
 		93 401 78 79
 	</div>
 	
-	<div>A/e</div>
+	<div class="contacteSpan">A/e</div>
 	<a tal:attributes="href python: 'mailto: ' + utils.getDatabaseInformation(utils.getGWConfig().contacteid).email.decode('iso-8859-1').encode('utf-8')"
 	   tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).email.decode('iso-8859-1').encode('utf-8')">
 		 
