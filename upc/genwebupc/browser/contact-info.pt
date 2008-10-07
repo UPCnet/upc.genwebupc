@@ -27,36 +27,41 @@
 		Servei de Comunicació i Promoció
 	</h5>
 	
+	<div>Adreça</div>
 	<div tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).direccion.decode('iso-8859-1').encode('utf-8')">
-		<span>Adreça</span>Edifici BO (Bolet)
+		Edifici BO (Bolet)
 	</div>
 	
+	<div>Telèfon</div>
 	<div tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).telefono.decode('iso-8859-1').encode('utf-8')">
-		<span>Telèfon</span>93 401 76 76
+		93 401 76 76
 	</div>
 	
+	<div>Fax</div>
 	<div tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).fax.decode('iso-8859-1').encode('utf-8')">
-		<span>Fax</span>93 401 78 79
+		93 401 78 79
 	</div>
 	
+	<div>A/e</div>
 	<a tal:attributes="href python: 'mailto: ' + utils.getDatabaseInformation(utils.getGWConfig().contacteid).email.decode('iso-8859-1').encode('utf-8')"
 	   tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).email.decode('iso-8859-1').encode('utf-8')">
-		 <span>A/e</span>
+		 
 	</a>
 </div>
 
 <div tal:define="utils context/@@upc.genweb.utils">
 
+	<div class="contacteSpan">Direcció</div>
 	<div tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).director.decode('iso-8859-1').encode('utf-8')">
-		<span class="contacteSpan">Direcció</span>José Luís Vivanco
+		José Luís Vivanco
 	</div>
 	
+	<div class="contacteSpan">Personal</div>
 	<a 	tal:attributes="href python: '#'"
-		tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).personal.decode('iso-8859-1').encode('utf-8')">
-		<span class="contacteSpan">Personal</span>
+		tal:content="python: utils.getDatabaseInformation(utils.getGWConfig().contacteid).personal.decode('iso-8859-1').encode('utf-8')">	
 	</a>
 	
-	<div><span class="contacteSpan"><img src="fonsError.gif"></span><a href="#">Plànols i transports</a></div>
+	<div><span class="contacteSpan"><img src="googleMaps.gif"></span><a href="#">Plànols i transports</a></div>
 
 	<br/>
 
