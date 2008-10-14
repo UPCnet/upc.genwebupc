@@ -67,7 +67,7 @@ class IExtractInfo(Interface):
         """ Retorna datos de acuerdo a un id
         """
 
-class IFormulario(Interface):
+class IFormularioContact(Interface):
     """Define the fields of our form
     """
     

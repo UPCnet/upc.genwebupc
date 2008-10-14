@@ -1,7 +1,11 @@
 from zope.component import getMultiAdapter, getUtility, adapts
 from zope.interface import implements, Interface
 from zope import schema
+
+# zope formlib
 from zope.formlib import form
+from upc.genwebupc.browser.interfaces import IExtractInfo, IFormularioContact
+
 from Acquisition import aq_inner
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -11,12 +15,10 @@ from Products.statusmessages.interfaces import IStatusMessage
 from collective.lead.interfaces import IDatabase
 import sqlalchemy as sql
 
-from upc.genwebupc.browser.interfaces import IExtractInfo, IFormulario
-
 from Products.CMFPlone import PloneMessageFactory as _ 
 
 class ContactForm(formbase.PageForm):
-    form_fields = form.FormFields(IFormulario)
+    form_fields = form.FormFields(IFormularioContact)
 #    label = _(u"Active zone for reporters")
 #    description = _(u"Ask us for some media material.")
     

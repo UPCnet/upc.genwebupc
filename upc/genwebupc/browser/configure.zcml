@@ -6,9 +6,6 @@
 <!-- Control Panel -->
  
     <adapter factory=".controlpanel.GenWebControlPanelAdapter" />
-<!--    <adapter for="*"-->
-<!--    		 factory=".contact.ContactForm"-->
-<!--    		 provides=".interfaces.IContact_util" />-->
 
     <browser:page
       name="genwebupc-controlpanel"
@@ -18,15 +15,15 @@
       />
     
     <browser:resourceDirectory
-        name="upc.genwebupc.images"
-        directory="images"
-        />
+      name="upc.genwebupc.images"
+      directory="images"
+      />
 
     <browser:page
-         for="*"
-         name="contact"
-         class=".contact.ContactForm"
-         permission="zope2.View"
-         />
+      for="*"
+      name="contact"
+      class=".contact.ContactForm"
+      permission="zope2.View"
+      />
          
 </configure>
