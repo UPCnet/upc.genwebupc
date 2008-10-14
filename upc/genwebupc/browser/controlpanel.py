@@ -35,12 +35,12 @@ class GenWebControlPanelUtility(Persistent):
     columna3 = []
 
     # de la pestanya d'especifics
-    especific1=''
-    especific2=''
-    especific3=''
-    especific4=''
-    especific5=''
-    especific6=''
+    especific1='default'
+    especific2='default'
+    especific3='default'
+    especific4='default'
+    especific5='default'
+    especific6='default'
 
     imatgedefonsprops=''
 
@@ -127,50 +127,50 @@ class GenWebControlPanelAdapter(SchemaAdapterBase):
     def especific2():
         def get(self):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            return gw_util.especific1
+            return gw_util.especific2
         def set(self, value):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            gw_util.especific1 = value
+            gw_util.especific2 = value
         return property(get, set)
 
     @apply
     def especific3():
         def get(self):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            return gw_util.especific1
+            return gw_util.especific3
         def set(self, value):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            gw_util.especific1 = value
+            gw_util.especific3 = value
         return property(get, set)
 
     @apply
     def especific4():
         def get(self):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            return gw_util.especific1
+            return gw_util.especific4
         def set(self, value):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            gw_util.especific1 = value
+            gw_util.especific4 = value
         return property(get, set)
 
     @apply
     def especific5():
         def get(self):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            return gw_util.especific1
+            return gw_util.especific5
         def set(self, value):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            gw_util.especific1 = value
+            gw_util.especific5 = value
         return property(get, set)            
 
     @apply
     def especific6():
         def get(self):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            return gw_util.especific1
+            return gw_util.especific6
         def set(self, value):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
-            gw_util.especific1 = value
+            gw_util.especific6 = value
         return property(get, set)
 
     @apply
@@ -321,27 +321,25 @@ class GenWebControlPanelAdapter(SchemaAdapterBase):
         def set(self, value):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
             gw_util.idtitulacioMaster = value
-        return property(get, set)
-                                        
+        return property(get, set)                    
     
+    general = FormFieldsets(ISkinsSchema['theme'], IgenWebControlPanelSchemaGeneral)
+    general.id = 'genWebControlPanelgeneral'
+    general.label = _(u'label_gwcp_general', default=u'General')
+    general['theme'].custom_widget = DropdownChoiceWidget
     
-general = FormFieldsets(ISkinsSchema['theme'], IgenWebControlPanelSchemaGeneral)
-general.id = 'genWebControlPanelgeneral'
-general.label = _(u'label_gwcp_general', default=u'General')
-general['theme'].custom_widget = DropdownChoiceWidget
-
-especifics = FormFieldsets(IgenWebControlPanelSchemaEspecifics)
-especifics.id = 'genWebControlPanelespecifics'
-especifics.label = _(u'label_gwcp_especifics', default=u'Especific')
-
-informacio = FormFieldsets(IgenWebControlPanelSchemaInformacio)
-informacio.id = 'genWebControlPanelinformacio'
-informacio.label = _(u'label_gwcp_informacio', default=u'Informacio')
-
-sabors = FormFieldsets(IgenWebControlPanelSchemaSabors)
-sabors.id = 'genWebControlPanelsabors'
-sabors.label = _(u'label_gwcp_sabors', default=u'Sabors')
-sabors['tipusintranet'].custom_widget = DropdownChoiceWidget
+    especifics = FormFieldsets(IgenWebControlPanelSchemaEspecifics)
+    especifics.id = 'genWebControlPanelespecifics'
+    especifics.label = _(u'label_gwcp_especifics', default=u'Especific')
+    
+    informacio = FormFieldsets(IgenWebControlPanelSchemaInformacio)
+    informacio.id = 'genWebControlPanelinformacio'
+    informacio.label = _(u'label_gwcp_informacio', default=u'Informacio')
+    
+    sabors = FormFieldsets(IgenWebControlPanelSchemaSabors)
+    sabors.id = 'genWebControlPanelsabors'
+    sabors.label = _(u'label_gwcp_sabors', default=u'Sabors')
+    sabors['tipusintranet'].custom_widget = DropdownChoiceWidget
 
 class GenWebControlPanel(ControlPanelForm):
 
