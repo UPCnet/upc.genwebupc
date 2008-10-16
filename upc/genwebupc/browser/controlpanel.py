@@ -323,23 +323,25 @@ class GenWebControlPanelAdapter(SchemaAdapterBase):
             gw_util.idtitulacioMaster = value
         return property(get, set)                    
     
-    general = FormFieldsets(ISkinsSchema['theme'], IgenWebControlPanelSchemaGeneral)
-    general.id = 'genWebControlPanelgeneral'
-    general.label = _(u'label_gwcp_general', default=u'General')
-    general['theme'].custom_widget = DropdownChoiceWidget
-    
-    especifics = FormFieldsets(IgenWebControlPanelSchemaEspecifics)
-    especifics.id = 'genWebControlPanelespecifics'
-    especifics.label = _(u'label_gwcp_especifics', default=u'Especific')
-    
-    informacio = FormFieldsets(IgenWebControlPanelSchemaInformacio)
-    informacio.id = 'genWebControlPanelinformacio'
-    informacio.label = _(u'label_gwcp_informacio', default=u'Informacio')
-    
-    sabors = FormFieldsets(IgenWebControlPanelSchemaSabors)
-    sabors.id = 'genWebControlPanelsabors'
-    sabors.label = _(u'label_gwcp_sabors', default=u'Sabors')
-    sabors['tipusintranet'].custom_widget = DropdownChoiceWidget
+
+
+general = FormFieldsets(ISkinsSchema['theme'], IgenWebControlPanelSchemaGeneral)
+general.id = 'genWebControlPanelgeneral'
+general.label = _(u'label_gwcp_general', default=u'General')
+general['theme'].custom_widget = DropdownChoiceWidget
+
+especifics = FormFieldsets(IgenWebControlPanelSchemaEspecifics)
+especifics.id = 'genWebControlPanelespecifics'
+especifics.label = _(u'label_gwcp_especifics', default=u'Especific')
+
+informacio = FormFieldsets(IgenWebControlPanelSchemaInformacio)
+informacio.id = 'genWebControlPanelinformacio'
+informacio.label = _(u'label_gwcp_informacio', default=u'Informacio')
+
+sabors = FormFieldsets(IgenWebControlPanelSchemaSabors)
+sabors.id = 'genWebControlPanelsabors'
+sabors.label = _(u'label_gwcp_sabors', default=u'Sabors')
+sabors['tipusintranet'].custom_widget = DropdownChoiceWidget
 
 class GenWebControlPanel(ControlPanelForm):
 
