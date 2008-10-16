@@ -17,12 +17,16 @@ upc.genwebupc.egg-info/requires.txt
 upc.genwebupc.egg-info/top_level.txt
 upc/genwebupc/__init__.py
 upc/genwebupc/configure.zcml
+upc/genwebupc/db.py
+upc/genwebupc/extractInfo.py
 upc/genwebupc/gen_locales.sh
 upc/genwebupc/setuphandlers.py
 upc/genwebupc/tests.py
 upc/genwebupc/version.txt
 upc/genwebupc/browser/__init__.py
 upc/genwebupc/browser/configure.zcml
+upc/genwebupc/browser/contact-info.pt
+upc/genwebupc/browser/contact.py
 upc/genwebupc/browser/controlpanel.py
 upc/genwebupc/browser/interfaces.py
 upc/genwebupc/browser/images/cpgenweb.png
@@ -34,4 +38,5 @@ upc/genwebupc/profiles/default/componentregistry.xml
 upc/genwebupc/profiles/default/controlpanel.xml
 upc/genwebupc/profiles/default/import_steps.xml
 upc/genwebupc/profiles/default/portal_languages.xml
+upc/genwebupc/profiles/default/portlets.xml
 upc/genwebupc/profiles/default/upc.genwebupc_various.txt
