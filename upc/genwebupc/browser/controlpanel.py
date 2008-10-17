@@ -35,31 +35,34 @@ class GenWebControlPanelUtility(Persistent):
     columna3 = []
 
     # de la pestanya d'especifics
-    especific1='default'
-    especific2='default'
-    especific3='default'
-    especific4='default'
-    especific5='default'
-    especific6='default'
+    especific1='#ff6600'
+    especific2='#d96245'
+    especific3='#cc0000'
+    especific4='#dfe3d3'
+    especific5='#e0cece'
+    especific6='#e8e2df'
 
     imatgedefonsprops=''
 
     barraidiomesbool = False
     
     # de la pestanya d'informació
-    titolespai_ca = ''
-    titolespai_en =''
-    titolespai_es = ''
-    firmaunitat_ca = ''
-    firmaunitat_en = ''
-    firmaunitat_es = ''
-    enllaslogotip = ''
-    contacteid = ''
-    contactegmaps = ''
+    titolespai_ca = 'Titol de lespai en catala'
+    titolespai_es ='Titol de lespai en castella'
+    titolespai_en = 'Titol de lespai en angles'
+    firmaunitat_ca = 'Firma de la unitat en catala'
+    firmaunitat_es = 'Firma de la unitat en castella'
+    firmaunitat_en = 'Firma de la unitat en angles'
+    edicio_ca = 'curs 2008/2009'
+    edicio_es = 'curso 2008/2009'
+    edicio_en = ' 2008/2009 Edition'
+    enllaslogotip = 'http://www.upc.edu'
+    contacteid = '200'
+    contactegmaps = '<iframe width="640" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?ie=UTF8&amp;s=AARTsJqzARj-Z8VnW5pkPMLMmZbqrJcYpw&amp;ll=41.390075,2.115383&amp;spn=0.007727,0.013733&amp;z=16&amp;output=embed"></iframe>'
     
     # de la pestanya de sabors
-    tipusintranet = ''
-    titolcapsaleraMaster = ''
+    tipusintranet = 'Visible'
+    titolcapsaleraMaster = 'Titol de capsalera del master'
     idestudiMaster = ''
     idtitulacioMaster = ''
 
@@ -253,6 +256,36 @@ class GenWebControlPanelAdapter(SchemaAdapterBase):
             gw_util.firmaunitat_es = value
         return property(get, set)
 
+    @apply
+    def edicio_ca():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.edicio_ca
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.firmaunitat_es = value
+        return property(get, set)
+    
+    @apply
+    def edicio_en():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.edicio_en
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.firmaunitat_es = value
+        return property(get, set)
+    
+    @apply
+    def edicio_es():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.edicio_es
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.firmaunitat_es = value
+        return property(get, set)
+    
     @apply
     def enllaslogotip():
         def get(self):
