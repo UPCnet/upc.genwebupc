@@ -27,6 +27,17 @@ setup(name='upc.genwebupc',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          'Products.PloneLDAP',
+          'Products.FCKEditor',
+          'Products.Ploneboard',
+          'Products.PloneFormGen',
+          'Products.LinguaPlone',
+          'Products.Collage',
+          'Products.AddRemoveWidget',
+          'Products.DataGridField',
+          'Products.PythonField',
+          'Products.TemplateFields',
+          'Products.TALESField',
       ],
       entry_points="""
       # -*- Entry points: -*-

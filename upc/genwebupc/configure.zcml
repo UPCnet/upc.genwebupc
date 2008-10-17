@@ -6,7 +6,6 @@
     i18n_domain="upc.genwebupc">
     
     <include package=".browser" />
-    <include package="collective.lead" />
     
     <five:registerPackage package="." initialize=".initialize" />
 

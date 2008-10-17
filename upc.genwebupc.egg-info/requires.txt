@@ -1,2 +1,12 @@
 setuptools
-collective.lead>=1.0b3,<2.0dev
+Products.PloneLDAP
+Products.FCKEditor
+Products.Ploneboard
+Products.PloneFormGen
+Products.LinguaPlone
+Products.Collage
+Products.AddRemoveWidget
+Products.DataGridField
+Products.PythonField
+Products.TemplateFields
+Products.TALESField
