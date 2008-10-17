@@ -53,20 +53,6 @@ class IgenWebControlPanel(IgenWebControlPanelSchemaGeneral, ISkinsSchema, IgenWe
         de plone i segregat en la pestanya principal
     """  
 
-# Entities found in the database
-
-class IDatos(Interface):
-    """ Interface que será implementada por la clase python donde se mapearán las columnas de la tabla sql
-    """
-    
-class IExtractInfo(Interface):
-    """ Realiza los querys
-    """    
-
-    def getDatos(netid):
-        """ Retorna datos de acuerdo a un id
-        """
-
 class IFormularioContact(Interface):
     """Define the fields of our form
     """

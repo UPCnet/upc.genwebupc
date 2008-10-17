@@ -1,19 +1,11 @@
-from zope.component import getMultiAdapter, getUtility, adapts
-from zope.interface import implements, Interface
-from zope import schema
-
-# zope formlib
 from zope.formlib import form
-from upc.genwebupc.browser.interfaces import IExtractInfo, IFormularioContact
+from upc.genwebupc.browser.interfaces import IFormularioContact
 
 from Acquisition import aq_inner
 
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five.formlib import formbase
 from Products.statusmessages.interfaces import IStatusMessage
-
-from collective.lead.interfaces import IDatabase
-import sqlalchemy as sql
 
 from Products.CMFPlone import PloneMessageFactory as _ 
 
@@ -24,9 +16,6 @@ class ContactForm(formbase.PageForm):
     
     template = ViewPageTemplateFile('contact-info.pt')
     
-    
-        
-    # retrievalThis trick hides the editable border and tabs in Plone
     def __call__(self):
         self.request.set('disable_border', True)
         return super(ContactForm, self).__call__()
