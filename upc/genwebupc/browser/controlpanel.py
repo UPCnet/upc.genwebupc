@@ -35,14 +35,14 @@ class GenWebControlPanelUtility(Persistent):
     columna3 = []
 
     # de la pestanya d'especifics
-    especific1='#ff6600'
-    especific2='#d96245'
-    especific3='#cc0000'
-    especific4='#dfe3d3'
-    especific5='#e0cece'
-    especific6='#e8e2df'
+    especific1='#007dcc'
+    especific2='#006DA3'
+    especific3='#557c95'
+    especific4='#aeb4b8'
+    especific5='#e6e6e6'
+    especific6='#f3f3f3'
 
-    imatgedefonsprops=''
+    imatgedefonsprops='repeat-y'
 
     barraidiomesbool = False
     
