@@ -59,6 +59,7 @@ class GenWebControlPanelUtility(Persistent):
     enllaslogotip = 'http://www.upc.edu'
     contacteid = '200'
     contactegmaps = '<iframe width="640" height="480" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/?ie=UTF8&amp;s=AARTsJqzARj-Z8VnW5pkPMLMmZbqrJcYpw&amp;ll=41.390075,2.115383&amp;spn=0.007727,0.013733&amp;z=16&amp;output=embed"></iframe>'
+    boolmaps = True
     
     # de la pestanya de sabors
     tipusintranet = 'Visible'
@@ -314,6 +315,16 @@ class GenWebControlPanelAdapter(SchemaAdapterBase):
         def set(self, value):
             gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
             gw_util.contactegmaps = value
+        return property(get, set)
+
+    @apply
+    def boolmaps():
+        def get(self):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            return gw_util.boolmaps
+        def set(self, value):
+            gw_util = getUtility(IgenWebUtility, "GenWebControlPanelUtility")
+            gw_util.boolmaps = value
         return property(get, set)
 
     @apply

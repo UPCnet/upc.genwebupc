@@ -39,7 +39,8 @@ class IgenWebControlPanelSchemaInformacio(Interface):
     enllaslogotip = zope.schema.TextLine(title=_(u'Enllac logotip de la unitat'),required=False)
     contacteid = zope.schema.TextLine(title=_(u'ID de la BBDD de UBs'),required=False)
     contactegmaps = zope.schema.TextLine(title=_(u'Codi URL google maps'),required=False)
-    
+    boolmaps = zope.schema.Bool(title=_(u'per que aparegui o no el mapa del google maps'),required=False)
+
 class IgenWebControlPanelSchemaSabors(Interface):
     """ Marker interface de la pestanya de la informació sobre els sabors        
     """
