@@ -28,7 +28,7 @@ setup(name='upc.genwebupc',
           'setuptools',
           # -*- Extra requirements: -*-
           'Products.PloneLDAP',
-          'Products.FCKEditor',
+          'Products.FCKeditor',
           'Products.Ploneboard',
           'Products.PloneFormGen',
           'Products.LinguaPlone',
