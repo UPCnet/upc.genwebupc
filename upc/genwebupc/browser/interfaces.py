@@ -70,6 +70,6 @@ class IFormularioContact(Interface):
                                         description=_(u'Si us plau, entreu l\'assumpte del missatge que voleu enviar'),
                                         required=True)
 
-    mensaje = zope.schema.TextLine(title=_(u'Missatge'),
+    mensaje = zope.schema.Text(title=_(u'Missatge'),
                                         description=_(u'Si us plau, escriviu el missatge que voleu enviar'),
                                         required=True)
