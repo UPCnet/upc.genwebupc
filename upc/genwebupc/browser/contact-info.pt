@@ -52,6 +52,12 @@
 			<a 	tal:attributes="href python: '#'"
 				tal:content="python: utils.extraeDatosMysql(utils.getGWConfig().contacteid)['personal'].decode('iso-8859-1').encode('utf-8')"></a>
 		</div>
+
+	  	<span tal:condition="python: not utils.getGWConfig().boolmaps" class="contacteSpan"><img src="googleMaps.gif"/></span>
+		<div tal:condition="python: not utils.getGWConfig().boolmaps">
+			<a 	tal:attributes="href python: '#'"
+				tal:content="python: 'Plànols i transports'"></a>
+		</div>
 			
 		<div class="iframeContacte" tal:condition="python: utils.getGWConfig().boolmaps">
 	  		<span class="contacteSpan">
