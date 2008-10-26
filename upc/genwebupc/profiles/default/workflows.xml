@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object name="portal_workflow" meta_type="Plone Workflow Tool">
+ <object name="genweb_review" meta_type="Workflow"/>
+ <bindings>
+     <!--
+  <type type_id="dummyclass">
+   <bound-workflow workflow_id="genweb_review" />
+  </type> -->
+ </bindings>
+</object>

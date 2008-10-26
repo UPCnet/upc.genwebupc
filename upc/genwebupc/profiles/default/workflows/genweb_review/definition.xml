@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<dc-workflow workflow_id="genweb_review"
+             title="genweb_review"
+             state_variable="review_state"
+             initial_state="esborrany">
+ <state state_id="esborrany"
+        title="esborrany">
+  <exit-transition transition_id="fes privat"/>
+  <exit-transition transition_id="publicar a la intranet"/>
+  <exit-transition transition_id="enviar a revisar"/>
+ </state>
+ <state state_id="intranet"
+        title="intranet">
+  <exit-transition transition_id="enviar a revisar"/>
+  <exit-transition transition_id="retirar a esborrany"/>
+ </state>
+ <state state_id="per revisar"
+        title="per revisar">
+  <exit-transition transition_id="rebutja"/>
+  <exit-transition transition_id="retira a la intranet"/>
+  <exit-transition transition_id="publica"/>
+ </state>
+ <state state_id="privat"
+        title="privat">
+  <exit-transition transition_id="a esborrany"/>
+ </state>
+ <state state_id="publicat"
+        title="publicat">
+  <exit-transition transition_id="retira a esborrany"/>
+  <exit-transition transition_id="retira a la intranet"/>
+ </state>
+ <transition transition_id="a esborrany"
+             title="a esborrany"
+             new_state="esborrany"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">a esborrany</action>
+  <guard>
+  </guard>
+ </transition>
+ <transition transition_id="enviar a revisar"
+             title="enviar a revisar"
+             new_state="per revisar"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">enviar a revisar</action>
+  <guard>
+  </guard>
+ </transition>
+ <transition transition_id="fes privat"
+             title="fes privat"
+             new_state="privat"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">fes privat</action>
+  <guard>
+  </guard>
+ </transition>
+ <transition transition_id="publica"
+             title="publica"
+             new_state="publicat"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">publica</action>
+  <guard>
+  </guard>
+ </transition>
+ <transition transition_id="publicar a la intranet"
+             title="publicar a la intranet"
+             new_state="intranet"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">publicar a la intranet</action>
+  <guard>
+  </guard>
+ </transition>
+ <transition transition_id="rebutja"
+             title="rebutja"
+             new_state="esborrany"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">rebutja</action>
+  <guard>
+  </guard>
+ </transition>
+ <transition transition_id="retira a esborrany"
+             title="retira a esborrany"
+             new_state="esborrany"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">retira a esborrany</action>
+  <guard>
+  </guard>
+ </transition>
+ <transition transition_id="retira a la intranet"
+             title="retira a la intranet"
+             new_state="intranet"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">retira a la intranet</action>
+  <guard>
+  </guard>
+ </transition>
+ <transition transition_id="retirar a esborrany"
+             title="retirar a esborrany"
+             new_state="esborrany"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="" category="workflow">retirar a esborrany</action>
+  <guard>
+  </guard>
+ </transition>
+ <variable variable_id="action" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>The last transition</description>
+  <default>
+   <expression>transition/getId|nothing</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="actor" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>The ID of the user who performed the last transition</description>
+  <default>
+   <expression>user/getId</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="comments" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Comments about the last transition</description>
+  <default>
+   <expression>python:state_change.kwargs.get('comment', '')</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <variable variable_id="review_history" for_catalog="False"
+           for_status="False" update_always="False">
+  <description>Provides access to workflow history</description>
+  <default>
+   <expression>state_change/getHistory</expression>
+  </default>
+  <guard>
+   <guard-permission>Request review</guard-permission>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+ </variable>
+ <variable variable_id="time" for_catalog="False"
+           for_status="True" update_always="True">
+  <description>Time of the last transition</description>
+  <default>
+   <expression>state_change/getDateTime</expression>
+  </default>
+  <guard>
+  </guard>
+ </variable>
+ <!-- We dont use workflow scripts any more, we use subscribers -->
+</dc-workflow>
