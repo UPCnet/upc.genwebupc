@@ -1,8 +1,0 @@
-<componentregistry>
-<adapters/>
-<utilities>
- <utility interface="upc.genwebupc.browser.interfaces.IgenWebUtility"
-  factory="upc.genwebupc.browser.controlpanel.GenWebControlPanelUtility"
-  name="GenWebControlPanelUtility"/>
-</utilities>
-</componentregistry>
