@@ -5,9 +5,6 @@ import zope.schema
 
 from Products.CMFPlone import PloneMessageFactory as _
 
-class IgenWebUtility(Interface):
-    """Marker Interface de la utility del control panel del genWeb
-    """
 class IgenWebControlPanelSchemaGeneral(Interface):
 
     columna1 = zope.schema.List(__name__='columna1', title=u"Contingut de la columna 1",value_type=zope.schema.Choice(values=['Agenda', 'Noticies', 'Noticies_Actualitat']), default=[])

@@ -5,7 +5,7 @@
 
 <!-- Control Panel -->
  
-    <adapter factory=".controlpanel.GenWebControlPanelAdapter" />
+<!--    <adapter factory=".controlpanel.GenWebControlPanelAdapter" /> -->
 
     <browser:page
       name="genwebupc-controlpanel"
