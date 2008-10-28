@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<rolemap>
+  <roles>
+    <role name="WebMaster"/>
+  </roles>
+  <permissions>
+    <permission name="Sharing page: Delegate roles" acquire="False">
+        <role name="Manager" />
+        <role name="WebMaster" />
+    </permission>
+    <permission name="simpleTask: Add simpleTask" acquire="False">
+        <role name="Manager" />
+        <role name="Contributor" />
+        <role name="Owner" />
+    </permission>
+    <permission name="Banners: Add Banner" acquire="False">
+        <role name="Manager" />
+        <role name="WebMaster" />
+    </permission>
+    <permission name="LogosFooter: Add Logos_Footer" acquire="False">
+        <role name="Manager" />
+        <role name="WebMaster" />
+    </permission>
+
+
+  </permissions>
+</rolemap>

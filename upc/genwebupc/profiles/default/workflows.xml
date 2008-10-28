@@ -7,4 +7,10 @@
    <bound-workflow workflow_id="genweb_review" />
   </type> -->
  </bindings>
+ <object name="genweb_simple" meta_type="Workflow"/>
+ <bindings>
+    <default>
+        <bound-workflow workflow_id="genweb_simple" />
+    </default>
+ </bindings>
 </object>

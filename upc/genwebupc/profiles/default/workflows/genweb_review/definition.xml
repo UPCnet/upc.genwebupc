@@ -3,122 +3,246 @@
              title="genweb_review"
              state_variable="review_state"
              initial_state="esborrany">
+ <permission>Access contents information</permission>
+ <permission>View</permission>
+ <permission>Modify portal content</permission>
  <state state_id="esborrany"
         title="esborrany">
-  <exit-transition transition_id="fes privat"/>
-  <exit-transition transition_id="publicar a la intranet"/>
-  <exit-transition transition_id="enviar a revisar"/>
+  <exit-transition transition_id="hide"/>
+  <exit-transition transition_id="publicaalaintranet"/>
+  <exit-transition transition_id="submit"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="View"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
  </state>
  <state state_id="intranet"
         title="intranet">
-  <exit-transition transition_id="enviar a revisar"/>
-  <exit-transition transition_id="retirar a esborrany"/>
+  <exit-transition transition_id="submit"/>
+  <exit-transition transition_id="retiraaesborrany"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="View"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
  </state>
- <state state_id="per revisar"
-        title="per revisar">
-  <exit-transition transition_id="rebutja"/>
-  <exit-transition transition_id="retira a la intranet"/>
-  <exit-transition transition_id="publica"/>
+ <state state_id="pending"
+        title="pending">
+  <exit-transition transition_id="reject"/>
+  <exit-transition transition_id="retiraalaintranet"/>
+  <exit-transition transition_id="publish"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="View"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
  </state>
- <state state_id="privat"
-        title="privat">
-  <exit-transition transition_id="a esborrany"/>
+ <state state_id="private"
+        title="private">
+  <exit-transition transition_id="show"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="View"
+                  acquired="False">
+   <permission-role>Owner</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
  </state>
- <state state_id="publicat"
-        title="publicat">
-  <exit-transition transition_id="retira a esborrany"/>
-  <exit-transition transition_id="retira a la intranet"/>
+ <state state_id="published"
+        title="published">
+  <exit-transition transition_id="retract"/>
+  <exit-transition transition_id="retiraalaintranet"/>
+  <permission-map name="Access contents information"
+                  acquired="False">
+   <permission-role>Anonymous</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content"
+                  acquired="False">
+   <permission-role>Reviewer</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
+  <permission-map name="View"
+                  acquired="False">
+   <permission-role>Anonymous</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+  </permission-map>
  </state>
- <transition transition_id="a esborrany"
-             title="a esborrany"
-             new_state="esborrany"
+ <transition transition_id="hide"
+             title="hide"
+             new_state="private"
              trigger="USER"
              before_script=""
              after_script="">
-  <action url="" category="workflow">a esborrany</action>
+  <action url="%(content_url)s/content_status_modify?workflow_action=hide" category="workflow">hide</action>
   <guard>
+    <guard-role>Owner</guard-role>
+    <guard-role>Manager</guard-role>
   </guard>
  </transition>
- <transition transition_id="enviar a revisar"
-             title="enviar a revisar"
-             new_state="per revisar"
-             trigger="USER"
-             before_script=""
-             after_script="">
-  <action url="" category="workflow">enviar a revisar</action>
-  <guard>
-  </guard>
- </transition>
- <transition transition_id="fes privat"
-             title="fes privat"
-             new_state="privat"
-             trigger="USER"
-             before_script=""
-             after_script="">
-  <action url="" category="workflow">fes privat</action>
-  <guard>
-  </guard>
- </transition>
- <transition transition_id="publica"
-             title="publica"
-             new_state="publicat"
-             trigger="USER"
-             before_script=""
-             after_script="">
-  <action url="" category="workflow">publica</action>
-  <guard>
-  </guard>
- </transition>
- <transition transition_id="publicar a la intranet"
-             title="publicar a la intranet"
+ <transition transition_id="publicaalaintranet"
+             title="publicaalaintranet"
              new_state="intranet"
              trigger="USER"
              before_script=""
              after_script="">
-  <action url="" category="workflow">publicar a la intranet</action>
+  <action url="%(content_url)s/content_status_modify?workflow_action=publicaalaintranet" category="workflow">publicaalaintranet</action>
   <guard>
+    <guard-role>Editor</guard-role>
+    <guard-role>Manager</guard-role>
   </guard>
  </transition>
- <transition transition_id="rebutja"
-             title="rebutja"
+ <transition transition_id="publish"
+             title="publish"
+             new_state="published"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="%(content_url)s/content_status_modify?workflow_action=publish" category="workflow">publish</action>
+  <guard>
+    <guard-role>Reviewer</guard-role>
+    <guard-role>Manager</guard-role>
+  </guard>
+ </transition>
+ <transition transition_id="reject"
+             title="reject"
              new_state="esborrany"
              trigger="USER"
              before_script=""
              after_script="">
-  <action url="" category="workflow">rebutja</action>
+  <action url="%(content_url)s/content_status_modify?workflow_action=reject" category="workflow">reject</action>
   <guard>
+    <guard-role>Reviewer</guard-role>
+    <guard-role>Manager</guard-role>
   </guard>
  </transition>
- <transition transition_id="retira a esborrany"
-             title="retira a esborrany"
+ <transition transition_id="retiraaesborrany"
+             title="retiraaesborrany"
              new_state="esborrany"
              trigger="USER"
              before_script=""
              after_script="">
-  <action url="" category="workflow">retira a esborrany</action>
+  <action url="" category="workflow">retiraaesborrany</action>
   <guard>
+    <guard-role>Editor</guard-role>
+    <guard-role>Manager</guard-role>
   </guard>
  </transition>
- <transition transition_id="retira a la intranet"
-             title="retira a la intranet"
+ <transition transition_id="retiraalaintranet"
+             title="retiraalaintranet"
              new_state="intranet"
              trigger="USER"
              before_script=""
              after_script="">
-  <action url="" category="workflow">retira a la intranet</action>
+  <action url="%(content_url)s/content_status_modify?workflow_action=retiraalaintranet" category="workflow">retiraalaintranet</action>
   <guard>
+    <guard-role>Editor</guard-role>
+    <guard-role>Manager</guard-role>
   </guard>
  </transition>
- <transition transition_id="retirar a esborrany"
-             title="retirar a esborrany"
+ <transition transition_id="retract"
+             title="retract"
              new_state="esborrany"
              trigger="USER"
              before_script=""
              after_script="">
-  <action url="" category="workflow">retirar a esborrany</action>
+  <action url="%(content_url)s/content_status_modify?workflow_action=retract" category="workflow">retract</action>
   <guard>
+    <guard-role>Editor</guard-role>
+    <guard-role>Manager</guard-role>
   </guard>
  </transition>
+ <transition transition_id="show"
+             title="show"
+             new_state="esborrany"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="%(content_url)s/content_status_modify?workflow_action=show" category="workflow">show</action>
+  <guard>
+    <guard-role>Owner</guard-role>
+    <guard-role>Manager</guard-role>
+  </guard>
+ </transition>
+ <transition transition_id="submit"
+             title="submit"
+             new_state="pending"
+             trigger="USER"
+             before_script=""
+             after_script="">
+  <action url="%(content_url)s/content_status_modify?workflow_action=submit" category="workflow">submit</action>
+  <guard>
+    <guard-role>Editor</guard-role>
+    <guard-role>Manager</guard-role>
+  </guard>
+ </transition>
+ <worklist worklist_id="reviewer_queue" 
+           title="reviewer_queue">
+  <action url="%(portal_url)s/search?review_state=pending"
+          category="global">Pending reviewer_queue</action>
+  <guard>
+   <guard-permission>Review portal content</guard-permission>
+  </guard>
+  <match name="review_state" 
+         values="pending"/>
+ </worklist>
  <variable variable_id="action" for_catalog="False"
            for_status="True" update_always="True">
   <description>The last transition</description>
