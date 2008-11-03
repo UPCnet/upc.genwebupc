@@ -13,7 +13,6 @@ def setupVarious(context):
     # Add additional setup code here
     # 
     transforms = getToolByName(context, 'portal_transforms')
-    import pdb; pdb.set_trace()
     transform = getattr(transforms, 'safe_html')
     valid = transform.get_parameter_value('valid_tags')
     nasty = transform.get_parameter_value('nasty_tags')
