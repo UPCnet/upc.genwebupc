@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '3.0RC1'
+version = '3.0'
 
 setup(name='upc.genwebupc',
       version=version,
@@ -27,6 +27,14 @@ setup(name='upc.genwebupc',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          'upc.genwebupctheme',          
+          'upc.genweb.banners',
+          'upc.genweb.logosfooter',
+          'upc.genweb.meetings',          
+          'upc.permalink',
+          'Products.AJAXAddRemoveWidget',
+          'upcnet.simpleTask',          
+          'plone.app.blob',
           'Products.PloneLDAP',
           'Products.FCKeditor',
           'Products.Ploneboard',
