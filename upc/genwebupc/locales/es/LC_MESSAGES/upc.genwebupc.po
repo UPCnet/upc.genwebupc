@@ -44,3 +44,5 @@ msgstr "Usuario"
 msgid "genweb-logout"
 msgstr "Desconectar"
 
+msgid "master_curso"
+msgstr "Curso"
