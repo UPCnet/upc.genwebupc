@@ -14,7 +14,7 @@
     
     <five:registerPackage package="." initialize=".initialize" />
 
-    <i18n:registerTranslations directory="locales" />
+<!--    <i18n:registerTranslations directory="locales" />-->
     
     <genericsetup:registerProfile
       name="default"
