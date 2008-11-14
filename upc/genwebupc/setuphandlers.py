@@ -107,8 +107,9 @@ def doWorkflowAction(context,action,status):
     pw = getToolByName(context, "portal_workflow") 
     object_workflow = pw.getWorkflowsFor(context)[0].id
     object_status = pw.getStatusOf(object_workflow,context)
-    if object_status!=status:
-        pw.doActionFor(context,action)
+    if object_status:
+        if object_status['review_state']!=status:
+            pw.doActionFor(context,action)
 
     
 def crearObjecte(context,id,type_name,title,description,exclude=True,status='published',action='publish'):
