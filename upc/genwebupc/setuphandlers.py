@@ -46,7 +46,7 @@ def setupVarious(context):
                 roles="Anonymous", groups_base="ou=Groups,dc=upc,dc=edu",
                 groups_scope=2, read_only=True, binduid="cn=ldap.upc,ou=Users,dc=upc,dc=edu", bindpwd="secret",
                 rdn_attr="cn", LDAP_server="leia.upc.es", encryption="SSHA")
-            portal.acl_users.ldapUPC.acl_users._user_objclasses='top,person'
+            portal.acl_users.ldapUPC.acl_users._user_objclasses=['top,person']
             plugin = portal.acl_users['ldapUPC']
             plugin.manage_activateInterfaces(['IGroupEnumerationPlugin','IGroupsPlugin','IPropertiesPlugin','IGroupIntrospection','IAuthenticationPlugin','IRolesPlugin','IUserEnumerationPlugin','IRoleEnumerationPlugin'])
             LDAPUserFolder.manage_addServer(portal.acl_users.ldapUPC.acl_users, "han.upc.es", '636', use_ssl=1)
