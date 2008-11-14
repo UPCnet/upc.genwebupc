@@ -1,4 +1,6 @@
 from Products.CMFCore.utils import getToolByName
+from Products.PloneLDAP.factory import manage_addPloneLDAPMultiPlugin
+from Products.LDAPUserFolder.LDAPUserFolder import LDAPUserFolder
 from Products.CMFPlone.utils import _createObjectByType
 
 
@@ -36,10 +38,25 @@ def setupVarious(context):
     transform.set_parameters(**kwargs)
     transform._p_changed = True
     transform.reload()
+    portal = context.getSite()
+    try:
+            manage_addPloneLDAPMultiPlugin(portal.acl_users, "ldapUPC",
+                title="ldapUPC", use_ssl=1, login_attr="cn", uid_attr="cn", local_groups=0,
+                users_base="ou=Users,dc=upc,dc=edu", users_scope=2,
+                roles="Anonymous", groups_base="ou=Groups,dc=upc,dc=edu",
+                groups_scope=2, read_only=True, binduid="cn=ldap.upc,ou=Users,dc=upc,dc=edu", bindpwd="secret",
+                rdn_attr="cn", LDAP_server="leia.upc.es", encryption="SSHA")
+            portal.acl_users.ldapUPC.acl_users._user_objclasses='top,person'
+            plugin = portal.acl_users['ldapUPC']
+            plugin.manage_activateInterfaces(['IGroupEnumerationPlugin','IGroupsPlugin','IPropertiesPlugin','IGroupIntrospection','IAuthenticationPlugin','IRolesPlugin','IUserEnumerationPlugin','IRoleEnumerationPlugin'])
+            LDAPUserFolder.manage_addServer(portal.acl_users.ldapUPC.acl_users, "han.upc.es", '636', use_ssl=1)
+    except: 
+            pass
+
+
     
     # Crear carpetes i coleccions, linkades per language, el primer language de la tupla es el canonical
     
-    portal = context.getSite()
     
     news = crearObjecte(portal,'news','Large Plone Folder','News','Site News')
     noticias = crearObjecte(portal,'noticias','Large Plone Folder','Notícias','Notícias del sitio')
