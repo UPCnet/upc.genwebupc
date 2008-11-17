@@ -116,6 +116,10 @@ def setupVarious(context):
     doWorkflowAction(portal.bienvenido,'publish','published')    
     doWorkflowAction(portal.welcome,'publish','published')                
     
+    #Resetejar flags perque no canvii l'id al editar
+    portal.benvingut._at_creation_flag=False
+    portal.bienvenido._at_creation_flag=False
+    portal.welcome._at_creation_flag=False
     
 def setLanguageAndLink(items):
     canonical = items[0][0]
@@ -143,7 +147,7 @@ def crearObjecte(context,id,type_name,title,description,exclude=True,status='pub
     doWorkflowAction(created,action,status)    
     created.setTitle(title)
     created.setDescription(description)
-
+    created._at_creation_flag=False
     created.setExcludeFromNav(exclude)
     created.reindexObject()
     return created
