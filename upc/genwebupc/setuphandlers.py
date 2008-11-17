@@ -70,7 +70,7 @@ def setupVarious(context):
 
 
     mail = IMailSchema(portal) 
-    mail.smtp_host = u'relay.upc.es'
+    mail.smtp_host = u'localhost'
     mail.email_from_name = "Administrador del Genweb"
     mail.email_from_address = "noreply@upc.edu"
 
