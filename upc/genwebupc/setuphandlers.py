@@ -57,9 +57,12 @@ def setupVarious(context):
                 "top,person", 0, 0, "SSHA", 1, '')
             plugin = portal.acl_users['ldapUPC']
             plugin.manage_activateInterfaces(['IGroupEnumerationPlugin','IGroupsPlugin','IPropertiesPlugin','IGroupIntrospection','IAuthenticationPlugin','IRolesPlugin','IUserEnumerationPlugin','IRoleEnumerationPlugin'])
+            portal_role_manager = portal.acl_users['portal_role_manager']
             LDAPUserFolder.manage_addServer(portal.acl_users.ldapUPC.acl_users, "han.upc.es", '636', use_ssl=1)
     except: 
             pass
+
+    portal_role_manager.assignRolesToPrincipal(["Manager"],"UPC-Plone-Admins")
 
     # configurem mail
 
