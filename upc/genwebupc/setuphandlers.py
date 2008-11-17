@@ -74,6 +74,9 @@ def setupVarious(context):
     mail.email_from_name = "Administrador del Genweb"
     mail.email_from_address = "noreply@upc.edu"
 
+    # configurem pàgina per defecte
+
+    portal.setLayout("homepage")
 
     
     # Crear carpetes i coleccions, linkades per language, el primer language de la tupla es el canonical
