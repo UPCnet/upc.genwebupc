@@ -3,6 +3,12 @@ from Products.PloneLDAP.factory import manage_addPloneLDAPMultiPlugin
 from Products.LDAPUserFolder.LDAPUserFolder import LDAPUserFolder
 from Products.CMFPlone.utils import _createObjectByType
 
+from Products.CMFDefault.formlib.schema import ProxyFieldProperty
+from plone.app.controlpanel.mail import IMailSchema
+
+from zope.component import getAdapters
+
+
 
 def setupVarious(context):
     
@@ -46,12 +52,22 @@ def setupVarious(context):
                 roles="Anonymous", groups_base="ou=Groups,dc=upc,dc=edu",
                 groups_scope=2, read_only=True, binduid="cn=ldap.upc,ou=Users,dc=upc,dc=edu", bindpwd="secret",
                 rdn_attr="cn", LDAP_server="leia.upc.es", encryption="SSHA")
-            portal.acl_users.ldapUPC.acl_users._user_objclasses=['top,person']
+            portal.acl_users.ldapUPC.acl_users.manage_edit("ldapUPC", "cn", "cn", "ou=Users,dc=upc,dc=edu", 2, "Anonymous", 
+                "ou=Groups,dc=upc,dc=edu", 2, "cn=ldap.upc,ou=Users,dc=upc,dc=edu", "secret", 1, "cn",
+                "top,person", 0, 0, "SSHA", 1, '')
             plugin = portal.acl_users['ldapUPC']
             plugin.manage_activateInterfaces(['IGroupEnumerationPlugin','IGroupsPlugin','IPropertiesPlugin','IGroupIntrospection','IAuthenticationPlugin','IRolesPlugin','IUserEnumerationPlugin','IRoleEnumerationPlugin'])
             LDAPUserFolder.manage_addServer(portal.acl_users.ldapUPC.acl_users, "han.upc.es", '636', use_ssl=1)
     except: 
             pass
+
+    # configurem mail
+
+
+    mail = IMailSchema(portal) 
+    mail.smtp_host = u'relay.upc.es'
+    mail.email_from_name = "Administrador del Genweb"
+    mail.email_from_address = "noreply@upc.edu"
 
 
     
