@@ -5,6 +5,7 @@ from Products.CMFPlone.utils import _createObjectByType
 
 from Products.CMFDefault.formlib.schema import ProxyFieldProperty
 from plone.app.controlpanel.mail import IMailSchema
+from plone.app.controlpanel.site import ISiteSchema
 
 from zope.component import getAdapters
 
@@ -73,6 +74,11 @@ def setupVarious(context):
     mail.smtp_host = u'localhost'
     mail.email_from_name = "Administrador del Genweb"
     mail.email_from_address = "noreply@upc.edu"
+
+    # deshabilitem inline editing
+    
+    site_properties = ISiteSchema(portal)
+    site_properties.enable_inline_editing = False
 
     # configurem pàgina per defecte
 
