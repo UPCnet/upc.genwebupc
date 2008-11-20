@@ -16,6 +16,30 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: upc.genwebupc\n"
 
+#. "usuari_connectat"
+msgid "genweb-usuari_connectat"
+msgstr "Usuari connectat:"
+
+#. "genweb-logout"
+msgid "genweb-logout"
+msgstr "Desconnecta"
+
+#. "genweb-opcionspathbar"
+msgid "genweb-opcionspathbar"
+msgstr "Opcions:"
+
+#. "genweb-accesarrel"
+msgid "genweb-accesarrel"
+msgstr "Carpeta arrel"
+
+#. "genweb-preferencies"
+msgid "genweb-preferencies"
+msgstr "Preferències"
+
+#. "genweb-ajuda"
+msgid "genweb-ajuda"
+msgstr "Ajuda"
+
 #: browser/capsaleraSuperior.pt
 msgid "identificat"
 msgstr "Identifica't"

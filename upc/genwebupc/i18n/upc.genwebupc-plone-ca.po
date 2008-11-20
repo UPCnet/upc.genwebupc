@@ -27,3 +27,48 @@ msgstr "Retira a la intranet"
 #: workflow state defined in plone_workflow - title Published
 msgid "Publish To Intranet"
 msgstr "Publica a la intranet"
+
+
+
+#. "login_form_detalls_del_compte"
+msgid "login_form_detalls_del_compte"
+msgstr "Detalls del compte"
+
+#. "canvi_de_contrasenya"
+msgid "canvi_de_contrasenya"
+msgstr "Canvi de contrasenya"
+
+
+
+#. "genweb-ampliar_agenda"
+msgid "genweb-ampliar_agenda"
+msgstr "ampliar agenda"
+
+#. "genweb-mes_noticies"
+msgid "genweb-mes_noticies"
+msgstr "més notícies"
+
+#. "genweb-sobre_aquest_web"
+msgid "genweb-sobre_aquest_web"
+msgstr "Sobre aquest web"
+
+#. "genweb-si_heu_oblidat_la_contrasenya"
+msgid "genweb-si_heu_oblidat_la_contrasenya"
+msgstr "Si heu oblidat la contrasenya, cliqueu "
+
+#. "genweb-aqui"
+msgid "genweb-aqui"
+msgstr "aquí"
+
+#. "genweb-per_recuperarla"
+msgid "genweb-per_recuperarla"
+msgstr " per recuperar-la."
+
+#: ."faltava"
+msgid "go_to_home"
+msgstr "Torna a l'inici"
+
+#: ."genweb-no_puc_entrar"
+msgid "genweb-no_puc_entrar"
+msgstr "No puc entrar"
+
