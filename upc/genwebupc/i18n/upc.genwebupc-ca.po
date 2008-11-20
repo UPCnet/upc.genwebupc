@@ -3,8 +3,8 @@
 msgid ""
 msgstr "" 
 "Project-Id-Version: GenWebUPC\n"
-"POT-Creation-Date: 2007-08-21 09:43+0000\n"
-"PO-Revision-Date: 2007-08-21 10:00\n"
+"POT-Creation-Date: 2008-11-20 09:40\n"
+"PO-Revision-Date: 2008-11-20 10:00\n"
 "Last-Translator: Víctor Fernández de Alba <victor.fernandez@upcnet.es>\n"
 "Language-Team: Plone Team@UPCnet <plone.team@upcnet.es>\n"
 "MIME-Version: 1.0\n"
@@ -85,22 +85,6 @@ msgstr " per recuperar-la."
 #. "canvi_de_contrasenya"
 msgid "canvi_de_contrasenya"
 msgstr "Canvi de contrasenya"
-
-#. Default: "retracttointranet"
-#: workflow state defined in folder_workflow - title Published
-#: workflow state defined in plone_workflow - title Published
-msgid "Retract To Intranet"
-msgstr "Retira a la intranet"
-
-#. Default: "Publish To Intranet"
-#: workflow state defined in folder_workflow - title Published
-#: workflow state defined in plone_workflow - title Published
-msgid "Publish To Intranet"
-msgstr "Publica a la intranet"
-
-#. "contentpanels_display_view"
-msgid "contentpanels_display_view"
-msgstr "vista de panell de contingut"
 
 #. "genweb-accesarrel"
 msgid "genweb-accesarrel"
