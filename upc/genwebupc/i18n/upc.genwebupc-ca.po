@@ -1,10 +1,12 @@
+# Gettext Message File for GenWeb.
+# Victor Fernandez de Alba (UPCnet)
 msgid ""
 msgstr "" 
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <ploneteam@upcnet.es>\n"
+"Project-Id-Version: GenWebUPC\n"
+"POT-Creation-Date: 2007-08-21 09:43+0000\n"
+"PO-Revision-Date: 2007-08-21 10:00\n"
+"Last-Translator: Víctor Fernández de Alba <victor.fernandez@upcnet.es>\n"
+"Language-Team: Plone Team@UPCnet <plone.team@upcnet.es>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,3 +48,248 @@ msgstr "Desconnecta"
 
 msgid "master_curso"
 msgstr "Curs"
+
+
+#: ."genweb-description_sign_in"
+msgid "genweb-description_sign_in"
+msgstr "Per accedir a aquesta part del web, cal que us identifiqueu amb el vostre nom d'usuari i la contrasenya."
+
+#: ."genweb-remember_to_log_out"
+msgid "genweb-remember_to_log_out"
+msgstr "No oblideu desconnectar-vos o tancar el navegador un cop hàgiu finalitzat."
+
+#: ."genweb-no_puc_entrar"
+msgid "genweb-no_puc_entrar"
+msgstr "No puc entrar"
+
+#: ."genweb-universitat_politecnica_de_catalunya"
+msgid "genweb-universitat_politecnica_de_catalunya"
+msgstr "Universitat Politècnica de Catalunya"
+
+#. "genweb-sobre_aquest_web"
+msgid "genweb-sobre_aquest_web"
+msgstr "Sobre aquest web"
+
+#. "genweb-si_heu_oblidat_la_contrasenya"
+msgid "genweb-si_heu_oblidat_la_contrasenya"
+msgstr "Si heu oblidat la contrasenya, cliqueu "
+
+#. "genweb-aqui"
+msgid "genweb-aqui"
+msgstr "aquí"
+
+#. "genweb-per_recuperarla"
+msgid "genweb-per_recuperarla"
+msgstr " per recuperar-la."
+
+#. "canvi_de_contrasenya"
+msgid "canvi_de_contrasenya"
+msgstr "Canvi de contrasenya"
+
+#. Default: "retracttointranet"
+#: workflow state defined in folder_workflow - title Published
+#: workflow state defined in plone_workflow - title Published
+msgid "Retract To Intranet"
+msgstr "Retira a la intranet"
+
+#. Default: "Publish To Intranet"
+#: workflow state defined in folder_workflow - title Published
+#: workflow state defined in plone_workflow - title Published
+msgid "Publish To Intranet"
+msgstr "Publica a la intranet"
+
+#. "contentpanels_display_view"
+msgid "contentpanels_display_view"
+msgstr "vista de panell de contingut"
+
+#. "genweb-accesarrel"
+msgid "genweb-accesarrel"
+msgstr "Carpeta arrel"
+
+#. "genweb-ampliar_agenda"
+msgid "genweb-ampliar_agenda"
+msgstr "ampliar agenda"
+
+#. "genweb-mes_noticies"
+msgid "genweb-mes_noticies"
+msgstr "més notícies"
+
+#. "llistat_continguts"
+#: ./skins/plone_templates/global_pathbar.pt:11
+msgid "llistat_continguts"
+msgstr "Vista per defecte"
+
+#. "usuari_connectat"
+msgid "usuari_connectat"
+msgstr "Usuari connectat:"
+
+#. "genweb-logout"
+msgid "genweb-logout"
+msgstr "Desconnecta"
+
+#. "genweb-opcionspathbar"
+msgid "genweb-opcionspathbar"
+msgstr "Opcions:"
+
+#. "login_form_detalls_del_compte"
+msgid "login_form_detalls_del_compte"
+msgstr "Detalls del compte"
+
+# Modificat (Abril2008)
+#: ."genweb-perpoderentrar"
+msgid "genweb-perpoderentrar"
+msgstr "Per entrar..."
+
+#: ."genweb-perpoderentrar"
+msgid "genweb-perpoderentrar11"
+msgstr "Escriu el teu nom d'usuari amb un punt (nom.cognom) i "
+
+#: ."genweb-perpoderentrar21"
+msgid "genweb-perpoderentrar21"
+msgstr "canvia el teu password"
+
+#: ."genweb-perpoderentrar2"
+msgid "genweb-perpoderentrar2"
+msgstr " si no ho has fet des del 01/04/06."
+
+#: ."genweb-sihasoblidat"
+msgid "genweb-sihasoblidat"
+msgstr "Si has oblidat la contrasenya..."
+
+#: ."genweb-sihasoblidat2"
+msgid "genweb-sihasoblidat2"
+msgstr "Entreu a la "
+
+#: ."genweb-sihasoblidat3"
+msgid "genweb-sihasoblidat3"
+msgstr "gestió de contrasenyes "
+
+#: ."genweb-sihasoblidat4"
+msgid "genweb-sihasoblidat4"
+msgstr "per recordar-la o modificar-la."
+
+#: ."genweb-sietsusuarinou"
+msgid "genweb-sietsusuarinou"
+msgstr "Si ets un usuari nou... "
+
+#: ."genweb-sietsusuarinou2"
+msgid "genweb-sietsusuarinou2"
+msgstr "i pertanys al PDI/PAS o personal vinculat de la universitat, "
+
+#: ."genweb-sietsusuarinou3"
+msgid "genweb-sietsusuarinou3"
+msgstr "enregistra't "
+
+#: ."genweb-sietsusuarinou4"
+msgid "genweb-sietsusuarinou4"
+msgstr "a la intranet UPC."
+
+#: ."genweb-canvieucontrasenya"
+msgid "genweb-canvieucontrasenya"
+msgstr "canvieu la contrasenya"
+
+#: ."genweb-canvipasupc1"
+msgid "genweb-canvipasupc1"
+msgstr "Canvi de contrasenya per al PDI-PAS de la UPC i per a la Fundació UPC"
+
+#: ."genweb-canvipasupc2"
+msgid "genweb-canvipasupc2"
+msgstr "Canvi de contrasenya per als estudiants de la UPC"
+
+#: ."genweb-canvipasupc3"
+msgid "genweb-canvipasupc3"
+msgstr "Canvi de contrasenya per a altres col·lectius"
+
+#: ."genweb-canvipasupc_titol1"
+msgid "genweb-canvipasupc_titol1"
+msgstr "PDI-PAS UPC i Fundació UPC"
+
+#: ."genweb-canvipasupc_titol2"
+msgid "genweb-canvipasupc_titol2"
+msgstr "Estudiants de la UPC"
+
+#: ."genweb-canvipasupc_titol3"
+msgid "genweb-canvipasupc_titol3"
+msgstr "Altres col·lectius"
+
+
+
+#: ."genweb-titol_accessibilitat"
+msgid "genweb-titol_accessibilitat"
+msgstr "Accessibilitat"
+
+msgid "scp_titol"
+msgstr "Servei de Comunicació i Promoció"
+
+#. Default: "This website has been generated with <strong>GenWeb UPC</strong>, a tool that allows to the creation and management of web pages according to theUPC institutional style guide. <br/> <br/> GenWeb UPC is a project developed with free software: the <em>Open Source Content Management System Plone</em>. This site has been designed to be completely accessible and usable, working in accordance with the Web Content Accessibility Guidelines. If there is anything on this site accessibility or validation related that is not according to this standard, please contact the ${site_admin}."
+#: accessibility-info.pt
+msgid "description_accessibility_info1"
+msgstr "Aquest lloc web ha estat generat amb el "
+
+msgid "description_accessibility_info2"
+msgstr ", una eina que permet la creació i gestió de webs segons el llibre d'estil institucional de la UPC.<br /><br />El "
+
+msgid "description_accessibility_info3"
+msgstr "ha estat desenvolupat conjuntament pel "
+
+msgid "description_accessibility_info4"
+msgstr "de la UPC i "
+
+msgid "description_accessibility_info5"
+msgstr "utilitzant com a base el sistema de gestió de continguts de programari lliure "
+
+msgid "description_accessibility_info6"
+msgstr "S’ha dissenyat perquè sigui completament accessible i usable, funcionant d'acord amb les guies d'accessibilitat W3C de contingut web. Si hi ha quelcom en aquest lloc, &mdash;relacionat amb l'accessibilitat o la validació&mdash;, que no està d'acord amb els estàndards, contacteu amb l'"
+
+msgid "genweb-webmaster"
+msgstr "administrador del lloc web"
+
+#. Default: "In-depth information about access keys can be found at ${wcag}."
+#: accessibility-info.pt
+msgid "genweb-description_access_keys_more_info"
+msgstr "Podeu trobar més informació sobre les tecles d'accés a les ${wcag}"
+
+#. Default: "We have used XHTML 1.0 and CSS that conforms to specification, as laid out by the W3C because we believe that usability and accessibility must have a solid foundation. If anything on this web site does not validate correctly, please contact the ${site_admin}."
+#: accessibility-info.pt
+msgid "genweb-description_validation"
+msgstr "Hem utilitzat XHTML 1.0 i CSS de conformitat amb les especificacions, com dictamina el W3C, perquè creiem que la usabilitat i l'accessibilitat han de tenir una base sòlida. Si hi ha res en aquest lloc web que no es valida correctament, si us plau, poseu-vos en contacte amb l'${site_admin}."
+
+#. Default: "We have also endeavoured to achieve AA accessibility as measured against version 1.0 of the WCAG. We are aware however, that a number of the checkpoints of the WCAG are subjective and although we are sure that we have met them squarely, there may be instances where interpretation may vary. <br/> This Web site has been optimized for a minimum resolution of1024 x768 pixels."
+#: accessibility-info.pt
+msgid "genweb-description_wcag_aa_rating"
+msgstr "També hem procurat aconseguir l'accessibilitat AA versió 1.0 de WCAG. No obstant això, tenim en compte que el nombre de regles del WCAG són subjectives i, tot i que pensem que les hem acomplert, la seva interpretació pot variar en alguns casos.<br>Aquest web s'ha optimitzat per ser visualitzat a una resolució mínima de 1024 x 768 píxels."
+
+#. Default: "W3C Accessibility Guidelines"
+#: accessibility-info.pt
+msgid "genweb-guies_Accessibilitat"
+msgstr "Guies d'accessibilitat W3C."
+
+#. Default: "The texts, images, sounds, animation, software and other content included in this website are the exclusive property of the Technical University of Catalonia, or UPC.The UPC is suitably authorised to use the material published. Total or partial dissemination, distribution, concession, reproduction, commercialisation, storage, public communication or modification is dependent upon the explicit written authorisation of UPC."
+#: accessibility-info.pt
+msgid "genweb-info_drets"
+msgstr "Els textos, imatges, sons, animacions, programari i la resta de continguts inclosos en aquest web són propietat exclusiva de la Universitat Politècnica de Catalunya (UPC) o, si escau, la UPC està degudament autoritzada per utilitzar el material publicat. Qualsevol acte de transmissió, distribució, cessió, reproducció, comercialització, emmagatzematge, comunicació pública o transformació, total o parcial, necessita el consentiment exprés i escrit de la UPC."
+
+#. Default: "In accordance with legislation 15/1999 (13 <sup>th</sup> December) concerning personal data protection, any personal data that is collected by means of the online forms on this website will be treated in a confidential manner and will be incorporated into the databases of the Technical University of Catalonia for the purposes of administration and to respond to the queries or suggestions that users might include in these forms. <br/> Users may exercise their right to access, rectify, cancel and oppose this data through the ${site_admin}."
+#: accessibility-info.pt
+msgid "genweb-info_proteccio"
+msgstr "En compliment del que estableix la Llei orgànica 15/1999, de 13 de desembre, sobre protecció de dades de caràcter personal, us informem que les vostres dades personals, recollides per mitjà dels formularis d’aquest web, seran tractades de forma confidencial. Quedaran incorporades als fitxers de la Universitat Politècnica de Catalunya, per dur a terme una gestió correcta i respondre les consultes o suggeriments que proposeu en els formularis. Així mateix, us informem que podeu exercir els drets d'accés, rectificació, cancel•lació i oposició contactant amb l'${site_admin}."
+
+#. Default: "The RSS (abbreviation for <em><span>Really Simple Syndication</span></em> ) is a news distribution channel that facilitates access to the latest news of a Web site. It is a family of web feed formats used to publish frequently updated digital content, such as blogs, news feeds or podcasts. <br/> Users of RSS content use programs called feed \"readers\" or \"aggregators\": the user subscribes to a feed by supplying to his or her reader a link to the feed; the reader can then check the user's subscribed feeds to see if any of those feeds have new content since the last time it was checked, and if so, retrieve that content and present it to the user. <br/> This site incorporates this service in all the pages wherethis icon appears <img alt=\"rss\" src=\"rss.gif\"/>."
+#: accessibility-info.pt
+msgid "genweb-info_rss"
+msgstr "L'RSS (sigles de Really Simple Syndication) és un canal de distribució de notícies que facilita l'accés a les darreres notícies d'un web. Gràcies a aquesta tecnologia, els usuaris ja no s'han de preocupar de comprovar si hi ha novetats que els interessin en un determinat espai digital, sinó que poden rebre i organitzar els nous titulars d'un espai digital en el mateix moment que es publiquen. Aquest web incorpora aquest servei en totes les pàgines on apareix la icona <img src=\"rss.gif\" alt=\"rss\" />."
+
+#. Default: "Intellectual property rights of this website"
+#: accessibility-info.pt
+msgid "genweb-titol_drets"
+msgstr "Drets d'autor d'aquest web"
+
+#. Default: "Legal warning regarding personal data protection"
+#: accessibility-info.pt
+msgid "genweb-titol_proteccio"
+msgstr "Avís legal sobre protecció de dades de caràcter personal"
+
+#. Default: "RSS headlines"
+#: accessibility-info.pt
+msgid "genweb-titol_rss"
+msgstr "Titulars en RSS"

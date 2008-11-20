@@ -1,10 +1,12 @@
+# Gettext Message File for GenWeb.
+# Victor Fernandez de Alba (UPCnet)
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <ploneteam@upcnet.es>\n"
+"Project-Id-Version: GenWebUPC\n"
+"POT-Creation-Date: 2007-08-21 09:05\n"
+"PO-Revision-Date: 2007-08-21 10:00\n"
+"Last-Translator:  Víctor Fernández de Alba <victor.fernandez@upcnet.es>\n"
+"Language-Team: Plone Team@UPCnet <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,3 +48,6 @@ msgstr "Log out"
 
 msgid "master_curso"
 msgstr "Curs"
+
+msgid "Activate"
+msgstr ""
