@@ -20,6 +20,8 @@
   </permission-map>
   <permission-map name="Change portal events"
                   acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
@@ -49,6 +51,7 @@
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Reviewer</permission-role>
+   <permission-role>WebMaster</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
@@ -70,6 +73,9 @@
   </permission-map>
   <permission-map name="Change portal events"
                   acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>WebMaster</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
@@ -97,6 +103,10 @@
   </permission-map>
   <permission-map name="Change portal events"
                   acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>WebMaster</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
@@ -126,6 +136,10 @@
   </permission-map>
   <permission-map name="Change portal events"
                   acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>WebMaster</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
