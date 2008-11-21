@@ -96,7 +96,7 @@ msgstr "Sobre aquest web"
 
 #. "genweb-si_heu_oblidat_la_contrasenya"
 msgid "genweb-si_heu_oblidat_la_contrasenya"
-msgstr "Si heu oblidat la contrasenya, cliqueu "
+msgstr "Si heu oblidat la contrasenya, cliqueu ${click_here}"
 
 #. "genweb-aqui"
 msgid "genweb-aqui"
