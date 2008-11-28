@@ -21,7 +21,73 @@
         <role name="Manager" />
         <role name="WebMaster" />
     </permission>
-
-
-  </permissions>
+    <permission name="Add Collage content" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="Ploneboard: Add Comment" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="Ploneboard: Add Comment Attachment" acquire="False">
+        <role name="Contributor" />
+        <role name="Manager" />
+        <role name="Member" />        
+    </permission>
+    <permission name="Ploneboard: Add Conversation" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="Ploneboard: Add Forum" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="Ploneboard: Add Ploneboard" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="Poi: Add Issue" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="Poi: Add Response" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="Poi: Add Tracker" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="Poi: Upload attachment" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="Add portal topics" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="ATContentTypes Topic: Add ATBooleanCriterion" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="ATContentTypes Topic: Add ATCurrentAuthorCriterion" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="ATContentTypes Topic: Add ATDateCriteria" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="ATContentTypes Topic: Add ATDateRangeCriterion" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="ATContentTypes Topic: Add ATListCriterion" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="ATContentTypes Topic: Add ATPathCriterion" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="ATContentTypes Topic: Add ATPortalTypeCriterion" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="ATContentTypes Topic: Add ATReferenceCriterion" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="ATContentTypes Topic: Add ATRelativePathCriterion" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="ATContentTypes Topic: Add ATSelectionCriterion" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="windowZ: Add Window" acquire="True">
+        <role name="Contributor" />
+    </permission>        
+    </permissions>
 </rolemap>
