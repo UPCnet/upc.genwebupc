@@ -7,6 +7,7 @@
     <permission name="Sharing page: Delegate roles" acquire="False">
         <role name="Manager" />
         <role name="WebMaster" />
+        <role name="Editor" />
     </permission>
     <permission name="simpleTask: Add simpleTask" acquire="False">
         <role name="Manager" />
