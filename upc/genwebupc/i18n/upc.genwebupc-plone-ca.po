@@ -36,7 +36,7 @@ msgstr "Accessibilitat"
 msgid "scp_titol"
 msgstr "Servei de Comunicació i Promoció"
 
-#. Default: "This website has been generated with <strong>GenWeb UPC</strong>, a tool that allows to the creation and management of web pages according to theUPC institutional style guide. <br/> <br/> GenWeb UPC is a project developed with free software: the <em>Open Source Content Management System Plone</em>. This site has been designed to be completely accessible and usable, working in accordance with the Web Content Accessibility Guidelines. If there is anything on this site accessibility or validation related that is not according to this standard, please contact the ${site_admin}."
+#. Default: "This website has been generated with <strong>GenWeb UPC v3</strong>, a tool that allows to the creation and management of web pages according to theUPC institutional style guide. <br/> <br/> GenWeb UPC v3 is a project developed with free software: the <em>Open Source Content Management System Plone</em>. This site has been designed to be completely accessible and usable, working in accordance with the Web Content Accessibility Guidelines. If there is anything on this site accessibility or validation related that is not according to this standard, please contact the ${site_admin}."
 #: accessibility-info.pt
 msgid "description_accessibility_info1"
 msgstr "Aquest lloc web ha estat generat amb el "
@@ -54,25 +54,40 @@ msgid "description_accessibility_info5"
 msgstr "utilitzant com a base el sistema de gestió de continguts de programari lliure "
 
 msgid "description_accessibility_info6"
-msgstr "S’ha dissenyat perquè sigui completament accessible i usable, funcionant d'acord amb les guies d'accessibilitat W3C de contingut web. Si hi ha quelcom en aquest lloc, &mdash;relacionat amb l'accessibilitat o la validació&mdash;, que no està d'acord amb els estàndards, contacteu amb l'"
+msgstr "S'ha dissenyat perquè sigui completament accessible i usable, funcionant d'acord amb les guies d'accessibilitat W3C de contingut web. Si hi ha alguna cosa en aquest lloc, relacionada amb l'accessibilitat o la validació, que no està d'acord amb els estàndards, contacteu amb l'"
 
 msgid "genweb-webmaster"
 msgstr "administrador del lloc web"
+
+#. Default: "Access keys"
+#: accessibility-info.pt
+msgid "genweb-heading_access_keys"
+msgstr "Tecles d'accés"
 
 #. Default: "In-depth information about access keys can be found at ${wcag}."
 #: accessibility-info.pt
 msgid "genweb-description_access_keys_more_info"
 msgstr "Podeu trobar més informació sobre les tecles d'accés a les ${wcag}"
 
+#. Default: "Accessibility statement"
+#: accessibility-info.pt
+msgid "genweb-heading_accessibility_statement"
+msgstr "Declaració d'accessibilitat"
+
+#. Default: "We have undertaken to use our knowledge and understanding of the ways in which different people access the Internet, to develop a web site that is clear and simple for everybody to use."
+#: accessibility-info.pt
+msgid "genweb-description_accessibility_statement"
+msgstr "Ens hem compromès a fer servir el nostre coneixement i la comprensió de la manera en què les diferents persones accedeixen a Internet, per tal de desenvolupar un lloc web que sigui clar i senzill d'utilitzar per a tothom."
+
 #. Default: "We have used XHTML 1.0 and CSS that conforms to specification, as laid out by the W3C because we believe that usability and accessibility must have a solid foundation. If anything on this web site does not validate correctly, please contact the ${site_admin}."
 #: accessibility-info.pt
 msgid "genweb-description_validation"
 msgstr "Hem utilitzat XHTML 1.0 i CSS de conformitat amb les especificacions, com dictamina el W3C, perquè creiem que la usabilitat i l'accessibilitat han de tenir una base sòlida. Si hi ha res en aquest lloc web que no es valida correctament, si us plau, poseu-vos en contacte amb l'${site_admin}."
 
-#. Default: "We have also endeavoured to achieve AA accessibility as measured against version 1.0 of the WCAG. We are aware however, that a number of the checkpoints of the WCAG are subjective and although we are sure that we have met them squarely, there may be instances where interpretation may vary. <br/> This Web site has been optimized for a minimum resolution of1024 x768 pixels."
+#. Default: "We have also endeavoured to achieve AA accessibility as measured against version 1.0 of the WCAG. We are aware however, that a number of the checkpoints of the WCAG are subjective and although we are sure that we have met them squarely, there may be instances where interpretation may vary. <br/> This Web site has been optimized for a minimum resolution of1024 x768 pixels píxels."
 #: accessibility-info.pt
 msgid "genweb-description_wcag_aa_rating"
-msgstr "També hem procurat aconseguir l'accessibilitat AA versió 1.0 de WCAG. No obstant això, tenim en compte que el nombre de regles del WCAG són subjectives i, tot i que pensem que les hem acomplert, la seva interpretació pot variar en alguns casos.<br>Aquest web s'ha optimitzat per ser visualitzat a una resolució mínima de 1024 x 768 píxels."
+msgstr "També hem procurat aconseguir l'accessibilitat AA versió 1.0 de WCAG. No obstant això, tenim en compte que el nombre de regles del WCAG són subjectives i, tot i que pensem que les hem acomplert, la seva interpretació pot variar en alguns casos.<br>Aquest web s'ha optimitzat per ser visualitzat a una resolució mínima de 1024 x 768 píxels i per assegurar la màxima compatibilitat del vostre espai, hem testejat acuradament el comportament del GenWeb amb els principals navegadors d'Internet."
 
 #. Default: "W3C Accessibility Guidelines"
 #: accessibility-info.pt
@@ -87,12 +102,12 @@ msgstr "Els textos, imatges, sons, animacions, programari i la resta de contingu
 #. Default: "In accordance with legislation 15/1999 (13 <sup>th</sup> December) concerning personal data protection, any personal data that is collected by means of the online forms on this website will be treated in a confidential manner and will be incorporated into the databases of the Technical University of Catalonia for the purposes of administration and to respond to the queries or suggestions that users might include in these forms. <br/> Users may exercise their right to access, rectify, cancel and oppose this data through the ${site_admin}."
 #: accessibility-info.pt
 msgid "genweb-info_proteccio"
-msgstr "En compliment del que estableix la Llei orgànica 15/1999, de 13 de desembre, sobre protecció de dades de caràcter personal, us informem que les vostres dades personals, recollides per mitjà dels formularis d’aquest web, seran tractades de forma confidencial. Quedaran incorporades als fitxers de la Universitat Politècnica de Catalunya, per dur a terme una gestió correcta i respondre les consultes o suggeriments que proposeu en els formularis. Així mateix, us informem que podeu exercir els drets d'accés, rectificació, cancel•lació i oposició contactant amb l'${site_admin}."
+msgstr "En compliment del que estableix la Llei orgànica 15/1999, de 13 de desembre, sobre protecció de dades de caràcter personal, us informem que les vostres dades personals, recollides per mitjà dels formularis d’aquest web, seran tractades de forma confidencial. Quedaran incorporades als fitxers de la Universitat Politècnica de Catalunya, per dur a terme una gestió correcta i respondre les consultes o suggeriments que proposeu en els formularis. Així mateix, us informem que podeu exercir els drets d'accés, rectificació, cancel·lació i oposició contactant amb l'${site_admin}."
 
 #. Default: "The RSS (abbreviation for <em><span>Really Simple Syndication</span></em> ) is a news distribution channel that facilitates access to the latest news of a Web site. It is a family of web feed formats used to publish frequently updated digital content, such as blogs, news feeds or podcasts. <br/> Users of RSS content use programs called feed \"readers\" or \"aggregators\": the user subscribes to a feed by supplying to his or her reader a link to the feed; the reader can then check the user's subscribed feeds to see if any of those feeds have new content since the last time it was checked, and if so, retrieve that content and present it to the user. <br/> This site incorporates this service in all the pages wherethis icon appears <img alt=\"rss\" src=\"rss.gif\"/>."
 #: accessibility-info.pt
 msgid "genweb-info_rss"
-msgstr "L'RSS (sigles de Really Simple Syndication) és un canal de distribució de notícies que facilita l'accés a les darreres notícies d'un web. Gràcies a aquesta tecnologia, els usuaris ja no s'han de preocupar de comprovar si hi ha novetats que els interessin en un determinat espai digital, sinó que poden rebre i organitzar els nous titulars d'un espai digital en el mateix moment que es publiquen. Aquest web incorpora aquest servei en totes les pàgines on apareix la icona <img src=\"rss.gif\" alt=\"rss\" />."
+msgstr "L'RSS (sigles de <em>Really Simple Syndication</em>) és un canal de distribució de notícies que facilita l'accés a les darreres notícies d'un web. Gràcies a aquesta tecnologia, els usuaris ja no s'han de preocupar de comprovar si hi ha novetats que els interessin en un determinat espai digital, sinó que poden rebre i organitzar els nous titulars d'un espai digital en el mateix moment que es publiquen. Aquest web incorpora aquest servei en totes les pàgines on apareix la icona <img src=\"rss.gif\" alt=\"rss\" />."
 
 #. Default: "Intellectual property rights of this website"
 #: accessibility-info.pt
@@ -109,17 +124,45 @@ msgstr "Avís legal sobre protecció de dades de caràcter personal"
 msgid "genweb-titol_rss"
 msgstr "Titulars en RSS"
 
+######Contrasenya perduda
+#. Default: "Change of password"
+#: canvi-contrasenya.pt
+msgid "genweb-canvi_de_contrasenya"
+msgstr "Canvi de contrasenya"
 
+#. Default: "To enter…"
+#: canvi-contrasenya.pt
+msgid "genweb-canvi_de_contrasenya1"
+msgstr "Per entrar..."
+
+#. Default: "Put your UPC intranet username with a dot <strong>(name.surname)</strong> and <a href='https://gauss.upc.edu/gauss/canvicontrasenya/index.jsp' target='_blank'>change your password</a> if you haven’t already done so since 01/04/06."
+#: canvi-contrasenya.pt
+msgid "genweb-canvi_de_contrasenya2"
+msgstr "Escriviu el vostre nom d'usuari de la intranet UPC amb un punt <strong>(nom.cognom)</strong> i <a href='https://gauss.upc.edu/gauss/canvicontrasenya/index.jsp' target='_blank'>canvieu la contrasenya</a> si no ho heu fet des de l'01/04/06."
+
+#. Default: "If you have forgotten your password..."
+#: canvi-contrasenya.pt
+msgid "genweb-contrasenya_oblidada"
+msgstr "Si heu oblidat la contrasenya..."
+
+#. Default: "Enter to <a href='https://gauss.upc.edu/gauss/canvicontrasenya/contrasenyaOblidada.jsp' target='_blank'>the password management page</a> to remember or modify it."
+#: canvi-contrasenya.pt
+msgid "genweb-contrasenya_oblidada1"
+msgstr "Entreu a la <a href='https://gauss.upc.edu/gauss/canvicontrasenya/contrasenyaOblidada.jsp' target='_blank'>gestió de contrasenyes</a> per recordar-la o modificar-la."
+
+#. Default: "If you are a new user..."
+#: canvi-contrasenya.pt
+msgid "genweb-contrasenya_nouusuari"
+msgstr "Si sou un usuari nou..."
+
+#. Default: "And you belong to PDI/PAS or associated staff with the universtiy, <a href='https://gauss.upc.edu/gauss/canvicontrasenya/registreIntranet.jsp' target='_blank'>register</a> on the UPC intranet."
+#: canvi-contrasenya.pt
+msgid "genweb-contrasenya_nouusuari1"
+msgstr "I pertanyeu al PDI/PAS o personal vinculat de la universitat, <a href='https://gauss.upc.edu/gauss/canvicontrasenya/registreIntranet.jsp' target='_blank'>enregistreu-vos</a> a la intranet UPC."
 
 #. "login_form_detalls_del_compte"
 msgid "login_form_detalls_del_compte"
 msgstr "Detalls del compte"
-
-#. "canvi_de_contrasenya"
-msgid "canvi_de_contrasenya"
-msgstr "Canvi de contrasenya"
-
-
 
 #. "genweb-ampliar_agenda"
 msgid "genweb-ampliar_agenda"

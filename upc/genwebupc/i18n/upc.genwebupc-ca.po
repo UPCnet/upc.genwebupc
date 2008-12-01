@@ -94,6 +94,10 @@ msgstr "Universitat Politècnica de Catalunya"
 msgid "genweb-sobre_aquest_web"
 msgstr "Sobre aquest web"
 
+#. "genweb-heading_sign_in"
+msgid "genweb-heading_sign_in"
+msgstr "Si us plau, identifiqueu-vos amb el <strong>nom d'usuari de la intranet UPC</strong>"
+
 #. "genweb-si_heu_oblidat_la_contrasenya"
 msgid "genweb-si_heu_oblidat_la_contrasenya"
 msgstr "Si heu oblidat la contrasenya, cliqueu ${click_here}"
