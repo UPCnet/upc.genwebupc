@@ -17,10 +17,12 @@
     <permission name="Banners: Add Banner" acquire="False">
         <role name="Manager" />
         <role name="WebMaster" />
+        <role name="Contributor" />
     </permission>
     <permission name="LogosFooter: Add Logos_Footer" acquire="False">
         <role name="Manager" />
         <role name="WebMaster" />
+        <role name="Contributor" />        
     </permission>
     <permission name="Add Collage content" acquire="True">
         <role name="Contributor" />
