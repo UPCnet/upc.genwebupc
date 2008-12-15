@@ -11,7 +11,6 @@
     <include package="upc.genweb.meetings" />
     <include package="upc.permalink" />
     <include package="upcnet.simpleTask" />
-    <include package="upc.genweb.default" />
     
     <five:registerPackage package="." initialize=".initialize" />
 
