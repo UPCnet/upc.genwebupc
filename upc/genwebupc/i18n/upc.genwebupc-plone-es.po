@@ -36,7 +36,7 @@ msgstr "Accesibilidad"
 msgid "scp_titol"
 msgstr "Servicio de Comunicación y Promoción"
 
-#. Default: "This website has been generated with <strong>GenWeb UPC</strong>, a tool that allows to the creation and management of web pages according to theUPC institutional style guide. <br/> <br/> GenWeb UPC is a project developed with free software: the <em>Open Source Content Management System Plone</em>. This site has been designed to be completely accessible and usable, working in accordance with the Web Content Accessibility Guidelines. If there is anything on this site accessibility or validation related that is not according to this standard, please contact the ${site_admin}."
+#. Default: "This website has been generated with <strong>Genweb UPC</strong>, a tool that allows to the creation and management of web pages according to theUPC institutional style guide. <br/> <br/> Genweb UPC is a project developed with free software: the <em>Open Source Content Management System Plone</em>. This site has been designed to be completely accessible and usable, working in accordance with the Web Content Accessibility Guidelines. If there is anything on this site accessibility or validation related that is not according to this standard, please contact the ${site_admin}."
 #: accessibility-info.pt
 msgid "description_accessibility_info1"
 msgstr "Este sitio web ha sido generado con "
@@ -87,7 +87,7 @@ msgstr "Hemos utilizado XHTML 1.0 y CSS de acuerdo con las respectivas especific
 #. Default: "We have also endeavoured to achieve AA accessibility as measured against version 1.0 of the WCAG. We are aware however, that a number of the checkpoints of the WCAG are subjective and although we are sure that we have met them squarely, there may be instances where interpretation may vary. <br/> This Web site has been optimized for a minimum resolution of1024 x768 pixels."
 #: accessibility-info.pt
 msgid "genweb-description_wcag_aa_rating"
-msgstr "También hemos intentado alcanzar un nivel de accesibilidad AA, versión 1.0 de WCAG. No obstante, somos conscientes de que el número de reglas del WCAG son subjetivas y, aunque estamos seguros de que las hemos cumplido, puede haber casos en los que pueda darse otra interpretación.<br>Este sitio web se ha optimizado para una resolución mínima de 1024 x 768 píxeles y para asegurar la máxima compatibilidad de vuestro espacio, hemos testeado el comportamiento del GenWeb con los principales navegadores de Internet."
+msgstr "También hemos intentado alcanzar un nivel de accesibilidad AA, versión 1.0 de WCAG. No obstante, somos conscientes de que el número de reglas del WCAG son subjetivas y, aunque estamos seguros de que las hemos cumplido, puede haber casos en los que pueda darse otra interpretación.<br>Este sitio web se ha optimizado para una resolución mínima de 1024 x 768 píxeles y para asegurar la máxima compatibilidad de vuestro espacio, hemos testeado el comportamiento del Genweb con los principales navegadores de Internet."
 
 #. Default: "W3C Accessibility Guidelines"
 #: accessibility-info.pt
