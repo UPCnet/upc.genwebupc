@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="upc.genwebupcy">
+
+    <browser:page
+      name="setup-view"
+      for="*"
+      class=".setup_view.setup"
+      template="setup_view.pt"
+      permission="cmf.AddPortalContent"
+      />
+
+</configure>
