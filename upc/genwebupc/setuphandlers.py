@@ -72,6 +72,6 @@ def setupVarious(context):
     site_properties = ISiteSchema(portal)
     site_properties.enable_inline_editing = False
 
-    # configurem pàgina per defecte
+    # configurem pagina per defecte
 
     portal.setLayout("homepage")
