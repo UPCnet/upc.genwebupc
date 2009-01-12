@@ -196,3 +196,39 @@ msgstr "Torna a l'inici"
 msgid "genweb-no_puc_entrar"
 msgstr "No puc entrar"
 
+# Des d'aqui, les traduccions dels CT que falten, a extingir...
+
+# Default: Survey
+#: ../content/Survey.py
+msgid "Survey"
+msgstr "Qüestionari"
+
+#: ../content/Survey.py
+# Default: You can add questions to surveys.
+msgid "You can add questions to surveys."
+msgstr "Un qüestionari en el que es poden afegir preguntes."
+
+msgid "Message Board"
+msgstr "Fòrum"
+
+msgid "Ploneboard is the outmost board object, what shows up in your site."
+msgstr "Un contenidor de converses i debats ordenats per temes."
+
+msgid "Collage"
+msgstr "Collage"
+
+msgid "desc_type_collage"
+msgstr "Un element estructural que pot mostrar elements existents en diferents parts del lloc web ordenats de varies maneres."
+
+#. Default: "Form Folder"
+#: content/form.py
+msgid "Form Folder"
+msgstr "Formulari"
+
+#. Default: "A folder which can contain form fields."
+#: content/form.py
+msgid "A folder which can contain form fields."
+msgstr "Una carpeta que pot contenir camps que conformen un formulari."
+
+msgid "A Window is a content type that shows one URL inside an iFrame in a page of the site."
+msgstr "Un Window és un tipus en el que es visualitza el contingut d'una URL externa."

@@ -195,3 +195,37 @@ msgstr "Ir a inicio"
 #: ."genweb-no_puc_entrar"
 msgid "genweb-no_puc_entrar"
 msgstr "No puedo entrar"
+
+# Des d'aqui, les traduccions dels CT que falten, a extingir...
+
+#: ../content/Survey.py
+# Default: Survey
+msgid "Survey"
+msgstr "Encuesta"
+
+#: ../content/Survey.py
+# Default: You can add questions to surveys.
+msgid "You can add questions to surveys."
+msgstr "Una encuesta en la que se pueden añadir preguntas."
+
+msgid "Message Board"
+msgstr "Foro"
+
+msgid "Ploneboard is the outmost board object, what shows up in your site."
+msgstr "Un contenedor de conversaciones y debates ordenados por temas."
+
+msgid "Collage"
+msgstr "Collage"
+    
+msgid "desc_type_collage"
+msgstr "Un elemento estructural que puede mostrar elementos existentes en diferentes partes del sitio web ordenados de maneras diversas."
+
+#. Default: "Form Folder"
+#: content/form.py
+msgid "Form Folder"
+msgstr "Formulario"
+
+#. Default: "A folder which can contain form fields."
+#: content/form.py
+msgid "A folder which can contain form fields."
+msgstr "Una carpeta que puede contener campos que conforman un formulario."
