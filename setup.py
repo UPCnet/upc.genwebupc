@@ -41,11 +41,13 @@ setup(name='upc.genwebupc',
           'Products.PloneFormGen',
           'Products.LinguaPlone',
           'Products.Collage',
+          'Products.Poi',
           'Products.AddRemoveWidget',
           'Products.DataGridField',
           'Products.PythonField',
           'Products.TemplateFields',
           'Products.TALESField',
+          'archetypes.schemaextender',
       ],
       entry_points="""
       # -*- Entry points: -*-

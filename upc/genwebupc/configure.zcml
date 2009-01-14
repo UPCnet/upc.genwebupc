@@ -14,6 +14,8 @@
     <include package="upc.permalink" />
     <include package="upcnet.simpleTask" />
     
+    <include package="archetypes.schemaextender" />
+    
     <five:registerPackage package="." initialize=".initialize" />
 
 <!--    <i18n:registerTranslations directory="locales" />-->
@@ -25,5 +27,7 @@
       directory="profiles/default"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
+    <adapter factory=".content.extender.PoiIssueSchemaModifier" />
       
 </configure>
