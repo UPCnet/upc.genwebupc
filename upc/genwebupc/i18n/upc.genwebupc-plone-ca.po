@@ -16,6 +16,10 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
+# String del formulari del configlet
+msgid "Genweb settings"
+msgstr "Configuració del Genweb"
+
 #. Default: "retracttointranet"
 #: workflow state defined in folder_workflow - title Published
 #: workflow state defined in plone_workflow - title Published
