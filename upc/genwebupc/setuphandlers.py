@@ -8,7 +8,7 @@ from plone.app.controlpanel.site import ISiteSchema
 
 from zope.component import getAdapters
 
-
+import transaction
 
 def setupVarious(context):
     
