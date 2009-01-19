@@ -62,12 +62,16 @@ class setup(BrowserView):
         mail.email_from_name = "Administrador del Genweb"
         mail.email_from_address = "noreply@upc.edu"
         
+        if getattr(portal,'front-page',False):
+          portal.manage_delObjects('front-page')
         if getattr(portal,'news',False):
           if not self.getObjectStatus(portal.news):
             portal.manage_delObjects('news')
         if getattr(portal,'events',False):            
           if not self.getObjectStatus(portal.events):
             portal.manage_delObjects('events')
+        if getattr(portal,'users',False):                        
+          portal['users'].setExcludeFromNav(True)
         
         # Crear carpetes i coleccions, linkades per language, el primer language de la tupla es el canonical
         
@@ -76,9 +80,9 @@ class setup(BrowserView):
         noticies = self.crearObjecte(portal,'noticies','Large Plone Folder','Notícies','Notícies del lloc',constrains=(['News Item'],['Image']))        
         self.setLanguageAndLink([(noticies,'ca'),(noticias,'es'),(news,'en')])
             
-        self.addCollection(news,'aggregator','News','Site News','News Item','published')
-        self.addCollection(noticias,'aggregator','Notícias','Notícias del sitio','News Item','published')
-        self.addCollection(noticies,'aggregator','Notícies','Notícies del lloc','News Item','published')        
+        self.addCollection(news,'aggregator','News','Site News','News Item')
+        self.addCollection(noticias,'aggregator','Notícias','Notícias del sitio','News Item')
+        self.addCollection(noticies,'aggregator','Notícies','Notícies del lloc','News Item')        
         self.setLanguageAndLink([(noticies.aggregator,'ca'),(noticias.aggregator,'es'),(news.aggregator,'en')])    
         
         events = self.crearObjecte(portal,'events','Large Plone Folder','Events','Site Events',constrains=(['Event','Meeting'],['Image']))
@@ -86,14 +90,14 @@ class setup(BrowserView):
         esdeveniments = self.crearObjecte(portal,'esdeveniments','Large Plone Folder','Esdeveniments','Esdeveniments del lloc',constrains=(['Event','Meeting'],['Image']))
         self.setLanguageAndLink([(esdeveniments,'ca'),(eventos,'es'),(events,'en')])
         
-        self.addCollection(events,'aggregator','Events','Site Events',('Event','Meeting'),'published',date_filter=True)
-        self.addCollection(eventos,'aggregator','Eventos','Eventos del sitio',('Event','Meeting'),'published',date_filter=True)
-        self.addCollection(esdeveniments,'aggregator','Esdeveniments','Esdeveniments del lloc',('Event','Meeting'),'published',date_filter=True)            
+        self.addCollection(events,'aggregator','Events','Site Events',('Event','Meeting'),date_filter=True)
+        self.addCollection(eventos,'aggregator','Eventos','Eventos del sitio',('Event','Meeting'),date_filter=True)
+        self.addCollection(esdeveniments,'aggregator','Esdeveniments','Esdeveniments del lloc',('Event','Meeting'),date_filter=True)            
         self.setLanguageAndLink([(esdeveniments.aggregator,'ca'),(eventos.aggregator,'es'),(events.aggregator,'en')])    
         
-        self.addCollection(events.aggregator,'previous','Past Events','Events which have already happened. ','Event','published',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)
-        self.addCollection(eventos.aggregator,'anteriores','Eventos pasados','Eventos del sitio que ya han sucedido','Event','published',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)
-        self.addCollection(esdeveniments.aggregator,'anteriors','Esdeveniments pasats','Esdeveniments del lloc que ja han passat','Event','published',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)            
+        self.addCollection(events.aggregator,'previous','Past Events','Events which have already happened. ','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)
+        self.addCollection(eventos.aggregator,'anteriores','Eventos pasados','Eventos del sitio que ya han sucedido','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)
+        self.addCollection(esdeveniments.aggregator,'anteriors','Esdeveniments pasats','Esdeveniments del lloc que ja han passat','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)            
         self.setLanguageAndLink([(esdeveniments.aggregator.anteriors,'ca'),(eventos.aggregator.anteriores,'es'),(events.aggregator.previous,'en')])    
         
         banners_en = self.crearObjecte(portal,'banners-en','BannerContainer','Banners','English Banners')
@@ -164,7 +168,7 @@ class setup(BrowserView):
         created.reindexObject()
         return created
         
-    def addCollection(self,context,id,title,description,type_filter,state_filter,day=0,dateRange=u'+',operation=u'more',setDefault=True,path='father',date_filter=False):
+    def addCollection(self,context,id,title,description,type_filter,state_filter=None,day=0,dateRange=u'+',operation=u'more',setDefault=True,path='father',date_filter=False):
 
         topic = self.crearObjecte(context,id,'Topic',title,description,False)
         
@@ -174,11 +178,12 @@ class setup(BrowserView):
         
         #Ara afegim els criteris, si no hi son
         criteris = [('Type','ATPortalTypeCriterion'),
-            ('review_state','ATSimpleStringCriterion'),
             ('path','ATPathCriterion'),
             ('modified','ATSortCriterion')]
         if date_filter:
            criteris.append(('start','ATFriendlyDateCriteria'))    
+        if state_filter:
+           criteris.append(('review_state','ATSimpleStringCriterion'))
            
         for crit in criteris:
             if not 'crit__%s_%s' % (crit[0],crit[1]) in topic.keys():
@@ -190,9 +195,9 @@ class setup(BrowserView):
         criteri_tipus.setOperator('and')
 
         # criteri estat
-
-        criteri_estat = topic['crit__review_state_ATSimpleStringCriterion']
-        criteri_estat.setValue((state_filter))
+        if state_filter:
+            criteri_estat = topic['crit__review_state_ATSimpleStringCriterion']
+            criteri_estat.setValue((state_filter))
 
         # criteri ruta = carpeta pare
 
