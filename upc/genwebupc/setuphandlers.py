@@ -75,3 +75,8 @@ def setupVarious(context):
     # configurem pagina per defecte
 
     portal.setLayout("homepage")
+    
+    pct = getToolByName(portal, 'portal_calendar')
+    pct.calendar_states= ('published','itnranet')
+    transaction.commit()
+    
