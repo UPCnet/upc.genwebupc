@@ -71,7 +71,7 @@ class setup(BrowserView):
           if not self.getObjectStatus(portal.events):
             portal.manage_delObjects('events')
         if getattr(portal,'Members',False):                        
-          portal['users'].setExcludeFromNav(True)
+          portal['Members'].setExcludeFromNav(True)
         
         # Crear carpetes i coleccions, linkades per language, el primer language de la tupla es el canonical
         
