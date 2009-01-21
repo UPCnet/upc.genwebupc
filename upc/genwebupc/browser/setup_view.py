@@ -97,7 +97,7 @@ class setup(BrowserView):
         
         self.addCollection(events.aggregator,'previous','Past Events','Events which have already happened. ','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)
         self.addCollection(eventos.aggregator,'anteriores','Eventos pasados','Eventos del sitio que ya han sucedido','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)
-        self.addCollection(esdeveniments.aggregator,'anteriors','Esdeveniments pasats','Esdeveniments del lloc que ja han passat','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)            
+        self.addCollection(esdeveniments.aggregator,'anteriors','Esdeveniments passats','Esdeveniments del lloc que ja han passat','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)            
         self.setLanguageAndLink([(esdeveniments.aggregator.anteriors,'ca'),(eventos.aggregator.anteriores,'es'),(events.aggregator.previous,'en')])    
         
         banners_en = self.crearObjecte(portal,'banners-en','BannerContainer','Banners','English Banners')
@@ -107,7 +107,7 @@ class setup(BrowserView):
         
         logosfooter_en = self.crearObjecte(portal,'logosfooter-en','Logos_Container','Footer Logos','English footer logos')
         logosfooter_es = self.crearObjecte(portal,'logosfooter-es','Logos_Container','Logos pie','Logos en español del pie de página')
-        logosfooter_ca = self.crearObjecte(portal,'logosfooter-ca','Logos_Container','Logos peu','Logos en català del peu de página')    
+        logosfooter_ca = self.crearObjecte(portal,'logosfooter-ca','Logos_Container','Logos peu','Logos en català del peu de pàgina')    
         self.setLanguageAndLink([(logosfooter_ca,'ca'),(logosfooter_es,'es'),(logosfooter_en,'en')])
                 
         #crear pagines de benvinguda        
