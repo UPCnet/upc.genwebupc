@@ -16,8 +16,15 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
+#. Default: "You are here:"
+msgid "genweb-you_are_here"
+msgstr "Está aquí:"
+
+msgid "Extended view"
+msgstr "Vista estesa"
+
 # String del formulari del configlet
-msgid "Genweb settings"
+msgid "genWeb UPC settings"
 msgstr "Configuración de Genweb"
 
 #. Default: "retracttointranet"
