@@ -213,7 +213,7 @@ msgid "You can add questions to surveys."
 msgstr "Un qüestionari en el que es poden afegir preguntes."
 
 msgid "Message Board"
-msgstr "Fòrum"
+msgstr "Espai de fòrums"
 
 msgid "Ploneboard is the outmost board object, what shows up in your site."
 msgstr "Un contenidor de converses i debats ordenats per temes."
