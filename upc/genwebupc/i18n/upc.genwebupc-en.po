@@ -51,3 +51,13 @@ msgstr "Curs"
 
 msgid "Activate"
 msgstr ""
+
+msgid "genweb-actualitat"
+msgstr "UPC Today"
+
+msgid "genweb-noticies"
+msgstr "News"
+
+msgid "genweb-agenda"
+msgstr "Agenda" 
+

@@ -224,4 +224,14 @@ msgstr "Estudiants de la UPC"
 msgid "genweb-canvipasupc_titol3"
 msgstr "Altres col·lectius"
 
+#: ."genweb-actualitat"
+msgid "genweb-actualitat"
+msgstr "Actualitat UPC"
 
+#: ."genweb-noticies"
+msgid "genweb-noticies"
+msgstr "Notícies"
+
+#: ."genweb-agenda"
+msgid "genweb-agenda"
+msgstr "Agenda"
