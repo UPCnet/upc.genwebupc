@@ -39,6 +39,23 @@ msgstr "Retira a la intranet"
 msgid "Publish To Intranet"
 msgstr "Publicar en intranet"
 
+# genweb_review workflow
+msgid "publicaalaintranet"
+msgstr "Publica en la intranet"
+
+msgid "retiraaesborrany"
+msgstr "Retira a borrador"
+
+msgid "retiraalaintranet"
+msgstr "Publica en la intranet"
+
+msgid "enviaarevisar"
+msgstr "Envia a revisión"
+
+# el translate into del linguaplone
+msgid "title_translate_into"
+msgstr "Traduce al"
+
 ######### Sobre aquest web
 #: ."genweb-titol_accessibilitat"
 msgid "genweb-titol_accessibilitat"

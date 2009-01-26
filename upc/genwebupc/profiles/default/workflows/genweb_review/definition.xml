@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <dc-workflow workflow_id="genweb_review"
-             title="genweb_review"
+             title="Genweb review workflow"
              state_variable="review_state"
              initial_state="esborrany">
  <permission>Access contents information</permission>
@@ -227,7 +227,7 @@
              trigger="USER"
              before_script=""
              after_script="">
-  <action url="%(content_url)s/content_status_modify?workflow_action=submit" category="workflow">submit</action>
+  <action url="%(content_url)s/content_status_modify?workflow_action=submit" category="workflow">enviaarevisar</action>
   <guard>
     <guard-role>Editor</guard-role>
     <guard-role>Manager</guard-role>

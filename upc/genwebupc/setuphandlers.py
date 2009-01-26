@@ -77,6 +77,6 @@ def setupVarious(context):
     portal.setLayout("homepage")
     
     pct = getToolByName(portal, 'portal_calendar')
-    pct.calendar_states= ('published','itnranet')
+    pct.calendar_states= ('published','intranet')
     transaction.commit()
     

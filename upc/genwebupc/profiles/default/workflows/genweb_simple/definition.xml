@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <dc-workflow workflow_id="genweb_simple"
-             title="genWeb simple workflow"
+             title="Genweb simple workflow"
              description="Els usuaris amb el rol Editor poden publicar coses a la intranet i per tothom. No hi ha review."
              state_variable="review_state"
              initial_state="visible">
