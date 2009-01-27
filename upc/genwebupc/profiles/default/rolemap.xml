@@ -9,6 +9,12 @@
         <role name="WebMaster" />
         <role name="Editor" />
     </permission>
+	<permission name="Portlets: Manage own portlets" acquire="False">
+        <role name="Manager" />
+        <role name="WebMaster" />
+        <role name="Editor" />
+		<role name="Reader" />
+    </permission>
     <permission name="simpleTask: Add simpleTask" acquire="False">
         <role name="Manager" />
         <role name="Contributor" />
