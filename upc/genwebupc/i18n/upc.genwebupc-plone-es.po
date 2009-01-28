@@ -63,6 +63,18 @@ msgstr "Envia a revisión"
 msgid "Send the item back to draft."
 msgstr "Envia el contenido al estado de borrador."
 
+msgid "Making an item private means that it will not be visible to anyone but the owner and the site administrator."
+msgstr "Hacer un elemento privado significa que no será visible para ninguna persona excepto su propietario."
+
+msgid "Promotes your private item to a draft."
+msgstr "Hacer un elemento borrador significa que sólo será visible para los editores y para su propietario."
+
+msgid "Making an item published to intranet means that it will be visible to the members (readers)."
+msgstr "Hacer un elemento publicado en la intranet que será visible para todos los miembros (lectores)."
+
+msgid "Publishing the item makes it visible to other users."
+msgstr "Publica el elemento y lo hace visible para todo el mundo."
+
 ######### Sobre aquest web
 #: ."genweb-titol_accessibilitat"
 msgid "genweb-titol_accessibilitat"

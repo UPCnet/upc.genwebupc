@@ -75,9 +75,6 @@ msgstr "Fer un element publicat a la intranet significa que serà visible per to
 msgid "Publishing the item makes it visible to other users."
 msgstr "Publica el element i el fa visible per tothom."
 
-msgid "s"
-msgstr "s"
-
 ####### Sobre aquest web
 #: ."genweb-titol_accessibilitat"
 msgid "genweb-titol_accessibilitat"
