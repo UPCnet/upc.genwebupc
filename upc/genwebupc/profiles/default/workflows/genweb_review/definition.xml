@@ -1,15 +1,17 @@
 <?xml version="1.0"?>
 <dc-workflow workflow_id="genweb_review"
              title="Genweb review workflow"
+             description="Els usuaris amb el rol review poden publicar un element per tothom."
              state_variable="review_state"
              initial_state="esborrany">
  <permission>Access contents information</permission>
  <permission>View</permission>
  <permission>Modify portal content</permission>
  <state state_id="esborrany"
-        title="esborrany">
+        title="Draft">
   <exit-transition transition_id="hide"/>
   <exit-transition transition_id="publicaalaintranet"/>
+  <exit-transition transition_id="publish"/>
   <exit-transition transition_id="submit"/>
   <permission-map name="Access contents information"
                   acquired="False">
@@ -33,6 +35,7 @@
  <state state_id="intranet"
         title="intranet">
   <exit-transition transition_id="submit"/>
+  <exit-transition transition_id="publish"/>  
   <exit-transition transition_id="retiraaesborrany"/>
   <permission-map name="Access contents information"
                   acquired="False">
@@ -101,7 +104,7 @@
  </state>
  <state state_id="published"
         title="published">
-  <exit-transition transition_id="retract"/>
+  <exit-transition transition_id="retiraaesborrany"/>
   <exit-transition transition_id="retiraalaintranet"/>
   <permission-map name="Access contents information"
                   acquired="False">
@@ -131,7 +134,8 @@
              trigger="USER"
              before_script=""
              after_script="">
-  <action url="%(content_url)s/content_status_modify?workflow_action=hide" category="workflow">hide</action>
+  <description>Making an item private means that it will not be visible to anyone but the owner and the site administrator.</description>
+  <action url="%(content_url)s/content_status_modify?workflow_action=hide" category="workflow">Make private</action>
   <guard>
     <guard-role>Owner</guard-role>
     <guard-role>Manager</guard-role>
@@ -143,10 +147,12 @@
              trigger="USER"
              before_script=""
              after_script="">
+  <description>Making an item published to intranet means that it will be visible to the members (readers).</description>             
   <action url="%(content_url)s/content_status_modify?workflow_action=publicaalaintranet" category="workflow">publicaalaintranet</action>
   <guard>
     <guard-role>Editor</guard-role>
     <guard-role>Manager</guard-role>
+    <guard-role>Owner</guard-role>
   </guard>
  </transition>
  <transition transition_id="publish"
@@ -155,6 +161,7 @@
              trigger="USER"
              before_script=""
              after_script="">
+  <description>Publishing the item makes it visible to other users.</description>             
   <action url="%(content_url)s/content_status_modify?workflow_action=publish" category="workflow">publish</action>
   <guard>
     <guard-role>Reviewer</guard-role>
@@ -167,6 +174,7 @@
              trigger="USER"
              before_script=""
              after_script="">
+  <description>Send the item back to draft.</description>             
   <action url="%(content_url)s/content_status_modify?workflow_action=reject" category="workflow">reject</action>
   <guard>
     <guard-role>Reviewer</guard-role>
@@ -179,6 +187,7 @@
              trigger="USER"
              before_script=""
              after_script="">
+  <description>Send the item back to draft.</description>             
   <action url="" category="workflow">retiraaesborrany</action>
   <guard>
     <guard-role>Editor</guard-role>
@@ -191,6 +200,7 @@
              trigger="USER"
              before_script=""
              after_script="">
+  <description>Making an item published to intranet means that it will be visible to the members (readers).</description>             
   <action url="%(content_url)s/content_status_modify?workflow_action=retiraalaintranet" category="workflow">retiraalaintranet</action>
   <guard>
     <guard-role>Editor</guard-role>
@@ -215,7 +225,8 @@
              trigger="USER"
              before_script=""
              after_script="">
-  <action url="%(content_url)s/content_status_modify?workflow_action=show" category="workflow">show</action>
+  <description>Promotes your private item to a draft.</description>             
+  <action url="%(content_url)s/content_status_modify?workflow_action=show" category="workflow">Make draft</action>
   <guard>
     <guard-role>Owner</guard-role>
     <guard-role>Manager</guard-role>
@@ -227,10 +238,12 @@
              trigger="USER"
              before_script=""
              after_script="">
+  <description>Puts your item in a review queue, so it can be published on the site.</description>             
   <action url="%(content_url)s/content_status_modify?workflow_action=submit" category="workflow">enviaarevisar</action>
   <guard>
     <guard-role>Editor</guard-role>
     <guard-role>Manager</guard-role>
+    <guard-role>Owner</guard-role>
   </guard>
  </transition>
  <worklist worklist_id="reviewer_queue" 

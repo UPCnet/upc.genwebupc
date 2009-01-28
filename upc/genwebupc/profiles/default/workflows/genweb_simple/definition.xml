@@ -10,7 +10,7 @@
  <permission>View</permission>
  <state state_id="intranet" title="Intranet">
   <exit-transition transition_id="publish"/>
-  <exit-transition transition_id="retract"/>
+  <exit-transition transition_id="reject"/>
   <permission-map name="Access contents information"
                   acquired="False">
    <permission-role>Editor</permission-role>
@@ -39,10 +39,8 @@
  <state state_id="pending" title="Pending review">
   <description>Waiting to be reviewed, not editable by the owner.
 </description>
-  <exit-transition transition_id="hide"/>
   <exit-transition transition_id="publish"/>
   <exit-transition transition_id="reject"/>
-  <exit-transition transition_id="retract"/>
   <permission-map name="Access contents information"
                   acquired="False">
    <permission-role>Anonymous</permission-role>
@@ -91,7 +89,6 @@
   <description>Visible to everyone, not editable by the owner.
 </description>
   <exit-transition transition_id="reject"/>
-  <exit-transition transition_id="retract"/>
   <exit-transition transition_id="retracttointranet"/>
   <permission-map name="Access contents information"
                   acquired="False">
@@ -122,7 +119,7 @@
    <permission-role>Reader</permission-role>
   </permission-map>
  </state>
- <state state_id="visible" title="Public draft">
+ <state state_id="visible" title="Draft">
   <description>Visible to everyone, but not approved by the reviewers.
 </description>
   <exit-transition transition_id="hide"/>
@@ -157,8 +154,7 @@
              title="Member makes content private"
              new_state="private" trigger="USER"
              before_script="" after_script="">
-  <description>Making an item private means that it will not be visible to anyone but the owner and the site administrator.
-</description>
+  <description>Making an item private means that it will not be visible to anyone but the owner and the site administrator.</description>
   <action url="%(content_url)s/content_status_modify?workflow_action=hide"
           category="workflow">Make private</action>
   <guard>
@@ -170,8 +166,7 @@
              title="Reviewer publishes content"
              new_state="published" trigger="USER"
              before_script="" after_script="">
-  <description>Publishing the item makes it visible to other users.
-</description>
+  <description>Publishing the item makes it visible to other users.</description>
   <action url="%(content_url)s/content_status_modify?workflow_action=publish"
           category="workflow">Publish</action>
   <guard>
@@ -183,32 +178,33 @@
              title="Publish To Intranet"
              new_state="intranet" trigger="USER"
              before_script="" after_script="">
+  <description>Making an item published to intranet means that it will be visible to the members (readers).</description>
   <action url="%(content_url)s/content_status_modify?workflow_action=publishtointranet"
           category="workflow">Publish To Intranet</action>
   <guard>
    <guard-role>Manager</guard-role>
    <guard-role>Editor</guard-role>
+   <guard-role>Owner</guard-role>
   </guard>
  </transition>
  <transition transition_id="reject"
              title="Reviewer sends content back for re-drafting"
              new_state="visible" trigger="USER"
              before_script="" after_script="">
-  <description>Sending the item back will return the item to the original author instead of publishing it. You should preferably include a reason for why it was not published.
-</description>
+  <description>Send the item back to draft.</description>
   <action url="%(content_url)s/content_status_modify?workflow_action=reject"
-          category="workflow">Send back</action>
+          category="workflow">retiraaesborrany</action>
   <guard>
    <guard-role>Manager</guard-role>
    <guard-role>Editor</guard-role>
+   <guard-role>Owner</guard-role>   
   </guard>
  </transition>
  <transition transition_id="retract"
              title="Member retracts submission"
              new_state="visible" trigger="USER"
              before_script="" after_script="">
-  <description>If you submitted the item by mistake or want to perform additional edits, this will take it back.
-</description>
+  <description>If you submitted the item by mistake or want to perform additional edits, this will take it back.</description>
   <action url="%(content_url)s/content_status_modify?workflow_action=retract"
           category="workflow">Retract</action>
   <guard>
@@ -220,6 +216,7 @@
              title="Retract To Intranet"
              new_state="intranet" trigger="USER"
              before_script="" after_script="">
+  <description>Making an item published to intranet means that it will be visible to the members (readers).</description>
   <action url="%(content_url)s/content_status_modify?workflow_action=retracttointranet"
           category="workflow">Retract To Intranet</action>
   <guard>
@@ -231,10 +228,9 @@
              title="Member promotes content to public draft"
              new_state="visible" trigger="USER"
              before_script="" after_script="">
-  <description>Promotes your private item to a public draft.
-</description>
+  <description>Promotes your private item to a draft.</description>
   <action url="%(content_url)s/content_status_modify?workflow_action=show"
-          category="workflow">Promote to Draft</action>
+          category="workflow">Make draft</action>
   <guard>
    <guard-role>Manager</guard-role>
    <guard-role>Owner</guard-role>
@@ -244,8 +240,7 @@
              title="Member submits content for publication"
              new_state="pending" trigger="USER"
              before_script="" after_script="">
-  <description>Puts your item in a review queue, so it can be published on the site.
-</description>
+  <description>Puts your item in a review queue, so it can be published on the site.</description>
   <action url="%(content_url)s/content_status_modify?workflow_action=submit"
           category="workflow">Submit for publication</action>
   <guard>

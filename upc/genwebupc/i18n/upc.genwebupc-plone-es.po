@@ -21,11 +21,19 @@ msgid "genweb-you_are_here"
 msgstr "Está aquí:"
 
 msgid "Extended view"
-msgstr "Vista estesa"
+msgstr "Vista extendida"
 
 # String del formulari del configlet
 msgid "genWeb UPC settings"
 msgstr "Configuración de Genweb"
+
+###### Workflows
+#. Default: "Draft"
+msgid "Draft"
+msgstr "Borrador"
+
+msgid "Make draft"
+msgstr "Fes esborrany"
 
 #. Default: "retracttointranet"
 #: workflow state defined in folder_workflow - title Published
@@ -52,9 +60,8 @@ msgstr "Publica en la intranet"
 msgid "enviaarevisar"
 msgstr "Envia a revisión"
 
-# el translate into del linguaplone
-msgid "title_translate_into"
-msgstr "Traduce al"
+msgid "Send the item back to draft."
+msgstr "Envia el contenido al estado de borrador."
 
 ######### Sobre aquest web
 #: ."genweb-titol_accessibilitat"
