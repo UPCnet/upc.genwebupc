@@ -29,5 +29,6 @@
       />
 
     <adapter factory=".content.extender.PoiIssueSchemaModifier" />
+    <adapter factory=".content.extender.CollageSchemaModifier" />
       
 </configure>
