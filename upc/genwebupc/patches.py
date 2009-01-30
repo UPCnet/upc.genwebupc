@@ -1,8 +1,19 @@
+# Parchejem el Poi
 from Products.Poi import config
 
 config.ISSUE_MIME_TYPES = ('text/x-web-intelligent', 'text/html')
 config.DEFAULT_ISSUE_MIME_TYPE = 'text/html'
 
+# Parchejem el Survey
+from Products.PloneSurvey import config as configSurvey
+from Products.Archetypes.utils import DisplayList
+
+configSurvey.SELECT_INPUT_TYPE = DisplayList((
+    ('radio', 'Radio Buttons', 'label_radio_buttons'),
+    ('checkbox', 'Check Boxes', 'label_check_boxes'),
+    ))
+
+# Parchejat tambe el GenericSetup en en upc.genwebupctheme/upc/genwebupctheme/__init__.py
 from Products.Collage.content._alias import CollageAlias
 from Products.ATContentTypes.content.base import ATCTContent
 from Products.Archetypes import atapi
@@ -26,7 +37,5 @@ CollageAliasSchema = ATCTContent.schema.copy() + atapi.Schema((
 ))
 
 CollageAlias.schema = CollageAliasSchema
-
-
 
 # Parchejat tambe el GenericSetup en en upc.genwebupctheme/upc/genwebupctheme/__init__.py

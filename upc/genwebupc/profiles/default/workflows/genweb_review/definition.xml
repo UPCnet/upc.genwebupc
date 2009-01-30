@@ -33,7 +33,7 @@
   </permission-map>
  </state>
  <state state_id="intranet"
-        title="intranet">
+        title="Intranet">
   <exit-transition transition_id="submit"/>
   <exit-transition transition_id="publish"/>  
   <exit-transition transition_id="retiraaesborrany"/>
@@ -59,7 +59,7 @@
   </permission-map>
  </state>
  <state state_id="pending"
-        title="pending">
+        title="Pending review">
   <exit-transition transition_id="reject"/>
   <exit-transition transition_id="retiraalaintranet"/>
   <exit-transition transition_id="publish"/>
@@ -84,7 +84,7 @@
   </permission-map>
  </state>
  <state state_id="private"
-        title="private">
+        title="Private">
   <exit-transition transition_id="show"/>
   <permission-map name="Access contents information"
                   acquired="False">
@@ -103,7 +103,7 @@
   </permission-map>
  </state>
  <state state_id="published"
-        title="published">
+        title="Published">
   <exit-transition transition_id="retiraaesborrany"/>
   <exit-transition transition_id="retiraalaintranet"/>
   <permission-map name="Access contents information"
