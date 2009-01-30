@@ -56,6 +56,8 @@ def setupVarious(context):
                 "ou=Groups,dc=upc,dc=edu", 2, "cn=ldap.upc,ou=Users,dc=upc,dc=edu", "secret", 1, "cn",
                 "top,person", 0, 0, "SSHA", 1, '')
             plugin = portal.acl_users['ldapUPC']
+            #import pdb; pdb.set_trace()
+            plugin.ZCacheable_setManagerId('RAMCache')
             plugin.manage_activateInterfaces(['IGroupEnumerationPlugin','IGroupsPlugin','IPropertiesPlugin','IGroupIntrospection','IAuthenticationPlugin','IRolesPlugin','IUserEnumerationPlugin','IRoleEnumerationPlugin'])
             LDAPUserFolder.manage_addServer(portal.acl_users.ldapUPC.acl_users, "han.upc.es", '636', use_ssl=1)
     except: 
