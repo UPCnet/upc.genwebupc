@@ -16,6 +16,38 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: upc.genwebupc\n"
 
+# Adreça
+msgid "genweb_adreca"
+msgstr "Dirección"
+
+# Telefon
+msgid "genweb_telefon"
+msgstr "Teléfono"
+
+# Fax
+msgid "genweb_fax"
+msgstr "Fax"
+
+# A/e
+msgid "genweb_ae"
+msgstr "E-mail"
+
+# Direccio
+msgid "genweb_direccio"
+msgstr "Director"
+
+# Personal
+msgid "genweb_personal"
+msgstr "Personal"
+
+# Formulari de contacte
+msgid "genweb_formContacte"
+msgstr "Formulario de contacto"
+
+# Contacte
+msgid "genweb_contacte"
+msgstr "Contacto"
+
 #. "usuari_connectat"
 msgid "genweb-usuari_connectat"
 msgstr "Usuario conectado:"

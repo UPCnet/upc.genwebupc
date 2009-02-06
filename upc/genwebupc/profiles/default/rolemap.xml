@@ -4,6 +4,11 @@
     <role name="WebMaster"/>
   </roles>
   <permissions>
+    <permission name="plone.app.blob: Add Blob" acquire="False">
+        <role name="Manager" />
+        <role name="WebMaster" />
+        <role name="Contributor" />
+    </permission>
     <permission name="Sharing page: Delegate roles" acquire="False">
         <role name="Manager" />
         <role name="WebMaster" />
@@ -104,6 +109,15 @@
         <role name="Contributor" />
     </permission>
     <permission name="ATContentTypes Topic: Add ATSelectionCriterion" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="ATContentTypes Topic: Add ATSimpleIntCriterion" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="ATContentTypes Topic: Add ATSimpleStringCriterion" acquire="True">
+        <role name="Contributor" />
+    </permission>
+    <permission name="ATContentTypes Topic: Add ATSortCriterion" acquire="True">
         <role name="Contributor" />
     </permission>
     <permission name="windowZ: Add Window" acquire="True">
