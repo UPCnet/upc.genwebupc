@@ -47,6 +47,7 @@ setup(name='upc.genwebupc',
           'Products.PythonField',
           'Products.TemplateFields',
           'Products.TALESField',
+          'Products.PloneSurvey',
           'archetypes.schemaextender',
       ],
       entry_points="""
