@@ -4,6 +4,18 @@
     <role name="WebMaster"/>
   </roles>
   <permissions>
+    <permission name="List undoable changes" acquire="False">
+        <role name="Manager" />
+        <role name="WebMaster" />
+        <role name="Editor" />
+        <role name="Owner" />
+    </permission>
+    <permission name="Undo changes" acquire="False">
+        <role name="Manager" />
+        <role name="WebMaster" />
+        <role name="Editor" />
+        <role name="Owner" />
+    </permission>
     <permission name="Sharing page: Delegate Contributor role" acquire="False">
         <role name="Manager" />
         <role name="WebMaster" />
