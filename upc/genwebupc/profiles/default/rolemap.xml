@@ -11,7 +11,7 @@
         <role name="Reader" />
         <role name="Owner" />
     </permission>
-    <permission name="PloneSurvey: View Survey Results " acquire="False">
+    <permission name="PloneSurvey: View Survey Results" acquire="False">
         <role name="Manager" />
         <role name="WebMaster" />
         <role name="Editor" />
