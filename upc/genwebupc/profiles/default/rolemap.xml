@@ -4,6 +4,19 @@
     <role name="WebMaster"/>
   </roles>
   <permissions>
+    <permission name="PloneSurvey: Reset Own Responses" acquire="False">
+        <role name="Manager" />
+        <role name="WebMaster" />
+        <role name="Editor" />
+        <role name="Reader" />
+        <role name="Owner" />
+    </permission>
+    <permission name="PloneSurvey: View Survey Results " acquire="False">
+        <role name="Manager" />
+        <role name="WebMaster" />
+        <role name="Editor" />
+        <role name="Owner" />
+    </permission>
     <permission name="List undoable changes" acquire="False">
         <role name="Manager" />
         <role name="WebMaster" />
