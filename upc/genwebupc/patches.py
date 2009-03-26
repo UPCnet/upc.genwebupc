@@ -38,4 +38,30 @@ CollageAliasSchema = ATCTContent.schema.copy() + atapi.Schema((
 
 CollageAlias.schema = CollageAliasSchema
 
-# Parchejat tambe el GenericSetup en en upc.genwebupctheme/upc/genwebupctheme/__init__.py
+# Patching del ATContentypes/content/File.py Class ATFile
+# Required per tal de poder veure flash en condicions
+from Products.ATContentTypes.content.file import ATFile
+
+inlineMimetypes= ('application/msword',
+                      'application/x-msexcel', # ?
+                      'application/vnd.ms-excel',
+                      'application/vnd.ms-powerpoint',
+                      'application/x-shockwave-flash',
+                      'application/pdf')
+
+ATFile.inlineMimetypes = inlineMimetypes
+
+# Patching del Blob a GW3
+# Required per tal de poder veure flash en condicions 
+from plone.app.blob.content import ATBlob
+
+def new_index_html(self, REQUEST, RESPONSE):
+    """ download the file inline """
+    field = self.getPrimaryField()
+    if field.getContentType(self) in ATFile.inlineMimetypes:
+         # return the PDF and Office file formats inline
+        return field.index_html(self, REQUEST, RESPONSE)
+    return field.download(self, REQUEST, RESPONSE)
+
+ATBlob.index_html = new_index_html
+
