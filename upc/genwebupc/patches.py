@@ -51,6 +51,29 @@ inlineMimetypes= ('application/msword',
 
 ATFile.inlineMimetypes = inlineMimetypes
 
+
+# Patching per que no salti el modified quan es crea un blob
+from plone.app.contentrules.handlers import modified as originalmodified
+
+def modified(event):
+    """When an object is modified, execute rules assigned to its parent
+    """
+
+    if is_portal_factory(event.object):
+        return
+
+    if hasattr(event.object,'getId'):
+        if event.object.getId().split('.')[0]=='file':
+            return
+
+    # Let the special handler take care of IObjectInitializedEvent
+    if not IObjectInitializedEvent.providedBy(event):
+        execute(aq_parent(aq_inner(event.object)), event)
+
+originalmodified = modified
+
+
+
 # Patching del Blob a GW3
 # Required per tal de poder veure flash en condicions 
 from plone.app.blob.content import ATBlob
