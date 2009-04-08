@@ -53,13 +53,15 @@ ATFile.inlineMimetypes = inlineMimetypes
 
 
 # Patching per que no salti el modified quan es crea un blob
-from plone.app.contentrules.handlers import modified as originalmodified
+from plone.app.contentrules import handlers
+from Products.Archetypes.interfaces import IObjectInitializedEvent
+from Acquisition import aq_inner, aq_parent
 
 def modified(event):
     """When an object is modified, execute rules assigned to its parent
     """
 
-    if is_portal_factory(event.object):
+    if handlers.is_portal_factory(event.object):
         return
 
     if hasattr(event.object,'getId'):
@@ -68,9 +70,9 @@ def modified(event):
 
     # Let the special handler take care of IObjectInitializedEvent
     if not IObjectInitializedEvent.providedBy(event):
-        execute(aq_parent(aq_inner(event.object)), event)
+        handlers.execute(aq_parent(aq_inner(event.object)), event)
 
-originalmodified = modified
+handlers.modified = modified
 
 
 
