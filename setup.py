@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '3.1'
+version = '3.0.1'
 
 setup(name='upc.genwebupc',
       version=version,
@@ -32,6 +32,7 @@ setup(name='upc.genwebupc',
           'upc.genweb.logosfooter',
           'upc.genweb.meetings',
           'upc.genweb.descriptorTIC',
+          'upc.genweb.kbpuc',
           'upc.permalink',
           'Products.AJAXAddRemoveWidget',
           'upcnet.simpleTask',
