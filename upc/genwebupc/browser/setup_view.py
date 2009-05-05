@@ -8,6 +8,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.PloneLDAP.factory import manage_addPloneLDAPMultiPlugin
 from Products.LDAPUserFolder.LDAPUserFolder import LDAPUserFolder
 from Products.CMFPlone.utils import _createObjectByType
+from Products.CMFCore import permissions
 
 from plone.app.controlpanel.mail import IMailSchema
 
@@ -79,11 +80,15 @@ class setup(BrowserView):
         noticias = self.crearObjecte(portal,'noticias','Large Plone Folder','Notícias','Notícias del sitio',constrains=(['News Item'],['Image']))
         noticies = self.crearObjecte(portal,'noticies','Large Plone Folder','Notícies','Notícies del lloc',constrains=(['News Item'],['Image']))        
         self.setLanguageAndLink([(noticies,'ca'),(noticias,'es'),(news,'en')])
-            
+        
         self.addCollection(news,'aggregator','News','Site News','News Item')
         self.addCollection(noticias,'aggregator','Notícias','Notícias del sitio','News Item')
         self.addCollection(noticies,'aggregator','Notícies','Notícies del lloc','News Item')        
         self.setLanguageAndLink([(noticies.aggregator,'ca'),(noticias.aggregator,'es'),(news.aggregator,'en')])    
+        
+        noticies.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
+        noticias.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
+        news.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
         
         events = self.crearObjecte(portal,'events','Large Plone Folder','Events','Site Events',constrains=(['Event','Meeting'],['Image']))
         eventos = self.crearObjecte(portal,'eventos','Large Plone Folder','Eventos','Eventos del sitio',constrains=(['Event','Meeting'],['Image']))
@@ -95,6 +100,10 @@ class setup(BrowserView):
         self.addCollection(esdeveniments,'aggregator','Esdeveniments','Esdeveniments del lloc',('Event','Meeting'),date_filter=True)            
         self.setLanguageAndLink([(esdeveniments.aggregator,'ca'),(eventos.aggregator,'es'),(events.aggregator,'en')])    
         
+        esdeveniments.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
+        eventos.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
+        events.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
+        
         self.addCollection(events.aggregator,'previous','Past Events','Events which have already happened. ','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)
         self.addCollection(eventos.aggregator,'anteriores','Eventos pasados','Eventos del sitio que ya han sucedido','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)
         self.addCollection(esdeveniments.aggregator,'anteriors','Esdeveniments passats','Esdeveniments del lloc que ja han passat','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)            
@@ -103,13 +112,13 @@ class setup(BrowserView):
         banners_en = self.crearObjecte(portal,'banners-en','BannerContainer','Banners','English Banners')
         banners_es = self.crearObjecte(portal,'banners-es','BannerContainer','Banners','Banners en Español')
         banners_ca = self.crearObjecte(portal,'banners-ca','BannerContainer','Banners','Banners en Català')    
-        self.setLanguageAndLink([(banners_ca,'ca'),(banners_es,'es'),(banners_en,'en')])    
+        self.setLanguageAndLink([(banners_ca,'ca'),(banners_es,'es'),(banners_en,'en')])
         
         logosfooter_en = self.crearObjecte(portal,'logosfooter-en','Logos_Container','Footer Logos','English footer logos')
         logosfooter_es = self.crearObjecte(portal,'logosfooter-es','Logos_Container','Logos pie','Logos en español del pie de página')
         logosfooter_ca = self.crearObjecte(portal,'logosfooter-ca','Logos_Container','Logos peu','Logos en català del peu de pàgina')    
         self.setLanguageAndLink([(logosfooter_ca,'ca'),(logosfooter_es,'es'),(logosfooter_en,'en')])
-                
+        
         #crear pagines de benvinguda        
         
         welcome_string=""" <p><a href="http://www.upc.edu/comunicacio/www/genweb-upc"><img alt="Genweb UPC" src="logogw.gif" class="image-right" /></a></p>
@@ -165,6 +174,10 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
         benvingut.setText(welcome_string)
         bienvenido.setText(welcome_string)
         welcome.setText(welcome_string)
+        
+        benvingut.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
+        bienvenido.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
+        welcome.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
         
         self.setLanguageAndLink([(benvingut,'ca'),(bienvenido,'es'),(welcome,'en')])                
        
