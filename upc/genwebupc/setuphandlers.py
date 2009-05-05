@@ -69,6 +69,7 @@ def setupVarious(context):
     portal_role_manager = portal.acl_users['portal_role_manager']
     portal_role_manager.assignRolesToPrincipal(["Manager"],"UPC.Plone.Admins")
     portal_role_manager.assignRolesToPrincipal(["Manager"],"UPCnet.Plone.Admins")
+    portal_role_manager.assignRolesToPrincipal(["Manager"],"UPCnet.Atic")
 
 
     # deshabilitem inline editing
