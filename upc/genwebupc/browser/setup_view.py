@@ -121,9 +121,9 @@ class setup(BrowserView):
         
         #crear pagines de benvinguda        
         
-        welcome_string=""" <p><a href="http://www.upc.edu/comunicacio/www/genweb-upc"><img alt="Genweb UPC" src="logogw.gif" class="image-right" /></a></p>
-<h1>Us donem la benvinguda a Genweb UPC v3</h1>
+        welcome_string="""<h1>Us donem la benvinguda a Genweb UPC v3</h1>
 <p>&nbsp;</p>
+<p><a href="http://www.upc.edu/comunicacio/www/genweb-upc"><img alt="Genweb UPC" src="logogw.gif" class="image-right" /></a></p>
 <p>A partir d'aquest moment, ja podeu introduir continguts al vostre espai <a href="http://www.upc.edu/comunicacio/www/genweb-upc" target="_blank">Genweb</a>. A més, us oferim l'allotjament del vostre espai, <a href="http://www.upc.edu/comunicacio/www/dominis-upc" target="_blank">un domini upc.edu</a>, estadístiques, formació i suport tècnic.</p>
 <h2>Abans d'utilitzar Genweb...</h2>
 <p>Consulteu el <a href="http://www.upc.edu/comunicacio/www/genweb-upc/formacio/genweb3_manualUsuari.pdf" target="_blank">manual d'usuari</a> i els <a href="http://www.upc.edu/comunicacio/www/genweb-upc/formacio" target="_blank">videotutorials de formació</a>.<br />
@@ -166,6 +166,7 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
 </ul>
 <h2>Participació...</h2>
 <p>Si teniu idees, necessitats o suggeriments per millorar el Genweb, ens ho podeu explicar a la nostra <a href="mailto:servei.comunicacio.promocio@upc.edu">bústia</a>.</p>
+<p>&nbsp;</p>
 <p>&nbsp;</p>"""
         benvingut = self.crearObjecte(portal,'benvingut','Document','Benvingut','')
         bienvenido = self.crearObjecte(portal,'bienvenido','Document','Bienvenido','')
