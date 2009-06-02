@@ -267,3 +267,12 @@ msgstr "Notícies"
 #: ."genweb-agenda"
 msgid "genweb-agenda"
 msgstr "Agenda"
+
+msgid "cerca"
+msgstr "Cerca..."
+
+msgid "cerca_google"
+msgstr "Cerca Google..."
+
+msgid "cerca_intranet"
+msgstr "Cerca a la Intranet"
