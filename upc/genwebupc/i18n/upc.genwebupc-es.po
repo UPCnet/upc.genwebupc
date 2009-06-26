@@ -272,3 +272,19 @@ msgstr "Busca en Google..."
 
 msgid "cerca_intranet"
 msgstr "Busca en la Intranet"
+
+#. "elmesvisitat"
+msgid "elmesvisitat"
+msgstr "Lo más visitado"
+
+#. "enllasosrapids"
+msgid "enllasosrapids"
+msgstr "Enlaces rápidos"
+
+#. "agendaAvui"
+msgid "agendaAvui"
+msgstr "Agenda de Hoy"
+
+# Formulari de contacte
+msgid "formContacte"
+msgstr "Contacta con la UPC"

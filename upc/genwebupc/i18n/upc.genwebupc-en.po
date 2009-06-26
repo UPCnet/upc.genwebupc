@@ -69,3 +69,19 @@ msgstr "Search Google..."
 
 msgid "cerca_intranet"
 msgstr "Search the Intranet"
+
+#. "elmesvisitat"
+msgid "elmesvisitat"
+msgstr "The most visited"
+
+#. "enllasosrapids"
+msgid "enllasosrapids"
+msgstr "Quick Links"
+
+#. "agendaAvui"
+msgid "agendaAvui"
+msgstr "Today's Diary"
+
+# Formulari de contacte
+msgid "formContacte"
+msgstr "Contact UPC"
