@@ -276,19 +276,3 @@ msgstr "Cerca Google..."
 
 msgid "cerca_intranet"
 msgstr "Cerca a la Intranet"
-
-#. "elmesvisitat"
-msgid "elmesvisitat"
-msgstr "El més visitat"
-
-#. "enllasosrapids"
-msgid "enllasosrapids"
-msgstr "Enllaços ràpids"
-
-#. "agendaAvui"
-msgid "agendaAvui"
-msgstr "Agenda d'Avui"
-
-# Formulari de contacte
-msgid "formContacte"
-msgstr "Contacta amb la UPC"
