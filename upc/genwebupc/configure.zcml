@@ -14,7 +14,6 @@
     <include package="upc.genweb.descriptorTIC" />
     <include package="upc.genweb.kbpuc" />
     <include package="upc.genweb.objectiusCG" />
-    <include package="upc.genweb.patches" />
     <include package="upc.permalink" />
     <include package="upcnet.simpleTask" />
     

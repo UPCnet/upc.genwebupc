@@ -4,3 +4,6 @@ def initialize(context):
 
 #Comentado por haber pasado los parches a upc.genweb.patches
 #import patches
+
+#importa els parches
+from upc.genweb.patches import patches
