@@ -2,4 +2,5 @@
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""
 
-import patches
+#Comentado por haber pasado los parches a upc.genweb.patches
+#import patches

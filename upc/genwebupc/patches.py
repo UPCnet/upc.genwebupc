@@ -1,3 +1,4 @@
+#Superseeded by upc.genweb.patches!!!!!!!
 # Parchejem el Poi
 from Products.Poi import config
 
