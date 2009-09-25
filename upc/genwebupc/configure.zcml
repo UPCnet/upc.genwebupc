@@ -16,6 +16,9 @@
     <include package="upc.genweb.objectiusCG" />
     <include package="upc.permalink" />
     <include package="upcnet.simpleTask" />
+
+    <include package=".content" />
+    <include package="Products.GenericSetup" file="meta.zcml" />
     
     <include package="archetypes.schemaextender" />
     
