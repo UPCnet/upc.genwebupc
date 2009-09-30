@@ -276,3 +276,9 @@ msgstr "Cerca Google..."
 
 msgid "cerca_intranet"
 msgstr "Cerca a la Intranet"
+
+msgid "label_text_seccio"
+msgstr "Etiqueta Secció"
+
+msgid "descripcio_text_seccio"
+msgstr "És com es veurà la secció"

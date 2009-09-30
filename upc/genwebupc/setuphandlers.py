@@ -28,10 +28,13 @@ def setupVarious(context):
     nasty = transform.get_parameter_value('nasty_tags')
     valid['embed']=1
     valid['object']=1
+    valid['param']=1
     if 'embed' in nasty:
         del nasty['embed']
     if 'object' in nasty:
         del nasty['object']
+    if 'param' in nasty:
+        del nasty['param']
     kwargs = {}
     kwargs['valid_tags']=valid
     kwargs['nasty_tags']=nasty

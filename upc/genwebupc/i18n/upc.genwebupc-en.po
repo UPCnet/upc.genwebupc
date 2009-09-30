@@ -69,3 +69,10 @@ msgstr "Search Google..."
 
 msgid "cerca_intranet"
 msgstr "Search the Intranet"
+
+msgid "label_text_seccio"
+msgstr "Label section"
+
+msgid "descripcio_text_seccio"
+msgstr "Label section display"
+

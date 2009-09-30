@@ -14,10 +14,24 @@ from upc.genwebupc import GenwebMessageFactory as _
 
 from Products.ATContentTypes.content.document import ATDocument
 from Products.ATContentTypes.content.document import ATDocumentSchema
+from Products.Archetypes.atapi import AnnotationStorage
+from Products.ATContentTypes.configuration import zconf
 
 schema = atapi.Schema((
-
-
+    atapi.TextField('text',
+              required=False,
+              searchable=True,
+              primary=True,
+              storage = AnnotationStorage(migrate=True),
+              validators = ('isTidyHtmlWithCleanup',),
+              #validators = ('isTidyHtml',),
+              default_output_type = 'text/x-html-safe',
+              widget = atapi.RichWidget(
+                        description = _(u'descripcio_text_seccio', default=u'Descripcio'),
+                        label = _(u'label_text_seccio', default=u'Body Text'),
+                        rows = 8,
+                        allow_file_upload = zconf.ATDocument.allow_document_upload),
+    ),
 ),
 )
 
