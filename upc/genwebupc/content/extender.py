@@ -52,7 +52,7 @@ class ATLinkSchemaModifier(object):
     implements(IOrderableSchemaExtender)
 
     _fields = [
-            _StringExtensionField('Obrirnovafinestra',
+            _StringExtensionField('obrirfinestra',
                 required=False,
                 searchable=True,
                 widget=BooleanWidget(
@@ -72,8 +72,8 @@ class ATLinkSchemaModifier(object):
     def getOrder(self, original):
         new = original.copy()  # contract requires us to make a new one
         defaultSchemaFields = new['default']  # fields from the "default" schemata
-        defaultSchemaFields.remove('Obrirnovafinestra')
+        defaultSchemaFields.remove('obrirfinestra')
         defaultSchemaFields.insert(defaultSchemaFields.index('remoteUrl') + 1,
-                                   'Obrirnovafinestra')  # stick "channel" after "description"
+                                   'obrirfinestra')  # stick "channel" after "description"
         return new
 
