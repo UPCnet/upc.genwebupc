@@ -13,8 +13,10 @@ from upc.genwebupc.config import PROJECTNAME
 from upc.genwebupc import GenwebMessageFactory as _
 
 from Products.ATContentTypes.content.document import ATDocument
+from Products.ATContentTypes.content.folder import ATFolder
 from Products.ATContentTypes.content.document import ATDocumentSchema
-from Products.Archetypes.atapi import AnnotationStorage
+from Products.ATContentTypes.content.folder import ATFolderSchema
+from Products.Archetypes.atapi import AnnotationStorage, OrderedBaseFolder
 from Products.ATContentTypes.configuration import zconf
 
 schema = atapi.Schema((
@@ -35,12 +37,12 @@ schema = atapi.Schema((
 ),
 )
 
-Seccio_Schema = ATDocumentSchema.copy() + \
+Seccio_Schema = ATDocumentSchema.copy() + ATFolderSchema.copy() + \
     schema.copy()
 
 finalizeATCTSchema(Seccio_Schema, folderish=True, moveDiscussion=False)
 
-class Seccio(ATDocument):
+class Seccio(OrderedBaseFolder, ATDocument, ATFolder):
     """
     """
     security = ClassSecurityInfo()
