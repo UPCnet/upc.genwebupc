@@ -16,7 +16,7 @@
  <property name="allowed_content_types">
  </property>
  <property name="allow_discussion">False</property>
- <property name="default_view">base_view</property>
+ <property name="default_view">folder_listing</property>
  <property name="view_methods">
   <element value="folder_summary_view"/>
   <element value="folder_tabular_view"/>
