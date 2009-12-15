@@ -127,7 +127,10 @@
     </permission>
     <permission name="Access inactive portal content"
                 acquire="True">
-      <role name="Owner"/>
+      <role name="Editor"/>
+      <role name="Manager"/>
+	  <role name="Owner"/>            
+      <role name="WebMaster"/>            
     </permission>
     <permission name="Add Collage content" acquire="True">
       <role name="Contributor"/>
