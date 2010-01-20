@@ -30,8 +30,8 @@ class TestFixUIDs(PloneTestCase):
         self.linktarget1_uid = self.catalog.searchResults(path=self.linktarget1_path)[0].UID
         self.folder.invokeFactory('Document', 'linktarget2', title='Link Target 2')
         self.linktarget2 = self.folder['linktarget2']
-        self.linktarget2_path = self.linktarget2.absolute_url(relative=True)
-        self.linktarget2_uid = '/' + self.catalog.searchResults(path=self.linktarget2_path)[0].UID
+        self.linktarget2_path = '/' + self.linktarget2.absolute_url(relative=True)
+        self.linktarget2_uid = self.catalog.searchResults(path=self.linktarget2_path)[0].UID
         self.folder.invokeFactory('Document', 'linktarget3', title='Link Target 3')
         self.linktarget3 = self.folder['linktarget3']
         self.linktarget3_path = '/' + self.linktarget3.absolute_url(relative=True)
@@ -83,6 +83,14 @@ class TestFixUIDs(PloneTestCase):
         view()
         self.assertEquals(self.doc.getRawText(), '<img src="http://www.upc.edu/img.png" alt="image" />')      
 
+    def testCheckExternatlLinks(self):
+        self.doc.setText('<a href="http://www.upc.edu/logoPrint.gif">UPC</a>')
+        self.doc.reindexObject()
+        view = getMultiAdapter((self.doc, self.portal.REQUEST), name="fix-uids")
+        view = view.__of__(self.doc)
+        view()
+        self.assertEquals(self.doc.getRawText(), '<a href="http://www.upc.edu/logoPrint.gif">UPC</a>')        
+    
     def testFixUIDs(self):
         self.doc.setText('<p>Aquest punt inclou la informacio economica de la UPC. Per un costat hi trobareu els <a href="%s">pressupostos</a> des de lany 2004 i les <a href="%s">memòries</a> auditades de la UPC.</p><p>Per altra part, si us identifiqueu a la intranet<strong>,</strong>&nbsp;oferim informació relacionada amb les convocatòries dajuts, tant del Ministerio de educación y ciencia, de la Generalitat de Catalunya com de la UPC.</p><p>Tambe hi trobareu el <a href="%s">Pla destabilitzacio plurianual [pdf]</a>.</p>' \
                          % (self.linktarget1_path, self.linktarget2_path, self.linktarget3_path))
@@ -91,7 +99,6 @@ class TestFixUIDs(PloneTestCase):
         view = view.__of__(self.doc)
         view()
         text = self.doc.getRawText()
-        import ipdb; ipdb.set_trace()
         self.failIf(self.linktarget1_path in text)
         self.failIf(self.linktarget2_path in text)
         self.failIf(self.linktarget3_path in text)
