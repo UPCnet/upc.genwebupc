@@ -11,4 +11,18 @@
       permission="cmf.AddPortalContent"
       />
 
+    <browser:page
+      name="fix-uids"
+      for="*"
+      class=".fixuids.fixUIDs"
+      permission="cmf.ManagePortal"
+      />
+      
+    <browser:page
+      name="fix-all-uids"
+      for="*"
+      class=".fixuids.fixAllUIDs"
+      permission="cmf.ManagePortal"
+      />
+      
 </configure>
