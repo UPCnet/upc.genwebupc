@@ -11,12 +11,16 @@ from Products.CMFCore.utils import getToolByName
 
 from Products.Five.browser import BrowserView
 
+from Products.CMFPlone import PloneMessageFactory as _
+
+from Products.statusmessages.interfaces import IStatusMessage
 
 class fixUIDs(BrowserView):
 
     def __call__(self):
         context = aq_inner(self.context)        
         s = context.getRawText()
+        count = 0
         urls = re.findall(r'(href|src)=[\'"]?([^\'" >]+)', s)
         for url in urls:
             url = url[1]
@@ -25,15 +29,18 @@ class fixUIDs(BrowserView):
                 catalog = getToolByName(context, 'portal_catalog')
                 brain = catalog(path=dict(query='/%s' % url))[0]
                 new_url = "resolveuid/%s" % brain.UID
-                ns = s.replace(url, new_url)
-                print "\nOLD:%s" % s
-                print "\nNEW:%s" % ns
-                context.setText(ns)     
+                s = s.replace(url, new_url)
+                count = count + 1
             else:
                 # check URL
-                print "\nKEEP:%s" % s
                 print "\nCHECK:%s" % self.checkURL(url)
-        context.reindexObject()       
+        context.setText(s)
+        context.reindexObject()   
+
+        IStatusMessage(self.request).addStatusMessage(\
+                                                      _("%s URLs fixed."),
+                                                      type="info")
+
 
     def checkURL(self, url):
         """Checks if a URL is accessable.
