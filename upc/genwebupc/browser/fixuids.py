@@ -28,14 +28,18 @@ class fixUIDs(BrowserView):
             if not url.startswith("http://") and not url.startswith("@@"):
                 catalog = getToolByName(context, 'portal_catalog')
                 try:
-                    brain = catalog(path=dict(query='/%s' % url))[0]
+                    query_url = "/economia/economia" + url
+                    brain = catalog(path=dict(query=query_url))[0]
                     new_url = "resolveuid/%s" % brain.UID
                     s = s.replace(url, new_url)
+                    IStatusMessage(self.request).addStatusMessage(\
+                                                                  _("Fix: %s => %s" % (url, new_url)),
+                                                                 type="info")
                     count = count + 1
                 except:
                     IStatusMessage(self.request).addStatusMessage(\
                                                                   _("Not fixed URL: %s" % url),
-                                                                  type="info")                    
+                                                                  type="error")
             elif url.startswith("http://"):
                 # check URL
                 #if not self.checkURL(url):
@@ -43,9 +47,8 @@ class fixUIDs(BrowserView):
                 #                                                  _("URL '%s' was not accessable" % url),
                 #                                                  type="error")
                 pass
-            
         context.setText(s)
-        context.reindexObject()   
+        context.reindexObject()
 
         IStatusMessage(self.request).addStatusMessage(\
                                                       _("%s URLs fixed." % count),
@@ -66,16 +69,16 @@ class fixUIDs(BrowserView):
                 return 0
         except:
             return 0
-                
+  
 class fixAllUIDs(BrowserView):
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
-            
+
     def __call__(self):
         context = aq_inner(self.context)
-        request = self.request 
+        request = self.request
         catalog = getToolByName(context,'portal_catalog')
         brains = catalog.searchResults(Type='Page')
         brains += catalog.searchResults(Type='News Item')
@@ -84,6 +87,7 @@ class fixAllUIDs(BrowserView):
             view = getMultiAdapter((brain.getObject(), request), name="fix-uids")
             view = view.__of__(context)
             view()
-            #print "Fix UIDs for %s" % brain.getURL()
-        return context.REQUEST.RESPONSE.redirect(context.absolute_url())
-        
+            IStatusMessage(self.request).addStatusMessage(\
+                _("Fix UIDs for %s" % brain.getURL()),
+                type="info")
+            return context.REQUEST.RESPONSE.redirect(context.absolute_url())
