@@ -15,19 +15,25 @@ from Products.CMFPlone import PloneMessageFactory as _
 
 from Products.statusmessages.interfaces import IStatusMessage
 
+from BeautifulSoup import BeautifulSoup
+
 class fixUIDs(BrowserView):
 
     def __call__(self):
-        context = aq_inner(self.context)        
+        context = aq_inner(self.context)
         s = context.getRawText()
+        if s == "" or s == "<br />":
+            return context.REQUEST.RESPONSE.redirect(context.absolute_url())
         count = 0
-        urls = re.findall(r'(href|src)=[\'"]?([^\'" >]+)', s)
-        for url in urls:
-            url = url[1]
-            url = url.strip('&quot;')
-            if not url.startswith("http://") and not url.startswith("@@"):
+        soup = BeautifulSoup(s)
+        for tag in soup.findAll('a', href=True):
+            url = tag['href']
+            if url.startswith("http://") or url.startswith("@@") or url.startswith("resolveuid"):
+                pass
+            else:
                 catalog = getToolByName(context, 'portal_catalog')
                 try:
+                    #query_url = '/' + context.absolute_url(relative=True) + url
                     query_url = "/economia/economia" + url
                     brain = catalog(path=dict(query=query_url))[0]
                     new_url = "resolveuid/%s" % brain.UID
@@ -38,15 +44,8 @@ class fixUIDs(BrowserView):
                     count = count + 1
                 except:
                     IStatusMessage(self.request).addStatusMessage(\
-                                                                  _("Not fixed URL: %s" % url),
+                                                                  _("Not fixed: %s (QUERY: %s)" % (url, query_url)),
                                                                   type="error")
-            elif url.startswith("http://"):
-                # check URL
-                #if not self.checkURL(url):
-                #    IStatusMessage(self.request).addStatusMessage(\
-                #                                                  _("URL '%s' was not accessable" % url),
-                #                                                  type="error")
-                pass
         context.setText(s)
         context.reindexObject()
 
@@ -83,11 +82,14 @@ class fixAllUIDs(BrowserView):
         brains = catalog.searchResults(Type='Page')
         brains += catalog.searchResults(Type='News Item')
         brains += catalog.searchResults(Type='Event')
+        print "BRAINS: %s" % len(brains)
         for brain in brains:
             view = getMultiAdapter((brain.getObject(), request), name="fix-uids")
             view = view.__of__(context)
             view()
-            IStatusMessage(self.request).addStatusMessage(\
-                _("Fix UIDs for %s" % brain.getURL()),
+            print "FIX %s" % brain.getURL()
+        print "Fix UIDs finished"
+        IStatusMessage(self.request).addStatusMessage(\
+                _("%s content objects fixed" % len(brains)),
                 type="info")
-            return context.REQUEST.RESPONSE.redirect(context.absolute_url())
+        return context.REQUEST.RESPONSE.redirect(context.absolute_url())
