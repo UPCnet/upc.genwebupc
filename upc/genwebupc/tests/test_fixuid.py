@@ -83,6 +83,14 @@ class TestFixUIDs(PloneTestCase):
         view()
         self.assertEquals(self.doc.getRawText(), '<img src="http://www.upc.edu/img.png" alt="image" />')      
 
+    def testDoNotFixPloneLinks(self):
+        self.doc.setText('<a href="@@mail-controlpanel">Mail Control Panel</a>')
+        self.doc.reindexObject()
+        view = getMultiAdapter((self.doc, self.portal.REQUEST), name="fix-uids")
+        view = view.__of__(self.doc)
+        view()
+        self.assertEquals(self.doc.getRawText(), '<a href="@@mail-controlpanel">Mail Control Panel</a>')
+
     def testCheckExternatlLinks(self):
         self.doc.setText('<a href="http://www.upc.edu/logoPrint.gif">UPC</a>')
         self.doc.reindexObject()
@@ -106,5 +114,23 @@ class TestFixUIDs(PloneTestCase):
         self.failUnless(self.linktarget2_uid in text)
         self.failUnless(self.linktarget3_uid in text)
 
+    def testFixAllUIDs(self):
+        text = '<a href="%s">pressupostos</a>' % self.linktarget1_path
+        self.doc.setText(text)
+        self.newsitem.setText(text)
+        self.event.setText(text)
+        self.doc.reindexObject()
+        self.newsitem.reindexObject()
+        self.event.reindexObject()
+        view = getMultiAdapter((self.portal, self.portal.REQUEST), name="fix-all-uids")
+        view = view.__of__(self.portal)
+        view()
+        self.failIf(self.linktarget1_path in self.doc.getText())
+        self.failIf(self.linktarget1_path in self.newsitem.getText())
+        self.failIf(self.linktarget1_path in self.event.getText())
+        self.failUnless(self.linktarget1_uid in self.doc.getText())
+        self.failUnless(self.linktarget1_uid in self.newsitem.getText())
+        self.failUnless(self.linktarget1_uid in self.event.getText())
+        
 def test_suite():
     return unittest.defaultTestLoader.loadTestsFromName(__name__)

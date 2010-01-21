@@ -25,15 +25,23 @@ class fixUIDs(BrowserView):
         for url in urls:
             url = url[1]
             url = url.strip('&quot;')
-            if not url.startswith("http://"):
+            if not url.startswith("http://") and not url.startswith("@@"):
                 catalog = getToolByName(context, 'portal_catalog')
-                brain = catalog(path=dict(query='/%s' % url))[0]
-                new_url = "resolveuid/%s" % brain.UID
-                s = s.replace(url, new_url)
-                count = count + 1
-            else:
+                try:
+                    brain = catalog(path=dict(query='/%s' % url))[0]
+                    new_url = "resolveuid/%s" % brain.UID
+                    s = s.replace(url, new_url)
+                    count = count + 1
+                except:
+                    IStatusMessage(self.request).addStatusMessage(\
+                                                                  _("Not fixed URL: %s" % url),
+                                                                  type="error")                    
+            elif url.startswith("http://"):
                 # check URL
-                print "\nCHECK:%s" % self.checkURL(url)
+                if not self.checkURL(url):
+                    IStatusMessage(self.request).addStatusMessage(\
+                                                                  _("URL '%s' was not accessable" % url),
+                                                                  type="error")
         context.setText(s)
         context.reindexObject()   
 
@@ -65,10 +73,12 @@ class fixAllUIDs(BrowserView):
         context = aq_inner(self.context)
         request = self.request 
         catalog = getToolByName(context,'portal_catalog')
-        brains = catalog.searchResults(Type='Document')
+        brains = catalog.searchResults(Type='Page')
+        brains += catalog.searchResults(Type='News Item')
+        brains += catalog.searchResults(Type='Event')
         for brain in brains:
-            brain.getObject().restrictedTraverse("@@fix-uids")
-            print "Fix UIDs for %s" % brain.getURL()
-            #view = getMultiAdapter((brain.getObject(), request), name="fix-uids")
-            #view = view.__of__(context)
-            #self.failUnless(view())        
+            view = getMultiAdapter((brain.getObject(), request), name="fix-uids")
+            view = view.__of__(context)
+            view()
+            #print "Fix UIDs for %s" % brain.getURL()
+        
