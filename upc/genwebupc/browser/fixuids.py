@@ -35,7 +35,7 @@ class fixUIDs(BrowserView):
                 except:
                     IStatusMessage(self.request).addStatusMessage(\
                                                                   _("Not fixed URL: %s" % url),
-                                                                  type="error")                    
+                                                                  type="info")                    
             elif url.startswith("http://"):
                 # check URL
                 if not self.checkURL(url):
@@ -46,9 +46,9 @@ class fixUIDs(BrowserView):
         context.reindexObject()   
 
         IStatusMessage(self.request).addStatusMessage(\
-                                                      _("%s URLs fixed."),
+                                                      _("%s URLs fixed." % count),
                                                       type="info")
-
+        return context.REQUEST.RESPONSE.redirect(context.absolute_url())
 
     def checkURL(self, url):
         """Checks if a URL is accessable.
@@ -81,4 +81,5 @@ class fixAllUIDs(BrowserView):
             view = view.__of__(context)
             view()
             #print "Fix UIDs for %s" % brain.getURL()
+        return context.REQUEST.RESPONSE.redirect(context.absolute_url())
         
