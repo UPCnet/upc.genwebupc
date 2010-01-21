@@ -38,10 +38,12 @@ class fixUIDs(BrowserView):
                                                                   type="info")                    
             elif url.startswith("http://"):
                 # check URL
-                if not self.checkURL(url):
-                    IStatusMessage(self.request).addStatusMessage(\
-                                                                  _("URL '%s' was not accessable" % url),
-                                                                  type="error")
+                #if not self.checkURL(url):
+                #    IStatusMessage(self.request).addStatusMessage(\
+                #                                                  _("URL '%s' was not accessable" % url),
+                #                                                  type="error")
+                pass
+            
         context.setText(s)
         context.reindexObject()   
 
@@ -54,12 +56,14 @@ class fixUIDs(BrowserView):
         """Checks if a URL is accessable.
         """
         try:
-            p = urlparse(url)
-            h = HTTP(p[1])
-            h.putrequest('HEAD', p[2])
+            purl = urlparse(url)
+            h = HTTP(purl[1])
+            h.putrequest('HEAD', purl[2])
             h.endheaders()
-            if h.getreply()[0] == 200: return 1
-            else: return 0
+            if h.getreply()[0] == 200: 
+                return 1
+            else:
+                return 0
         except:
             return 0
                 
