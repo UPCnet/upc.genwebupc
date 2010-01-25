@@ -1,4 +1,4 @@
-from Acquisition import aq_inner
+from Acquisition import aq_inner, aq_parent
 
 import re
 
@@ -26,15 +26,24 @@ class fixUIDs(BrowserView):
             return context.REQUEST.RESPONSE.redirect(context.absolute_url())
         count = 0
         soup = BeautifulSoup(s)
-        for tag in soup.findAll('a', href=True):
-            url = tag['href']
-            if url.startswith("http://") or url.startswith("@@") or url.startswith("resolveuid"):
+        for tag in soup.findAll(['a', 'img']):
+            if tag.has_key('href'):
+                url = tag['href']
+            elif tag.has_key('src'):
+                url = tag['src']
+            else:
+                pass
+            if url.startswith("http://") or url.startswith("@@") or url.startswith("resolveuid") or url.startswith("plone_") or url.startswith("prefs_"):
                 pass
             else:
                 catalog = getToolByName(context, 'portal_catalog')
                 try:
                     #query_url = '/' + context.absolute_url(relative=True) + url
-                    query_url = "/economia/economia" + url
+                    instance = aq_parent(self).id
+                    query_url = "/%s/%s%s" % (instance, instance, url)
+                    if self.request['URL'] == 'http://nohost':
+                        # For tests, we don't have a mount point
+                        query_url = url
                     brain = catalog(path=dict(query=query_url))[0]
                     new_url = "resolveuid/%s" % brain.UID
                     s = s.replace(url, new_url)
