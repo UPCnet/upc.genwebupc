@@ -32,7 +32,7 @@ class fixUIDs(BrowserView):
             elif tag.has_key('src'):
                 url = tag['src']
             else:
-                pass
+                continue
             if url.startswith("http://") or url.startswith("@@") or url.startswith("resolveuid") or url.startswith("plone_") or url.startswith("prefs_"):
                 pass
             else:
