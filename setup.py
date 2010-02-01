@@ -53,7 +53,9 @@ setup(name='upc.genwebupc',
           'Products.TemplateFields',
           'Products.TALESField',
           'Products.PloneSurvey',
+          'Products.ZMySQLDA',
           'archetypes.schemaextender',
+          'BeautifulSoup',
       ],
       entry_points="""
       # -*- Entry points: -*-
