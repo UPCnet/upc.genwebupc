@@ -1,9 +1,8 @@
-Changelog for upc.genwebupc
+Changelog
+=========
 
-    (name of developer listed in brackets)
+3.2.1
+-----
 
-upc.genwebupc - 0.1 Unreleased
-
-    - Initial package structure.
-      [zopeskel]
-
+- Updates de traduccions
+- Update de rolemaps

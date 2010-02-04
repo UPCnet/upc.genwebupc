@@ -16,6 +16,10 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: upc.genwebupc\n"
 
+#. "genweb_loginlocal"
+msgid "genweb_loginlocal"
+msgstr "Identifícate sólo en esta web"
+
 #. "genweb-single-sign-on"
 msgid "genweb-single-sign-on"
 msgstr "Entra con la ${genweb-log-in-title}"
