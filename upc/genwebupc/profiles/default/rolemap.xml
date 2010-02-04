@@ -433,5 +433,17 @@
     <permission name="windowZ: Add Window" acquire="True">
       <role name="Contributor"/>
     </permission>
+    <permission name="PloneFormGen: Add Mailers" acquire="False">
+      <role name="Editor"/>
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="WebMaster"/>
+    </permission>
+        <permission name="PloneFormGen: Edit Mail Addresses" acquire="False">
+      <role name="Editor"/>
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="WebMaster"/>
+    </permission>
   </permissions>
 </rolemap>
