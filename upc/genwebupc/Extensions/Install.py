@@ -1,7 +1,25 @@
 import transaction
 from Products.CMFCore.utils import getToolByName
 
-PRODUCT_DEPENDENCIES = ('plone.app.blob','upc.genweb.banners','upc.genweb.logosfooter','Collage','FCKeditor','PloneSurvey','PlonePopoll','Ploneboard','Poi','upcnet.simpleTask','upc.genweb.meetings','upc.permalink','AJAXAddRemoveWidget','windowZ','PloneFormGen','upcnet.cas','upc.genwebupctheme','LinguaPlone',)
+PRODUCT_DEPENDENCIES = ('upc.genweb.banners',
+                        'upc.genweb.logosfooter',
+                        'upc.genweb.meetings',
+                        'upc.genwebupctheme',
+                        'upc.permalink',
+                        'upcnet.cas',
+                        'upcnet.simpleTask',
+                        'AJAXAddRemoveWidget',
+                        'Collage',
+                        'FCKeditor',
+                        'PloneSurvey',
+                        'PlonePopoll',
+                        'Ploneboard',
+                        'Products.PloneFormGen',
+                        'Products.LinguaPlone',
+                        'Poi',
+                        'plone.app.blob',
+                        'windowZ',
+                        )
                         
 EXTENSION_PROFILES = ('upc.genwebupc:default',)
 
