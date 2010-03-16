@@ -39,8 +39,9 @@ class fixUIDs(BrowserView):
                 catalog = getToolByName(context, 'portal_catalog')
                 try:
                     #query_url = '/' + context.absolute_url(relative=True) + url
-                    instance = aq_parent(self).id
-                    query_url = "/%s/%s%s" % (instance, instance, url)
+                    instance = aq_parent(self)
+                    mountpoint = aq_parent(instance)
+                    query_url = "/%s/%s%s" % (mountpoint.id, instance.id, url)
                     if self.request['URL'] == 'http://nohost':
                         # For tests, we don't have a mount point
                         query_url = url
