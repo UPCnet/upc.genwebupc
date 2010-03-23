@@ -17,7 +17,8 @@
     <include package="upc.permalink" />
     <include package="upcnet.simpleTask" />
     <include package="upcnet.cas" />
-
+    <include package="upc.remotecontrol" />
+    
     <include package=".content" />
     <include package="Products.GenericSetup" file="meta.zcml" />
     
@@ -35,6 +36,14 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+    <genericsetup:registerProfile
+      name="v321tov322"
+      title="Migration v321tov322"
+      description="GenWeb UPC migration 3.2.1 to 3.2.2"
+      directory="profiles/v321tov322"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+      
     <adapter factory=".content.extender.PoiIssueSchemaModifier" />
     <adapter factory=".content.extender.CollageSchemaModifier" />
     <adapter factory=".content.extender.ATLinkSchemaModifier" />
