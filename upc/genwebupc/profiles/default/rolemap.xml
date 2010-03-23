@@ -433,19 +433,64 @@
     <permission name="windowZ: Add Window" acquire="True">
       <role name="Contributor"/>
     </permission>
-    <permission name="PloneFormGen: Add Mailers" acquire="False">
+    <permission name="PloneFormGen: Add Content"
+                acquire="True">
       <role name="Editor"/>
       <role name="Manager"/>
       <role name="Owner"/>
       <role name="WebMaster"/>
     </permission>
-    <permission name="PloneFormGen: Edit Mail Addresses" acquire="False">
+    <permission name="PloneFormGen: Add Custom Scripts"
+                acquire="True">
       <role name="Editor"/>
       <role name="Manager"/>
       <role name="Owner"/>
       <role name="WebMaster"/>
     </permission>
-    <permission name="PloneFormGen: Download Saved Input" acquire="False">
+    <permission name="PloneFormGen: Add Data Savers"
+                acquire="True">
+      <role name="Editor"/>
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="WebMaster"/>
+    </permission>
+    <permission name="PloneFormGen: Add Mailers"
+                acquire="True">
+      <role name="Editor"/>
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="WebMaster"/>
+    </permission>
+    <permission name="PloneFormGen: Download Saved Input"
+                acquire="True">
+      <role name="Editor"/>
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="WebMaster"/>
+    </permission>
+    <permission name="PloneFormGen: Edit Advanced Fields"
+                acquire="True">
+      <role name="Editor"/>
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="WebMaster"/>
+    </permission>
+    <permission name="PloneFormGen: Edit Mail Addresses"
+                acquire="True">
+      <role name="Editor"/>
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="WebMaster"/>
+    </permission>
+    <permission name="PloneFormGen: Edit Python Fields"
+                acquire="True">
+      <role name="Editor"/>
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="WebMaster"/>
+    </permission>
+    <permission name="PloneFormGen: Edit TALES Fields"
+                acquire="True">
       <role name="Editor"/>
       <role name="Manager"/>
       <role name="Owner"/>
