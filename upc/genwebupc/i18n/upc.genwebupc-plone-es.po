@@ -18,7 +18,7 @@ msgstr ""
 
 #. Default: "You are here:"
 msgid "genweb-you_are_here"
-msgstr "Está aquí:"
+msgstr "Está en:"
 
 msgid "Extended view"
 msgstr "Vista extendida"
