@@ -6,6 +6,7 @@
     i18n_domain="upc.genwebupc">
 
     <include package=".browser" />
+    <include package=".content" />
        
     <include package="upc.genwebupctheme" />
     <include package="upc.genweb.banners" />
@@ -14,12 +15,12 @@
     <include package="upc.genweb.descriptorTIC" />
     <include package="upc.genweb.kbpuc" />
     <include package="upc.genweb.objectiusCG" />
+    <include package="upc.genweb.serveis" />
     <include package="upc.permalink" />
     <include package="upcnet.simpleTask" />
     <include package="upcnet.cas" />
     <include package="upc.remotecontrol" />
     
-    <include package=".content" />
     <include package="Products.GenericSetup" file="meta.zcml" />
     
     <include package="archetypes.schemaextender" />
