@@ -290,3 +290,6 @@ msgstr "Etiqueta sección"
 
 msgid "descripcio_text_seccio"
 msgstr "Es como se vera la sección"
+
+msgid "Top_of_page"
+msgstr "Arriba"

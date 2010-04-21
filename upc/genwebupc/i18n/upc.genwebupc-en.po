@@ -76,3 +76,6 @@ msgstr "Label section"
 msgid "descripcio_text_seccio"
 msgstr "Label section display"
 
+msgid "Top_of_page"
+msgstr "Top of page"
+

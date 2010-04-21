@@ -294,3 +294,6 @@ msgstr "Etiqueta Secció"
 
 msgid "descripcio_text_seccio"
 msgstr "És com es veurà la secció"
+
+msgid "Top_of_page"
+msgstr "Amunt"
