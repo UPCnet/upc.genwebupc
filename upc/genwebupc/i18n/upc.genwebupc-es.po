@@ -296,3 +296,18 @@ msgstr "Arriba"
 
 msgid "Planol_UPC"
 msgstr "Plano de acceso a la UPC"
+
+msgid "sendto_accio"
+msgstr "Envía"
+
+msgid "print_accio"
+msgstr "Imprimir"
+
+msgid "permalink_accio"
+msgstr "Enlace permanente"
+
+msgid "rss_accio"
+msgstr "Rss"
+
+msgid "submitGo"
+msgstr "Buscar"

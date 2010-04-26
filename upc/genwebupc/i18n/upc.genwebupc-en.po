@@ -81,3 +81,30 @@ msgstr "Top of page"
 
 msgid "Planol_UPC"
 msgstr "Access map to UPC"
+
+msgid "sendto_accio"
+msgstr "Send"
+
+msgid "print_accio"
+msgstr "Print"
+
+msgid "permalink_accio"
+msgstr "Permalink"
+
+msgid "rss_accio"
+msgstr "Rss"
+
+msgid "submitGo"
+msgstr "Search"
+
+#. "genweb-accesarrel"
+msgid "genweb-accesarrel"
+msgstr "Root folder"
+
+#. "genweb-preferencies"
+msgid "genweb-preferencies"
+msgstr "Preferences"
+
+#. "genweb-ajuda"
+msgid "genweb-ajuda"
+msgstr "Help"

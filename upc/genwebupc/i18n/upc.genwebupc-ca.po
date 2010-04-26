@@ -300,3 +300,18 @@ msgstr "Amunt"
 
 msgid "Planol_UPC"
 msgstr "Plànol d'accés a la UPC"
+
+msgid "sendto_accio"
+msgstr "Envia"
+
+msgid "print_accio"
+msgstr "Imprimeix"
+
+msgid "permalink_accio"
+msgstr "Enllaç permanent"
+
+msgid "rss_accio"
+msgstr "Rss"
+
+msgid "submitGo"
+msgstr "Cerca
