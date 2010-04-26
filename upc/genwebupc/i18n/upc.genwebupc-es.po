@@ -293,3 +293,6 @@ msgstr "Es como se vera la sección"
 
 msgid "Top_of_page"
 msgstr "Arriba"
+
+msgid "Planol_UPC"
+msgstr "Plano de acceso a la UPC"

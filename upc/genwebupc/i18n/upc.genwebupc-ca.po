@@ -297,3 +297,6 @@ msgstr "És com es veurà la secció"
 
 msgid "Top_of_page"
 msgstr "Amunt"
+
+msgid "Planol_UPC"
+msgstr "Plànol d'accés a la UPC"

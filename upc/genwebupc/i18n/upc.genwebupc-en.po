@@ -79,3 +79,5 @@ msgstr "Label section display"
 msgid "Top_of_page"
 msgstr "Top of page"
 
+msgid "Planol_UPC"
+msgstr "Access map to UPC"
