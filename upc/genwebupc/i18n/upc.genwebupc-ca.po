@@ -314,4 +314,8 @@ msgid "rss_accio"
 msgstr "Rss"
 
 msgid "submitGo"
-msgstr "Cerca
+msgstr "Cerca"
+
+msgid "obrir_link_finestra_nova"
+msgstr "Obriu l'enllaç en una finestra nova"
+
