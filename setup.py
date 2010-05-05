@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '3.2.1'
+version = '3.2'
 
 setup(name='upc.genwebupc',
       version=version,
@@ -58,6 +58,7 @@ setup(name='upc.genwebupc',
           'Products.ZMySQLDA',
           'archetypes.schemaextender',
           'BeautifulSoup',
+          'zope.i18nmessageid',
       ],
       entry_points="""
       # -*- Entry points: -*-
