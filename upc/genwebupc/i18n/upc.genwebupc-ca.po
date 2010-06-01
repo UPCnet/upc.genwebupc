@@ -284,7 +284,7 @@ msgid "cerca"
 msgstr "Cerca..."
 
 msgid "cerca_google"
-msgstr "Cerca Google..."
+msgstr "Cerca..."
 
 msgid "cerca_intranet"
 msgstr "Cerca a la Intranet"
@@ -318,4 +318,3 @@ msgstr "Cerca"
 
 msgid "obrir_link_finestra_nova"
 msgstr "Obriu l'enllaç en una finestra nova"
-
