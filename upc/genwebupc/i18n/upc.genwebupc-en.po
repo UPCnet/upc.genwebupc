@@ -68,7 +68,7 @@ msgid "cerca_google"
 msgstr "Search..."
 
 msgid "cerca_intranet"
-msgstr "Search the Intranet"
+msgstr "Intranet Search"
 
 msgid "label_text_seccio"
 msgstr "Label section"
