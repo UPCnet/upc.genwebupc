@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '3.3'
+version = '3.3.1'
 
 setup(name='upc.genwebupc',
       version=version,
@@ -59,6 +59,7 @@ setup(name='upc.genwebupc',
           'archetypes.schemaextender',
           'BeautifulSoup',
           'zope.i18nmessageid',
+          'upc.genweb.recaptcha',          
       ],
       entry_points="""
       # -*- Entry points: -*-
