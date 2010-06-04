@@ -20,7 +20,8 @@
     <include package="upcnet.simpleTask" />
     <include package="upcnet.cas" />
     <include package="upc.remotecontrol" />
-    
+    <include package="upc.genweb.recaptcha" />
+     
     <include package="Products.GenericSetup" file="meta.zcml" />
     
     <include package="archetypes.schemaextender" />
