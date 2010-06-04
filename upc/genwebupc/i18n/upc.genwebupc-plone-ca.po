@@ -1,11 +1,11 @@
 # Gettext Message File for GenWeb.
 # Victor Fernandez de Alba (UPCnet)
 msgid ""
-msgstr "" 
+msgstr ""
 "Project-Id-Version: GenWebUPC\n"
 "POT-Creation-Date: 2008-11-20 09:40\n"
-"PO-Revision-Date: 2008-11-20 10:00\n"
-"Last-Translator: Víctor Fernández de Alba <victor.fernandez@upcnet.es>\n"
+"PO-Revision-Date: 2010-06-04 11:35+0100\n"
+"Last-Translator: Roberto Diaz <roberto.diaz@upcnet.es>\n"
 "Language-Team: Plone Team@UPCnet <plone.team@upcnet.es>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -244,14 +244,13 @@ msgid "genweb-no_puc_entrar"
 msgstr "No puc entrar"
 
 # Des d'aqui, les traduccions dels CT que falten, a extingir...
-
 # Default: Survey
 #: ../content/Survey.py
 msgid "Survey"
 msgstr "Qüestionari"
 
-#: ../content/Survey.py
 # Default: You can add questions to surveys.
+#: ../content/Survey.py
 msgid "You can add questions to surveys."
 msgstr "Un qüestionari en el que es poden afegir preguntes."
 
@@ -279,3 +278,4 @@ msgstr "Una carpeta que pot contenir camps que conformen un formulari."
 
 msgid "A Window is a content type that shows one URL inside an iFrame in a page of the site."
 msgstr "Un Window és un tipus en el que es visualitza el contingut d'una URL externa."
+
