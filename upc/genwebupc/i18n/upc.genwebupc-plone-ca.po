@@ -279,3 +279,11 @@ msgstr "Una carpeta que pot contenir camps que conformen un formulari."
 msgid "A Window is a content type that shows one URL inside an iFrame in a page of the site."
 msgstr "Un Window és un tipus en el que es visualitza el contingut d'una URL externa."
 
+msgid "Type the code"
+msgstr "Escriu les dues paraules:"
+
+msgid "Type the code from the picture shown below"
+msgstr "Si us plau, escriviu el text mostrat a la imatge inferior"
+
+msgid "Send"
+msgstr "envia"

@@ -23,3 +23,11 @@ msgstr "A structural container which can display its elements in various layouts
 msgid "retiraaesborrany"
 msgstr "Retract to draft"
 
+msgid "Type the code"
+msgstr "Type the code:"
+
+msgid "Type the code from the picture shown below"
+msgstr "Type the code from the picture shown below"
+
+msgid "Send"
+msgstr "send"

@@ -276,3 +276,11 @@ msgstr "Formulario"
 msgid "A folder which can contain form fields."
 msgstr "Una carpeta que puede contener campos que conforman un formulario."
 
+msgid "Type the code"
+msgstr "Escribe las dos palabras:"
+
+msgid "Type the code from the picture shown below"
+msgstr "Por favor, escribe el texto mostrado en la imagen inferior"
+
+msgid "Send"
+msgstr "envía"

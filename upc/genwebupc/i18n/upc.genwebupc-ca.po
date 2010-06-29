@@ -317,4 +317,3 @@ msgstr "Cerca"
 
 msgid "obrir_link_finestra_nova"
 msgstr "Obriu l'enllaç en una finestra nova"
-
