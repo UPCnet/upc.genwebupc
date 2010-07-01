@@ -20,3 +20,6 @@ msgstr ""
 msgid "genweb-you_are_here"
 msgstr "您位于:"
 
+msgid "inici"
+msgstr "首页"
+ 
