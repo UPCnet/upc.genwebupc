@@ -312,4 +312,4 @@ msgid "submitGo"
 msgstr "Buscar"
 
 msgid "obrir_link_finestra_nova"
-msgstr "Abrir el enlace en una ventana nueva"
+msgstr "(abre en ventana nueva)"

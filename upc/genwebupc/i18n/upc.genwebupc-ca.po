@@ -316,4 +316,4 @@ msgid "submitGo"
 msgstr "Cerca"
 
 msgid "obrir_link_finestra_nova"
-msgstr "Obriu l'enllaç en una finestra nova"
+msgstr "(obriu en una finestra nova)"
