@@ -69,11 +69,11 @@ def setupVarious(context):
     except: 
             pass
 
-    try:
+    #try:
             # Fora el sistema de cookies que fan buscar al LDAP cn=*
-            portal.acl_users.manage_delObjects('credentials_cookie_auth')
-    except:
-            pass
+    #        portal.acl_users.manage_delObjects('credentials_cookie_auth')
+    #except:
+    #        pass
 
     plugin = portal.acl_users['ldapUPC']
     plugin.ZCacheable_setManagerId('RAMCache')
