@@ -65,7 +65,9 @@ def setupVarious(context):
 
             # Move the ldapUPC to the top of the active plugins. 
             # Otherwise member.getProperty('email') won't work properly.
-            portal.acl_users.plugins.manage_movePluginsUp('IPropertiesPlugin', ['ldapUPC'], context.REQUEST.RESPONSE)
+            from Products.PluggableAuthService.interfaces.plugins import IPropertiesPlugin
+            portal.acl_users.plugins.movePluginsUp(IPropertiesPlugin, ['ldapUPC'])
+            #portal.acl_users.plugins.manage_movePluginsUp('IPropertiesPlugin', ['ldapUPC'], context.REQUEST.RESPONSE)
     except: 
             pass
 
