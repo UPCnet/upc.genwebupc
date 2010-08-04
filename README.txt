@@ -2,7 +2,7 @@ upc.genwebupc
 =============
 
 Introducció
------------
+--------------------
 
 Aquest és el producte Plone que conté tots els elements funcionals de Genweb UPC.
 
@@ -14,10 +14,11 @@ També es defineix els scripts de generació de contingut per defecte així com 
 En cas d'haver necessitat fer "monkeypatching" d'algun producte addicional que formi part de genweb també s'han agrupat en el fitxer patches.py
 
 Instal·lació de Genweb
-----------------------
+-----------------------------------
 
 XXX ToDO.
 
 - Code repository: https://dev.genweb.upc.edu/svn/core
 - Questions and comments to plone.team(at)upcnet.es
 - Report bugs at http://dev.genweb.upc.edu/trac/core
+
