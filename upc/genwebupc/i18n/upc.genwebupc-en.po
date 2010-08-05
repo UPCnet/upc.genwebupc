@@ -52,6 +52,15 @@ msgstr ""
 msgid "Activate"
 msgstr ""
 
+msgid "genweb-sobre_aquest_web"
+msgstr "About this web"
+
+msgid "genweb-rss"
+msgstr "RSS"
+
+msgid "genweb-accessibility"
+msgstr "Accessibility"
+
 msgid "genweb-actualitat"
 msgstr "UPC Today"
 
