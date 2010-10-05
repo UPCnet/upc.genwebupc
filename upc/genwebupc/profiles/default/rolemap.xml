@@ -200,6 +200,12 @@
       <role name="Owner"/>
       <role name="Reviewer"/>
     </permission>
+    <permission name="Change portal topics" acquire="True">
+      <role name="Editor"/>
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="WebMaster"/>
+    </permission>
     <permission name="Content rules: Manage rules"
                 acquire="False">
       <role name="Manager"/>
