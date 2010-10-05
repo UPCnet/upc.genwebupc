@@ -1,6 +1,12 @@
 Changelog
 ===========
 
+3.3.4 (dev)(2010-10-05)
+------------------
+
+* Afegit permís per editar les col·leccions.
+
+
 3.3.3 (2010-09-02)
 ------------------
 
