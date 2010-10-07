@@ -20,6 +20,48 @@
 	    <property name="defaultView">True</property>
 	    <property name="templates">
 	     <element value="folder_contents"/>
+	    </property>
+	    <property name="purgeExpression"></property>
+	    <property
+	       name="varyExpression">python: rule.portal_cache_settings.getVaryHeader()</property>
+	    <property
+	       name="lastModifiedExpression">python:object.modified()</property>
+	    <property name="headerSetIdExpression"></property>
+	    <property name="headerSetIdAuth">cache-with-etag</property>
+	    <property name="headerSetIdAnon">cache-in-proxy-5-minutes</property>
+	    <property name="predicateExpression"></property>
+	    <property name="cacheStop">
+	     <element value="portal_status_message"/>
+	     <element value="statusmessages"/>
+	     <element value="SearchableText"/>
+	    </property>
+	    <property
+	       name="etagExpression">python:request.get('__cp',None) is not None</property>
+	    <property name="etagTimeout">3600</property>
+	    <property name="etagRequestValues">
+	     <element value="b_start"/>
+	     <element value="month"/>
+	     <element value="year"/>
+	     <element value="orig_query"/>
+	    </property>
+	    <property name="etagComponents">
+	     <element value="member"/>
+	     <element value="catalog_modified"/>
+	     <element value="language"/>
+	     <element value="gzip"/>
+	     <element value="skin"/>
+	     <element value="object_locked"/>
+	    </property>
+	    </object>
+	    <object name="homepage" portal_type="ContentCacheRule">
+	    <property name="title">Homepage</property>
+	    <property
+	       name="description">Rule for view homepage.  Anonymous users are served pages from memory, not the proxy cache (because we can't easily purge container views when they change since container views depend on all of their contained objects, and contained objects do not necessarily purge their containers' views when they change).  Responses for authenticated users are not cached in memory or proxy (because caching personalized pages is inefficient) but an ETag is added to enable proper 304 responses.  Member ID is used in the ETag because content is personalized; the time of the last catalog change is included so that the contents and the navigation tree stays up to date.</property>
+	    <property name="contentTypes">
+	     <element value="Plone Site"/>
+	    </property>
+	    <property name="defaultView">True</property>
+	    <property name="templates">
 	     <element value="homepage"/>
 	    </property>
 	    <property name="purgeExpression"></property>
