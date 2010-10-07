@@ -1,11 +1,12 @@
 Changelog
 ===========
 
-3.3.4 (dev)(2010-10-05)
+3.3.4 (2010-10-07)
 ------------------
 
+* Correccions de bugs varis, inclosa la regresio de la traducció del "you are here"
+* Nou perfil de GS per a l'aplicació de canvis necessaris en l'actuació d'octubre
 * Afegit permís per editar les col·leccions.
-
 
 3.3.3 (2010-09-02)
 ------------------
