@@ -39,10 +39,10 @@
       />
 
     <genericsetup:registerProfile
-      name="v321tov322"
-      title="Migration v321tov322"
-      description="GenWeb UPC migration 3.2.1 to 3.2.2"
-      directory="profiles/v321tov322"
+      name="v333tov334"
+      title="Migration v333tov334"
+      description="GenWeb UPC migration 3.3.3 to 3.3.4"
+      directory="profiles/v333tov334"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
       

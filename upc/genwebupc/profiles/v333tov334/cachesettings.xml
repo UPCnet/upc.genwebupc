@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<object name="portal_cache_settings" portal_type="CacheTool">
+ <property name="activePolicyId">with-caching-proxy</property>
+ <property name="squidURLs">
+     <element value="http://sylar.upc.es:8106"/>
+     <element value="http://sylar.upc.es:8107"/>
+ </property>
+ <object name="with-caching-proxy" portal_type="CachePolicy">
+    <object name="rules" portal_type="RuleFolder">
+        <object name="plone-containers" portal_type="ContentCacheRule">
+	    <property name="title">Containers</property>
+	    <property
+	       name="description">Rule for views of Plone containers.  Anonymous users are served pages from memory, not the proxy cache (because we can't easily purge container views when they change since container views depend on all of their contained objects, and contained objects do not necessarily purge their containers' views when they change).  Responses for authenticated users are not cached in memory or proxy (because caching personalized pages is inefficient) but an ETag is added to enable proper 304 responses.  Member ID is used in the ETag because content is personalized; the time of the last catalog change is included so that the contents and the navigation tree stays up to date.</property>
+	    <property name="contentTypes">
+	     <element value="Topic"/>
+	     <element value="Folder"/>
+	     <element value="Plone Site"/>
+	     <element value="Large Plone Folder"/>
+	    </property>
+	    <property name="defaultView">True</property>
+	    <property name="templates">
+	     <element value="folder_contents"/>
+	     <element value="homepage"/>
+	    </property>
+	    <property name="purgeExpression"></property>
+	    <property
+	       name="varyExpression">python: rule.portal_cache_settings.getVaryHeader()</property>
+	    <property
+	       name="lastModifiedExpression">python:object.modified()</property>
+	    <property name="headerSetIdExpression"></property>
+	    <property name="headerSetIdAuth">cache-with-etag</property>
+	    <property name="headerSetIdAnon">cache-in-proxy-5-minutes</property>
+	    <property name="predicateExpression"></property>
+	    <property name="cacheStop">
+	     <element value="portal_status_message"/>
+	     <element value="statusmessages"/>
+	     <element value="SearchableText"/>
+	    </property>
+	    <property
+	       name="etagExpression">python:request.get('__cp',None) is not None</property>
+	    <property name="etagTimeout">3600</property>
+	    <property name="etagRequestValues">
+	     <element value="b_start"/>
+	     <element value="month"/>
+	     <element value="year"/>
+	     <element value="orig_query"/>
+	    </property>
+	    <property name="etagComponents">
+	     <element value="member"/>
+	     <element value="catalog_modified"/>
+	     <element value="language"/>
+	     <element value="gzip"/>
+	     <element value="skin"/>
+	     <element value="object_locked"/>
+	    </property>
+	    </object>
+    </object>
+    <object name="headersets" portal_type="HeaderSetFolder">
+        <object name="cache-in-proxy-5-minutes" portal_type="HeaderSet">
+	    <property name="title">Cache in proxy cache for 5 minutes</property>
+	    <property
+	       name="description">Should be cached in both proxy and browser. Proxy should revalidate after 5 minutes. Browser should revalidate immediately.</property>
+	    <property name="pageCache">False</property>
+	    <property name="lastModified">yes</property>
+	    <property name="etag">False</property>
+	    <property name="enable304s">False</property>
+	    <property name="vary">True</property>
+	    <property name="maxAge">0</property>
+	    <property name="sMaxAge">300</property>
+	    <property name="mustRevalidate">True</property>
+	    <property name="proxyRevalidate">False</property>
+	    <property name="noCache">False</property>
+	    <property name="noStore">False</property>
+	    <property name="public">False</property>
+	    <property name="private">False</property>
+	    <property name="noTransform">False</property>
+        </object>
+    </object>
+ </object>
+</object>
