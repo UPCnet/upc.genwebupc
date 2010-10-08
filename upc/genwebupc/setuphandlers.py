@@ -62,7 +62,10 @@ def setupVarious(context):
 
             plugin.manage_activateInterfaces(['IGroupEnumerationPlugin','IGroupsPlugin','IPropertiesPlugin','IGroupIntrospection','IAuthenticationPlugin','IRolesPlugin','IUserEnumerationPlugin','IRoleEnumerationPlugin'])
             LDAPUserFolder.manage_addServer(portal.acl_users.ldapUPC.acl_users, "han.upc.es", '636', use_ssl=1)
-
+            
+            LDAPUserFolder.manage_deleteLDAPSchemaItems(portal.acl_users.ldapUPC.acl_users,ldap_names = ['sn'], REQUEST = None)
+            LDAPUserFolder.manage_addLDAPSchemaItem(portal.acl_users.ldapUPC.acl_users,ldap_name='sn', friendly_name='Last Name', public_name='name')
+           
             # Move the ldapUPC to the top of the active plugins. 
             # Otherwise member.getProperty('email') won't work properly.
             from Products.PluggableAuthService.interfaces.plugins import IPropertiesPlugin
