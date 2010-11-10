@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<componentregistry>
+ <adapters>
+  <adapter name="plone.dashboard1"
+     factory="plone.portlets.manager.plone.dashboard1"
+     for_="zope.interface.Interface
+           zope.publisher.interfaces.browser.IBrowserRequest
+           zope.publisher.interfaces.browser.IBrowserView"
+     provides="plone.portlets.interfaces.IPortletManagerRenderer"/>
+  <adapter name="plone.dashboard2"
+     factory="plone.portlets.manager.plone.dashboard2"
+     for_="zope.interface.Interface
+           zope.publisher.interfaces.browser.IBrowserRequest
+           zope.publisher.interfaces.browser.IBrowserView"
+     provides="plone.portlets.interfaces.IPortletManagerRenderer"/>
+  <adapter name="plone.dashboard3"
+     factory="plone.portlets.manager.plone.dashboard3"
+     for_="zope.interface.Interface
+           zope.publisher.interfaces.browser.IBrowserRequest
+           zope.publisher.interfaces.browser.IBrowserView"
+     provides="plone.portlets.interfaces.IPortletManagerRenderer"/>
+  <adapter name="plone.dashboard4"
+     factory="plone.portlets.manager.plone.dashboard4"
+     for_="zope.interface.Interface
+           zope.publisher.interfaces.browser.IBrowserRequest
+           zope.publisher.interfaces.browser.IBrowserView"
+     provides="plone.portlets.interfaces.IPortletManagerRenderer"/>
+  <adapter name="plone.leftcolumn"
+     factory="plone.portlets.manager.plone.leftcolumn"
+     for_="zope.interface.Interface
+           zope.publisher.interfaces.browser.IBrowserRequest
+           zope.publisher.interfaces.browser.IBrowserView"
+     provides="plone.portlets.interfaces.IPortletManagerRenderer"/>
+  <adapter name="plone.rightcolumn"
+     factory="plone.portlets.manager.plone.rightcolumn"
+     for_="zope.interface.Interface
+           zope.publisher.interfaces.browser.IBrowserRequest
+           zope.publisher.interfaces.browser.IBrowserView"
+     provides="plone.portlets.interfaces.IPortletManagerRenderer"/>
+ </adapters>
+ <utilities>
+  <utility interface="Products.ATContentTypes.interface.interfaces.IATCTTool"
+     object="portal_atct"/>
+  <utility interface="Products.CMFActionIcons.interfaces.IActionIconsTool"
+     object="portal_actionicons"/>
+  <utility interface="Products.CMFCore.interfaces.IDiscussionTool"
+     object="portal_discussion"/>
+  <utility interface="Products.CMFCore.interfaces.IMetadataTool"
+     object="portal_metadata"/>
+  <utility interface="Products.CMFCore.interfaces.IPropertiesTool"
+     object="portal_properties"/>
+  <utility interface="Products.CMFCore.interfaces.ISiteRoot" object=""/>
+  <utility interface="Products.CMFCore.interfaces.ISyndicationTool"
+     object="portal_syndication"/>
+  <utility interface="Products.CMFCore.interfaces.IUndoTool"
+     object="portal_undo"/>
+  <utility interface="Products.CMFDiffTool.interfaces.IDiffTool"
+     object="portal_diff"/>
+  <utility interface="Products.CMFPlone.interfaces.interface.IInterfaceTool"
+     object="portal_interface"/>
+  <utility interface="Products.CMFPlone.interfaces.migration.IMigrationTool"
+     object="portal_migration"/>
+  <utility interface="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
+     object=""/>
+  <utility
+     interface="Products.CMFUid.interfaces.IUniqueIdAnnotationManagement"
+     object="portal_uidannotation"/>
+  <utility interface="Products.CMFUid.interfaces.IUniqueIdGenerator"
+     object="portal_uidgenerator"/>
+  <utility interface="Products.MailHost.interfaces.IMailHost"
+     object="MailHost"/>
+  <utility
+     interface="Products.MimetypesRegistry.interfaces.IMimetypesRegistryTool"
+     object="mimetypes_registry"/>
+  <utility
+     interface="Products.PortalTransforms.interfaces.IPortalTransformsTool"
+     object="portal_transforms"/>
+  <utility interface="five.customerize.interfaces.IViewTemplateContainer"
+     object="portal_view_customizations"/>
+  <utility interface="plone.app.i18n.locales.interfaces.IContentLanguages"
+     object="plone_app_content_languages"/>
+  <utility interface="plone.app.i18n.locales.interfaces.ICountries"
+     object="plone_app_countries"/>
+  <utility interface="plone.app.i18n.locales.interfaces.IMetadataLanguages"
+     object="plone_app_metadata_languages"/>
+  <utility factory="plone.app.redirector.storage.RedirectionStorage"
+     interface="plone.app.redirector.interfaces.IRedirectionStorage"/>
+  <utility factory="plone.app.viewletmanager.storage.ViewletSettingsStorage"
+     interface="plone.app.viewletmanager.interfaces.IViewletSettingsStorage"/>
+  <utility name="LinguaPlone"
+     factory="zope.interface.interface.InterfaceClass"
+     interface="plone.browserlayer.interfaces.ILocalBrowserLayerType"/>
+  <utility factory="plone.contentrules.engine.storage.RuleStorage"
+     interface="plone.contentrules.engine.interfaces.IRuleStorage"/>
+  <utility factory="plone.keyring.keymanager.KeyManager"
+     interface="plone.keyring.interfaces.IKeyManager"/>
+  <utility name="plone.dashboard1"
+     factory="plone.portlets.manager.PortletManager"
+     interface="plone.portlets.interfaces.IPortletManager"/>
+  <utility name="plone.dashboard2"
+     factory="plone.portlets.manager.PortletManager"
+     interface="plone.portlets.interfaces.IPortletManager"/>
+  <utility name="plone.dashboard3"
+     factory="plone.portlets.manager.PortletManager"
+     interface="plone.portlets.interfaces.IPortletManager"/>
+  <utility name="plone.dashboard4"
+     factory="plone.portlets.manager.PortletManager"
+     interface="plone.portlets.interfaces.IPortletManager"/>
+  <utility name="plone.leftcolumn"
+     factory="plone.portlets.manager.PortletManager"
+     interface="plone.portlets.interfaces.IPortletManager"/>
+  <utility name="plone.rightcolumn"
+     factory="plone.portlets.manager.PortletManager"
+     interface="plone.portlets.interfaces.IPortletManager"/>
+  <utility name="plone.portlet.collection.Collection"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="plone.portlet.static.Static"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="ploneboard.RecentConversations"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="portlets.Calendar"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="portlets.Classic"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="portlets.Events"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="portlets.Language"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="portlets.Login"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="portlets.Navigation"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="portlets.News"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="portlets.Popoll"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="portlets.Recent"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="portlets.Review"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="portlets.Search"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="portlets.rss"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="simpleTask.simpleTaskPortlet"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="upc.genweb.banners.portlet"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="upc.genweb.masters.ExamplePortlet"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility name="upc.genweb.masters.portlet"
+     factory="plone.portlets.registration.PortletType"
+     interface="plone.portlets.interfaces.IPortletType"/>
+  <utility factory="zope.app.cache.ram.RAMCache"
+     interface="zope.app.cache.interfaces.ram.IRAMCache"/>
+ </utilities>
+</componentregistry>
