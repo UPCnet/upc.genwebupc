@@ -323,3 +323,12 @@ msgstr "Cerca"
 
 msgid "obrir_link_finestra_nova"
 msgstr "(obriu en una finestra nova)"
+
+#. Default: "Event body text"
+#: ATContentTypes/content/event.py:101
+msgid "label_event_announcement"
+msgstr "Text de l'esdeveniment"
+
+#: ."genweb-actualitatPDIPAS"
+msgid "genweb-actualitatPDIPAS"
+msgstr "Actualitat PDI/PAS"

@@ -319,3 +319,7 @@ msgstr "Buscar"
 
 msgid "obrir_link_finestra_nova"
 msgstr "(abre en ventana nueva)"
+
+#: ."genweb-actualitatPDIPAS"
+msgid "genweb-actualitatPDIPAS"
+msgstr "Actualidad PDI/PAS"

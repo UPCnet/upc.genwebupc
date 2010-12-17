@@ -247,12 +247,12 @@ msgstr "No puedo entrar"
 # Default: Survey
 #: ../content/Survey.py
 msgid "Survey"
-msgstr "Encuesta"
+msgstr "Cuestionario"
 
 # Default: You can add questions to surveys.
 #: ../content/Survey.py
 msgid "You can add questions to surveys."
-msgstr "Una encuesta en la que se pueden añadir preguntas."
+msgstr "Un cuestionario en el que se pueden añadir preguntas."
 
 msgid "Message Board"
 msgstr "Foro"
