@@ -24,6 +24,13 @@ def listPloneSites(context):
 def addLDAPServer(portal):
     luf = getattr(portal.acl_users, 'ldapUPC', None)
     if luf is not None:
+        i=0
+        servers = LDAPUserFolder.getServers(portal.acl_users.ldapUPC.acl_users)
+        for server in servers:
+            if server['host']=='han.upc.es':
+                LDAPUserFolder.manage_deleteServers(portal.acl_users.ldapUPC.acl_users, [i,])
+            i=i+1
+                
         LDAPUserFolder.manage_addServer(portal.acl_users.ldapUPC.acl_users, "ldap.upc.edu", '636', use_ssl=1)
         logger.error("Successfully installed LDAP server in %s" % portal.id)
         transaction.commit()
@@ -32,7 +39,6 @@ def addLDAPServer(portal):
 
 def changeLDAPservers(app):
     sites = listPloneSites(app)
-    #import pdb; pdb.set_trace()
     for site in sites:
         addLDAPServer(site)
 #
