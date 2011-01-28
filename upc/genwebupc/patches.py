@@ -1,4 +1,39 @@
-#Superseeded by upc.genweb.patches!!!!!!!
+#########################################
+# Scripts d'un sol ús per usar via debug
+#########################################
+#
+from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
+from OFS.interfaces import IFolder
+from Products.LDAPUserFolder.LDAPUserFolder import LDAPUserFolder
+import logging
+logger = logging.getLogger('upc.genwebupc')
+
+def listPloneSites(context):
+    out = []
+    for item in context.values():
+        if IPloneSiteRoot.providedBy(item):
+            out.append(item)
+        if IFolder.providedBy(item):
+            for site in item.values():
+                if IPloneSiteRoot.providedBy(site):
+                    out.append(site)
+    return out
+
+def addLDAPServer(portal):
+    LDAPUserFolder.manage_addServer(portal.acl_users.ldapUPC.acl_users, "ldap.upc.edu", '636', use_ssl=1)
+    logger.info("Successfully installed LDAP server in %s" % portal.id)
+
+def changeLDAPservers(app):
+    sites = listPloneSites(app)
+    for site in sites:
+        addLDAPServer(site)
+#
+##########################################
+# /Scripts d'un sol ús per usar via debug
+#########################################
+
+
+# Aquesta part queda Superseeded pel paquet upc.genweb.patches!!!!!!!
 # Parchejem el Poi
 from Products.Poi import config
 
