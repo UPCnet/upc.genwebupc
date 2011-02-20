@@ -1,18 +1,15 @@
+# -*- coding: utf-8 -*-
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.component import getMultiAdapter, getUtility
-from upc.genwebupctheme.browser import utils
+from zope.component import getMultiAdapter
 from cgi import parse_qs
 
 from Products.CMFCore.utils import getToolByName
-from Products.PloneLDAP.factory import manage_addPloneLDAPMultiPlugin
-from Products.LDAPUserFolder.LDAPUserFolder import LDAPUserFolder
 from Products.CMFPlone.utils import _createObjectByType
 from Products.CMFCore import permissions
 
 from plone.app.controlpanel.mail import IMailSchema
 
-from zope.component import getAdapters
 from Acquisition import aq_parent
 
 
@@ -76,9 +73,9 @@ class setup(BrowserView):
         
         # Crear carpetes i coleccions, linkades per language, el primer language de la tupla es el canonical
         
-        news = self.crearObjecte(portal,'news','Large Plone Folder','News','Site News',constrains=(['News Item'],['Image']))
-        noticias = self.crearObjecte(portal,'noticias','Large Plone Folder','Notícias','Notícias del sitio',constrains=(['News Item'],['Image']))
-        noticies = self.crearObjecte(portal,'noticies','Large Plone Folder','Notícies','Notícies del lloc',constrains=(['News Item'],['Image']))        
+        news = self.crearObjecte(portal,'news','Folder','News','Site News',constrains=(['News Item'],['Image']))
+        noticias = self.crearObjecte(portal,'noticias','Folder','Notícias','Notícias del sitio',constrains=(['News Item'],['Image']))
+        noticies = self.crearObjecte(portal,'noticies','Folder','Notícies','Notícies del lloc',constrains=(['News Item'],['Image']))        
         self.setLanguageAndLink([(noticies,'ca'),(noticias,'es'),(news,'en')])
         
         self.addCollection(news,'aggregator','News','Site News','News Item')
@@ -90,9 +87,9 @@ class setup(BrowserView):
         noticias.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
         news.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
         
-        events = self.crearObjecte(portal,'events','Large Plone Folder','Events','Site Events',constrains=(['Event','Meeting'],['Image']))
-        eventos = self.crearObjecte(portal,'eventos','Large Plone Folder','Eventos','Eventos del sitio',constrains=(['Event','Meeting'],['Image']))
-        esdeveniments = self.crearObjecte(portal,'esdeveniments','Large Plone Folder','Esdeveniments','Esdeveniments del lloc',constrains=(['Event','Meeting'],['Image']))
+        events = self.crearObjecte(portal,'events','Folder','Events','Site Events',constrains=(['Event','Meeting'],['Image']))
+        eventos = self.crearObjecte(portal,'eventos','Folder','Eventos','Eventos del sitio',constrains=(['Event','Meeting'],['Image']))
+        esdeveniments = self.crearObjecte(portal,'esdeveniments','Folder','Esdeveniments','Esdeveniments del lloc',constrains=(['Event','Meeting'],['Image']))
         self.setLanguageAndLink([(esdeveniments,'ca'),(eventos,'es'),(events,'en')])
         
         self.addCollection(events,'aggregator','Events','Site Events',('Event','Meeting'),date_filter=True)

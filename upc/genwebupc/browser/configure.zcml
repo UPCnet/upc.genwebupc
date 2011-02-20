@@ -11,7 +11,8 @@
       permission="cmf.AddPortalContent"
       />
 
-    <browser:page
+<!-- GW4 FixUIDs en la nevera -->
+    <!-- <browser:page
       name="fix-uids"
       for="*"
       class=".fixuids.fixUIDs"
@@ -23,6 +24,6 @@
       for="*"
       class=".fixuids.fixAllUIDs"
       permission="cmf.ManagePortal"
-      />
+      /> -->
       
 </configure>

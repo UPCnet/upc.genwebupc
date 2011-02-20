@@ -8,7 +8,7 @@
     <include package=".browser" />
     <include package=".content" />
        
-    <include package="upc.genwebupctheme" />
+    <!-- <include package="upc.genwebupctheme" />
     <include package="upc.genweb.banners" />
     <include package="upc.genweb.logosfooter" />
     <include package="upc.genweb.meetings" />
@@ -20,11 +20,11 @@
     <include package="upcnet.simpleTask" />
     <include package="upcnet.cas" />
     <include package="upc.remotecontrol" />
-    <include package="upc.genweb.recaptcha" />
+    <include package="upc.genweb.recaptcha" /> -->
      
     <include package="Products.GenericSetup" file="meta.zcml" />
     
-    <include package="archetypes.schemaextender" />
+    <!-- <include package="archetypes.schemaextender" /> -->
     
     <five:registerPackage package="." initialize=".initialize" />
 
@@ -38,16 +38,17 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-    <genericsetup:registerProfile
+    <!-- <genericsetup:registerProfile
       name="v333tov334"
       title="Migration v333tov334"
       description="GenWeb UPC migration 3.3.3 to 3.3.4"
       directory="profiles/v333tov334"
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
-      
-    <adapter factory=".content.extender.PoiIssueSchemaModifier" />
+      /> -->
+
+    <!-- GW4 Extenders en standby -->
+    <!-- <adapter factory=".content.extender.PoiIssueSchemaModifier" />
     <adapter factory=".content.extender.CollageSchemaModifier" />
-    <adapter factory=".content.extender.ATLinkSchemaModifier" />
+    <adapter factory=".content.extender.ATLinkSchemaModifier" /> -->
       
 </configure>

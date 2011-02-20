@@ -12,7 +12,8 @@ from Products.CMFCore.permissions import setDefaultRoles
 #import patches
 
 #importa els parches
-from upc.genweb.patches import patches
+# GW4 Comentat parches en standby
+#from upc.genweb.patches import patches
 
 GenwebMessageFactory = MessageFactory('upc.genwebupc')
 

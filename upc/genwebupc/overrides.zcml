@@ -5,7 +5,7 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"    
     i18n_domain="upc.genwebupc">
 
-    <include package="upc.genweb.meetings" file="overrides.zcml" />
+    <!-- <include package="upc.genweb.meetings" file="overrides.zcml" /> -->
     <include package="upc.genwebupctheme" file="overrides.zcml" />
     
 </configure>
