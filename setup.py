@@ -28,7 +28,7 @@ setup(name='upc.genwebupc',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
-          # 'upc.genwebupctheme',          
+          # 'upc.genwebupctheme',
           'upc.genweb.banners',
           'upc.genweb.logosfooter',
           # 'upc.genweb.meetings',
