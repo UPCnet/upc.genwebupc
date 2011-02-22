@@ -48,7 +48,8 @@
 
     <!-- GW4 Extenders en standby -->
     <!-- <adapter factory=".content.extender.PoiIssueSchemaModifier" />
-    <adapter factory=".content.extender.CollageSchemaModifier" />
-    <adapter factory=".content.extender.ATLinkSchemaModifier" /> -->
+    <adapter factory=".content.extender.CollageSchemaModifier" />-->
+    
+    <adapter factory=".content.extender.ATLinkSchemaModifier" /> 
       
 </configure>

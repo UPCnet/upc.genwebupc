@@ -1,53 +1,53 @@
 from zope.component import adapts
 from zope.interface import implements
-from Products.Poi.interfaces import IIssue 
+#from Products.Poi.interfaces import IIssue 
 
 from Products.Archetypes.atapi import BooleanField
 from Products.Archetypes.atapi import StringField
 from Products.Archetypes.atapi import BooleanWidget
 
 from archetypes.schemaextender.interfaces import ISchemaModifier
-from Products.Collage.interfaces import ICollageAlias
+#from Products.Collage.interfaces import ICollageAlias
 from Products.ATContentTypes.interface.link import IATLink
 
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 
-class CollageSchemaModifier(object):
-    """ Modifico el schema del Collage link
-    """
-    implements(ISchemaModifier)
-    adapts(ICollageAlias)
-
-    def __init__(self, context):
-        self.context = context
-   
-    def fiddle(self, schema):
-        #import pdb; pdb.set_trace()
-        schema['target'].keepReferencesOnCopy = True
-
-
-
-class PoiIssueSchemaModifier(object):
-    """Modifico el schema del PoiIssue
-    """
-    implements(ISchemaModifier)
-    adapts(IIssue)
-    
-    def __init__(self, context):
-        self.context = context
-    
-    def fiddle(self, schema):
-        schema['details'].widget.rows = 15
-        schema['steps'].widget.rows = 6
-
+# GW4 nevera
+#class CollageSchemaModifier(object):
+#    """ Modifico el schema del Collage link
+#    """
+#    implements(ISchemaModifier)
+#    adapts(ICollageAlias)
+#
+#    def __init__(self, context):
+#        self.context = context
+#   
+#    def fiddle(self, schema):
+#        #import pdb; pdb.set_trace()
+#        schema['target'].keepReferencesOnCopy = True
+#
+#
+#
+#class PoiIssueSchemaModifier(object):
+#    """Modifico el schema del PoiIssue
+#    """
+#    implements(ISchemaModifier)
+#    adapts(IIssue)
+#    
+#    def __init__(self, context):
+#        self.context = context
+#    
+#    def fiddle(self, schema):
+#        schema['details'].widget.rows = 15
+#        schema['steps'].widget.rows = 6
 
 # Any field you tack on must have ExtensionField as its first subclass:
 class _StringExtensionField(ExtensionField, BooleanField):
     pass
 
 class ATLinkSchemaModifier(object):
-    """Adapter that adds a Ripped Off From Channel field to News Items."""
+    """Afegeix un check nou al contingut enllas"""
     adapts(IATLink)
     implements(IOrderableSchemaExtender)
 
