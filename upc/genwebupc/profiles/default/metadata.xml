@@ -9,7 +9,6 @@
     <dependency>profile-upc.genwebupctheme:default</dependency>
 <!-- 
     <dependency>profile-Products.Collage:default</dependency>
-    <dependency>profile-collective.ckeditor:default</dependency>
     <dependency>profile-Products.PlonePopoll:default</dependency>
     <dependency>profile-Products.Poi:default</dependency>
       -->
