@@ -19,12 +19,17 @@ setup(name='upc.genwebupc',
       keywords='genwebupc genweb upc upcnet',
       author='PloneTeam@UPCnet',
       author_email='plone.team@upcnet.es',
-      url='https://genweb.upc.edu/',
+      url='https://github.com/UPCnet/upc.genwebupc',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['upc'],
       include_package_data=True,
       zip_safe=False,
+      extras_require = {
+          'test': [
+              'plone.app.testing',
+          ]
+      },
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
@@ -48,7 +53,7 @@ setup(name='upc.genwebupc',
           'Products.DataGridField',
           'Products.ZMySQLDA',
           'archetypes.schemaextender',
-          'upc.genweb.recaptcha',          
+          'upc.genweb.recaptcha',
       ],
       entry_points="""
       # -*- Entry points: -*-
