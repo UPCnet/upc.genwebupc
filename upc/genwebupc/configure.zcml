@@ -14,6 +14,16 @@
     <include package="upc.genweb.banners" />
     <include package="upc.genweb.logosfooter" />
     <include package="upcnet.cas" />
+    <include package="Products.PloneFormGen" />
+    <include package="Products.Collage" />
+    <include package="Products.Poi" />
+    <include package="Products.AddRemoveWidget" />
+    <include package="Products.DataGridField" />
+    <include package="Products.PlonePopoll" />
+    <include package="Products.windowZ" />
+    <include package="collective.tinymcetemplates" />
+    <include package="pfg.drafts" />
+    <include package="plone.app.caching" />
     <!--
     <include package="upc.genweb.meetings" />
     <include package="upc.genweb.descriptorTIC" />

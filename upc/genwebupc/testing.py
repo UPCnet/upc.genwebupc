@@ -24,7 +24,7 @@ class GenwebUPC(PloneSandboxLayer):
         import Products.PloneLDAP
         xmlconfig.file('configure.zcml',
                        Products.PloneLDAP,
-                       context=configurationContext)        
+                       context=configurationContext)
         
     def setUpPloneSite(self, portal):
         # Install into Plone site using portal_setup

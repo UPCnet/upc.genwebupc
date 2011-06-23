@@ -6,13 +6,15 @@
     <dependency>profile-upc.genweb.banners:default</dependency>
     <dependency>profile-upc.genweb.logosfooter:default</dependency>
     <dependency>profile-upcnet.cas:default</dependency>
-    <dependency>profile-upc.genwebupctheme:default</dependency>
-<!-- 
+    <dependency>profile-Products.PloneFormGen:default</dependency>
     <dependency>profile-Products.Collage:default</dependency>
     <dependency>profile-Products.PlonePopoll:default</dependency>
-    <dependency>profile-Products.Poi:default</dependency>
-      -->
-    <!-- <dependency>profile-Products.PloneFormGen:default</dependency> -->
+    <dependency>profile-Products.windowZ:default</dependency>
+    <dependency>profile-collective.tinymcetemplates:default</dependency>
+    <dependency>profile-pfg.drafts:default</dependency>
+    <dependency>profile-plone.app.caching:default</dependency>
+<!--    <dependency>profile-Products.Poi:default</dependency>-->
+    <dependency>profile-upc.genwebupctheme:default</dependency>
 
 </dependencies>
 </metadata>

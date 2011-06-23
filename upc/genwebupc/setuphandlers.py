@@ -48,6 +48,7 @@ def setupVarious(context):
     transform._p_changed = True
     transform.reload()
     portal = context.getSite()
+
     try:
             manage_addPloneLDAPMultiPlugin(portal.acl_users, "ldapUPC",
                 title="ldapUPC", use_ssl=1, login_attr="cn", uid_attr="cn", local_groups=0,
@@ -61,7 +62,7 @@ def setupVarious(context):
             plugin = portal.acl_users['ldapUPC']
 
             plugin.manage_activateInterfaces(['IGroupEnumerationPlugin','IGroupsPlugin','IPropertiesPlugin','IGroupIntrospection','IAuthenticationPlugin','IRolesPlugin','IUserEnumerationPlugin','IRoleEnumerationPlugin'])
-            LDAPUserFolder.manage_addServer(portal.acl_users.ldapUPC.acl_users, "ldap.upc.edu", '636', use_ssl=1)
+            LDAPUserFolder.manage_addServer(portal.acl_users.ldapUPC.acl_users, 'ldap-pre.upc.edu', '636', use_ssl=1)
             
             LDAPUserFolder.manage_deleteLDAPSchemaItems(portal.acl_users.ldapUPC.acl_users,ldap_names = ['sn'], REQUEST = None)
             LDAPUserFolder.manage_addLDAPSchemaItem(portal.acl_users.ldapUPC.acl_users,ldap_name='sn', friendly_name='Last Name', public_name='name')
