@@ -10,11 +10,17 @@
     <dependency>profile-Products.Collage:default</dependency>
     <dependency>profile-Products.PlonePopoll:default</dependency>
     <dependency>profile-Products.windowZ:default</dependency>
+    <dependency>profile-Products.Ploneboard:ploneboard</dependency>
+    <dependency>profile-Products.Ploneboard:intranet</dependency>
+    <dependency>profile-Products.PloneSurvey:default</dependency>
+    <dependency>profile-upc.genweb.meetings:default</dependency>
+    <dependency>profile-upcnet.simpleTask:default</dependency>
     <dependency>profile-collective.tinymcetemplates:default</dependency>
     <dependency>profile-pfg.drafts:default</dependency>
     <dependency>profile-plone.app.caching:default</dependency>
-<!--    <dependency>profile-Products.Poi:default</dependency>-->
     <dependency>profile-upc.genwebupctheme:default</dependency>
-
+<!--    
+    <dependency>profile-Products.Poi:default</dependency>
+-->
 </dependencies>
 </metadata>

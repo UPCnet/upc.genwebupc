@@ -42,9 +42,11 @@ from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 #        schema['details'].widget.rows = 15
 #        schema['steps'].widget.rows = 6
 
+
 # Any field you tack on must have ExtensionField as its first subclass:
 class _StringExtensionField(ExtensionField, BooleanField):
     pass
+
 
 class ATLinkSchemaModifier(object):
     """Afegeix un check nou al contingut enllas"""
@@ -76,4 +78,3 @@ class ATLinkSchemaModifier(object):
         defaultSchemaFields.insert(defaultSchemaFields.index('remoteUrl') + 1,
                                    'obrirfinestra')  # stick "channel" after "description"
         return new
-

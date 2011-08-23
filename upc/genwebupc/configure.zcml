@@ -8,36 +8,55 @@
     <include package=".browser" />
     <include package=".content" />
     
+    <!-- Compat amb Plone 4.1 -->
+    <include package="Products.CMFCore" file="permissions.zcml" />
+
+    <!-- Productes -->
     <include package="Products.LinguaPlone" />
     <include package="upc.genwebupctheme" />
-    <include package="archetypes.configure" file="meta.zcml" />
     <include package="upc.genweb.banners" />
     <include package="upc.genweb.logosfooter" />
     <include package="upcnet.cas" />
     <include package="Products.PloneFormGen" />
     <include package="Products.Collage" />
     <include package="Products.Poi" />
+    <include package="Products.Ploneboard" />
     <include package="Products.AddRemoveWidget" />
     <include package="Products.DataGridField" />
     <include package="Products.PlonePopoll" />
     <include package="Products.windowZ" />
+    <include package="Products.PloneSurvey" />
     <include package="collective.tinymcetemplates" />
     <include package="pfg.drafts" />
     <include package="plone.app.caching" />
-    <!--
+    <include package="upc.genweb.recaptcha" />
+    <include package="archetypes.schemaextender" />
+
+    <!-- Paquets candidats a ser obsolets -->
     <include package="upc.genweb.meetings" />
+    <include package="upcnet.simpleTask" />
+
+    <!-- Paquets utilitzats nomes per una instancia o algunes instancies  -->
+    <include package="upc.genweb.serveis" />
     <include package="upc.genweb.descriptorTIC" />
     <include package="upc.genweb.kbpuc" />
     <include package="upc.genweb.objectiusCG" />
-    <include package="upc.genweb.serveis" />
-    <include package="upc.permalink" />
-    <include package="upcnet.simpleTask" />
+
+    <!-- Eines -->
     <include package="upc.remotecontrol" />
-    <include package="upc.genweb.recaptcha" /> -->
+
+    <!-- redefinicions, per a que els tests funcionin -->
+    <include package="Products.CMFPlacefulWorkflow" />
+
+    <!-- temporalment deshabilitats -->
+    <!-- <include package="archetypes.configure" file="meta.zcml" /> -->
+    
+    <!-- Encara no afegits -->
+    <!--
+    <include package="upc.permalink" />
+    -->
      
     <include package="Products.GenericSetup" file="meta.zcml" />
-    
-    <!-- <include package="archetypes.schemaextender" /> -->
     
     <five:registerPackage package="." initialize=".initialize" />
 

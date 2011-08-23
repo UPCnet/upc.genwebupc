@@ -48,18 +48,19 @@ class setup(BrowserView):
                tr.append(getattr(portal,td,False) and 'Creat' or 'No existeix')
             result.append(tr)
         return result
-        
-               
+
+
     def createContent(self):
         """
         """
+
         # configurem mail
         portal = getToolByName(self,'portal_url').getPortalObject()
         mail = IMailSchema(portal) 
         mail.smtp_host = u'localhost'
         mail.email_from_name = "Administrador del Genweb"
         mail.email_from_address = "noreply@upc.edu"
-        
+
         if getattr(portal,'front-page',False):
           portal.manage_delObjects('front-page')
         if getattr(portal,'news',False):
@@ -71,54 +72,54 @@ class setup(BrowserView):
         if getattr(portal,'Members',False):                        
           portal['Members'].setExcludeFromNav(True)
           portal['Members'].reindexObject()
-        
+
         # Crear carpetes i coleccions, linkades per language, el primer language de la tupla es el canonical
-        
+
         news = self.crearObjecte(portal,'news','Folder','News','Site News',constrains=(['News Item'],['Image']))
         noticias = self.crearObjecte(portal,'noticias','Folder','Notícias','Notícias del sitio',constrains=(['News Item'],['Image']))
         noticies = self.crearObjecte(portal,'noticies','Folder','Notícies','Notícies del lloc',constrains=(['News Item'],['Image']))        
         self.setLanguageAndLink([(noticies,'ca'),(noticias,'es'),(news,'en')])
-        
+
         self.addCollection(news,'aggregator','News','Site News','News Item')
         self.addCollection(noticias,'aggregator','Notícias','Notícias del sitio','News Item')
         self.addCollection(noticies,'aggregator','Notícies','Notícies del lloc','News Item')        
         self.setLanguageAndLink([(noticies.aggregator,'ca'),(noticias.aggregator,'es'),(news.aggregator,'en')])    
-        
+
         noticies.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
         noticias.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
         news.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
-        
+
         events = self.crearObjecte(portal,'events','Folder','Events','Site Events',constrains=(['Event','Meeting'],['Image']))
         eventos = self.crearObjecte(portal,'eventos','Folder','Eventos','Eventos del sitio',constrains=(['Event','Meeting'],['Image']))
         esdeveniments = self.crearObjecte(portal,'esdeveniments','Folder','Esdeveniments','Esdeveniments del lloc',constrains=(['Event','Meeting'],['Image']))
         self.setLanguageAndLink([(esdeveniments,'ca'),(eventos,'es'),(events,'en')])
-        
+
         self.addCollection(events,'aggregator','Events','Site Events',('Event','Meeting'),date_filter=True)
         self.addCollection(eventos,'aggregator','Eventos','Eventos del sitio',('Event','Meeting'),date_filter=True)
         self.addCollection(esdeveniments,'aggregator','Esdeveniments','Esdeveniments del lloc',('Event','Meeting'),date_filter=True)            
         self.setLanguageAndLink([(esdeveniments.aggregator,'ca'),(eventos.aggregator,'es'),(events.aggregator,'en')])    
-        
+
         esdeveniments.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
         eventos.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
         events.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
-        
+
         self.addCollection(events.aggregator,'previous','Past Events','Events which have already happened. ','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)
         self.addCollection(eventos.aggregator,'anteriores','Eventos pasados','Eventos del sitio que ya han sucedido','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)
         self.addCollection(esdeveniments.aggregator,'anteriors','Esdeveniments passats','Esdeveniments del lloc que ja han passat','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)            
-        self.setLanguageAndLink([(esdeveniments.aggregator.anteriors,'ca'),(eventos.aggregator.anteriores,'es'),(events.aggregator.previous,'en')])    
-        
+        self.setLanguageAndLink([(esdeveniments.aggregator.anteriors,'ca'),(eventos.aggregator.anteriores,'es'),(events.aggregator.previous,'en')])
+
         banners_en = self.crearObjecte(portal,'banners-en','BannerContainer','Banners','English Banners')
         banners_es = self.crearObjecte(portal,'banners-es','BannerContainer','Banners','Banners en Español')
         banners_ca = self.crearObjecte(portal,'banners-ca','BannerContainer','Banners','Banners en Català')    
         self.setLanguageAndLink([(banners_ca,'ca'),(banners_es,'es'),(banners_en,'en')])
-        
+
         logosfooter_en = self.crearObjecte(portal,'logosfooter-en','Logos_Container','Footer Logos','English footer logos')
         logosfooter_es = self.crearObjecte(portal,'logosfooter-es','Logos_Container','Logos pie','Logos en español del pie de página')
         logosfooter_ca = self.crearObjecte(portal,'logosfooter-ca','Logos_Container','Logos peu','Logos en català del peu de pàgina')    
         self.setLanguageAndLink([(logosfooter_ca,'ca'),(logosfooter_es,'es'),(logosfooter_en,'en')])
-        
+
         #crear pagines de benvinguda        
-        
+
         welcome_string="""<h1>Us donem la benvinguda a Genweb UPC v3</h1>
 <p>&nbsp;</p>
 <p><a href="http://www.upc.edu/comunicacio/www/genweb-upc"><img alt="Genweb UPC" src="logogw.gif" class="image-right" /></a></p>
@@ -169,19 +170,19 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
         benvingut = self.crearObjecte(portal,'benvingut','Document','Benvingut','')
         bienvenido = self.crearObjecte(portal,'bienvenido','Document','Bienvenido','')
         welcome = self.crearObjecte(portal,'welcome','Document','Welcome','')                        
-        
+
         benvingut.setText(welcome_string)
         bienvenido.setText(welcome_string)
         welcome.setText(welcome_string)
-        
+
         benvingut.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
         bienvenido.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
         welcome.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
-        
+
         self.setLanguageAndLink([(benvingut,'ca'),(bienvenido,'es'),(welcome,'en')])                
-       
+
         return True    
-               
+
     def setLanguageAndLink(self,items):
         canonical,canonical_lang = items[0]
         for item,language in items:
@@ -194,7 +195,7 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
         object_workflow = pw.getWorkflowsFor(context)[0].id
         object_status = pw.getStatusOf(object_workflow,context)
         return object_status
-    
+
     def doWorkflowAction(self,context):
         pw = getToolByName(context, "portal_workflow") 
         object_workflow = pw.getWorkflowsFor(context)[0].id
@@ -204,7 +205,7 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
                 pw.doActionFor(context,{'genweb_simple':'publish','genweb_review':'publicaalaintranet'}[object_workflow])
             except:
                 pass
-        
+
     def crearObjecte(self,context,id,type_name,title,description,exclude=True,constrains=None):
         pt = getToolByName(context,'portal_types')
         if not getattr(context,id,False) and type_name in pt.listTypeTitles().keys():
@@ -221,18 +222,18 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
             created.setConstrainTypesMode(1)
             created.setLocallyAllowedTypes(tuple(constrains[0]+constrains[1]))
             created.setImmediatelyAddableTypes(tuple(constrains[0]))
-                                
+
         created.reindexObject()
         return created
-        
+
     def addCollection(self,context,id,title,description,type_filter,state_filter=None,day=0,dateRange=u'+',operation=u'more',setDefault=True,path='father',date_filter=False):
 
         topic = self.crearObjecte(context,id,'Topic',title,description,False)
-        
+
         # Activem el limit i el posem a 10 notícies
         topic.setLimitNumber(True)
         topic.setItemCount(10)
-        
+
         #Ara afegim els criteris, si no hi son
         criteris = [('Type','ATPortalTypeCriterion'),
             ('path','ATPathCriterion'),
@@ -241,7 +242,7 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
            criteris.append(('start','ATFriendlyDateCriteria'))    
         if state_filter:
            criteris.append(('review_state','ATSimpleStringCriterion'))
-           
+
         for crit in criteris:
             if not 'crit__%s_%s' % (crit[0],crit[1]) in topic.keys():
                 topic.addCriterion(crit[0],crit[1])    
@@ -249,7 +250,9 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
         # Criteri tipus
         criteri_tipus = topic['crit__Type_ATPortalTypeCriterion']
         criteri_tipus.setValue((type_filter))
-        criteri_tipus.setOperator('and')
+
+        #TOREVIEW
+        #criteri_tipus.setOperator('and')
 
         # criteri estat
         if state_filter:
@@ -258,13 +261,13 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
 
         # criteri ruta = carpeta pare
 
-        criteri_ruta =  topic['crit__path_ATPathCriterion']
+        criteri_ruta = topic['crit__path_ATPathCriterion']
         ruta = path=='father' and context or aq_parent(context)
         criteri_ruta.setValue([ruta])
         criteri_ruta.setRecurse(True)
 
         # criteri data
-        
+
         if date_filter:
             criteri_estat = topic['crit__start_ATFriendlyDateCriteria']
             criteri_estat.setValue(day)
@@ -281,4 +284,3 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
         if setDefault:
             context.setDefaultPage(id)
         return          
-
