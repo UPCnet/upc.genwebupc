@@ -171,9 +171,9 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
         bienvenido = self.crearObjecte(portal,'bienvenido','Document','Bienvenido','')
         welcome = self.crearObjecte(portal,'welcome','Document','Welcome','')                        
 
-        benvingut.setText(welcome_string)
-        bienvenido.setText(welcome_string)
-        welcome.setText(welcome_string)
+        benvingut.setText(welcome_string, mimetype='text/html')
+        bienvenido.setText(welcome_string, mimetype='text/html')
+        welcome.setText(welcome_string, mimetype='text/html')
 
         benvingut.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
         bienvenido.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
