@@ -34,6 +34,7 @@ setup(name='upc.genwebupc',
           'setuptools',
           # -*- Extra requirements: -*-
           'genweb.stack',
+          'genweb.core',
           'upc.genwebupctheme',
           'upc.genweb.banners',
           'upc.genweb.logosfooter',

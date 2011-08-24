@@ -19,6 +19,7 @@
     <dependency>profile-pfg.drafts:default</dependency>
     <dependency>profile-plone.app.caching:default</dependency>
     <dependency>profile-upc.genwebupctheme:default</dependency>
+    <dependency>profile-genweb.core:default</dependency>
 <!--    
     <dependency>profile-Products.Poi:default</dependency>
 -->

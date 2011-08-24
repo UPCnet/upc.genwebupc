@@ -14,6 +14,7 @@
     <!-- Productes -->
     <include package="Products.LinguaPlone" />
     <include package="upc.genwebupctheme" />
+    <include package="genweb.core" />
     <include package="upc.genweb.banners" />
     <include package="upc.genweb.logosfooter" />
     <include package="upcnet.cas" />
