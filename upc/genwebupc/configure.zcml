@@ -5,12 +5,12 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"    
     i18n_domain="upc.genwebupc">
 
-    <include package=".browser" />
-    <include package=".content" />
-    
     <!-- Compat amb Plone 4.1 -->
     <include package="Products.CMFCore" file="permissions.zcml" />
 
+    <include package=".browser" />
+    <include package=".content" />
+    
     <!-- Productes -->
     <include package="Products.LinguaPlone" />
     <include package="upc.genwebupctheme" />
