@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>4.0b2</version>
+  <version>4.1b1</version>
   <dependencies>
     <dependency>profile-Products.LinguaPlone:LinguaPlone</dependency>
     <dependency>profile-upc.genweb.banners:default</dependency>

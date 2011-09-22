@@ -56,3 +56,13 @@ class migracio(BrowserView):
                                            'portal_types': linkable},))
 
             logger.warn("[Esborrar 'Large Plone Folder'] S'ha esborrat amb exit el tipus 'Large Plone Folder' dels recursos 'linkables' del Kupu")
+
+        # Eliminem la transform del fck
+        transformstool = getToolByName(self.context, 'portal_transforms', None)
+        try:
+            transformstool.manage_delObjects('fck_ruid_to_url')
+            logger.warn("Lesborrat de la transform de l'FCK ha estat satisfactoria")
+        except:
+            logger.warn("Encara que s'ha intentat, l'esborrat de la transform de l'FCK ha fallat")
+
+        return 'Purgat completat.'

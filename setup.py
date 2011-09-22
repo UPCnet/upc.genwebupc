@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '4.0b1'
+version = '4.1b1'
 
 setup(name='upc.genwebupc',
       version=version,
@@ -50,8 +50,13 @@ setup(name='upc.genwebupc',
           'Products.ZMySQLDA',
           'archetypes.schemaextender',
           'upc.genweb.recaptcha',
-          # 'upc.genweb.patches',
-          # 'upc.permalink',
+          # Experimental GW4
+          'plone.app.dexterity [grok]',
+          'plone.app.referenceablebehavior',
+          'plone.app.relationfield',
+          'plone.namedfile [blobs]',
+          'collective.pfg.dexterity',
+          'plone.app.workflowmanager',
       ],
       entry_points="""
       # -*- Entry points: -*-

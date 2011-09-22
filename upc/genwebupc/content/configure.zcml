@@ -3,14 +3,10 @@
     xmlns:five="http://namespaces.zope.org/five"
     i18n_domain="upc.genwebupc">
 
-    <class class=".seccio.Seccio">
+     <class class=".seccio.Seccio">
         <require
             permission="zope2.View"
             interface="..interfaces.ISeccio"
-            />
-        <require
-            permission="cmf.ModifyPortalContent"
-            set_schema="..interfaces.ISeccio"
             />
     </class>
     
