@@ -101,32 +101,29 @@ def listPloneSites(context):
     return out
 
 
-class migracioMassiva(BrowserView):
-    """XML-RPC handler per migrar tots els GW d'una instancia de manera massiva"""
-    def __call__(self):
-        context = aq_inner(self.context)
-        logger = logging.getLogger('Genweb 4: Migrator')
-        for plonesite in listPloneSites(context):
-	    import ipdb; ipdb.set_trace()
-            logger.info("Upgradant el site %s a GW4" % plonesite.id)
-            # Purgat i varis
-            logger.info("Preparant el site %s" % plonesite.id)
-            migracio(plonesite)
-            logger.info("Preparacio acabada")
+def migracioMassiva(App):
+    logger = logging.getLogger('Genweb 4: Migrator')
+    for plonesite in listPloneSites(App):
+        import ipdb; ipdb.set_trace()
+        logger.info("Upgradant el site %s a GW4" % plonesite.id)
+        # Purgat i varis
+        logger.info("Preparant el site %s" % plonesite.id)
+        migracio(plonesite)
+        logger.info("Preparacio acabada")
 
-            #Upgrade de Plone
-            logger.info("Upgradant el site %s a Plone 4" % plonesite.id)
-            pm = getattr(plonesite, 'portal_migration')
-            report = pm.upgrade()
+        #Upgrade de Plone
+        logger.info("Upgradant el site %s a Plone 4" % plonesite.id)
+        pm = getToolByName(plonesite, 'portal_migration')
+        report = pm.upgrade()
 
-            # Reinstalacio del upc.genwebupc
-            product = 'upc.genwebupc'
-            logger.info("Reinstalling product %s in site %s" % (product, plonesite))
-            qi = getattr(plonesite, 'portal_quickinstaller', None)
-            try:
-                qi.reinstallProducts(products=[product])
-            except:
-                logger.info("Failed reinstall in %s" % plonesite.id)
-            import transaction
-            transaction.commit()
-            logger.info("Successful installed in %s" % plonesite.id)
+        # Reinstalacio del upc.genwebupc
+        product = 'upc.genwebupc'
+        logger.info("Reinstalling product %s in site %s" % (product, plonesite))
+        qi = getattr(plonesite, 'portal_quickinstaller', None)
+        try:
+            qi.reinstallProducts(products=[product])
+        except:
+            logger.info("Failed reinstall in %s" % plonesite.id)
+        import transaction
+        transaction.commit()
+        logger.info("Successful installed in %s" % plonesite.id)
