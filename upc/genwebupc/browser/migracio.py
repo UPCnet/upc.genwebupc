@@ -65,4 +65,10 @@ class migracio(BrowserView):
         except:
             logger.warn("Encara que s'ha intentat, l'esborrat de la transform de l'FCK ha fallat")
 
+        # Canviem el rol per defecte dels usuaris autenticats via LDAP
+        acl_users = getToolByName(self.context, 'acl_users')
+        acl_users.ldapUPC.acl_users.manage_edit("ldapUPC", "cn", "cn", "ou=Users,dc=upc,dc=edu", 2, "Authenticated",
+                "ou=Groups,dc=upc,dc=edu", 2, "cn=ldap.upc,ou=Users,dc=upc,dc=edu", "secret", 1, "cn",
+                "top,person", 0, 0, "SSHA", 1, '')
+
         return 'Purgat completat.'
