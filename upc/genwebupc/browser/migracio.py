@@ -1,4 +1,5 @@
 from Acquisition import aq_inner, aq_parent
+from zope.site.hooks import setHooks, setSite
 
 from zope.component import getMultiAdapter
 from Products.GenericSetup import profile_registry, EXTENSION
@@ -126,11 +127,15 @@ class migracioMassiva(BrowserView):
             browserUpgrades(plonesite)
 
             # Reinstalacio del upc.genwebupc
+            import ipdb;ipdb.set_trace()
+            setHooks()
+            setSite(plonesite)
             product = 'upc.genwebupc'
             logger.info("Reinstalling product %s in site %s" % (product, plonesite))
             qi = getattr(plonesite, 'portal_quickinstaller', None)
             try:
-                qi.reinstallProducts(products=[product])
+                qi.uninstallProducts(products=[product])
+                qi.installProducts(products=[product])
             except:
                 logger.info("Failed reinstall in %s" % plonesite.id)
             import transaction
