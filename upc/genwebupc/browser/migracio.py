@@ -92,8 +92,8 @@ class migracioView(BrowserView):
 def listPloneSites(context):
     out = []
     for item in context.values():
-        if IPloneSiteRoot.providedBy(item):
-            out.append(item)
+        #if IPloneSiteRoot.providedBy(item):
+        #    out.append(item)
         if IFolder.providedBy(item):
             for site in item.values():
                 if IPloneSiteRoot.providedBy(site):
@@ -107,15 +107,16 @@ class migracioMassiva(BrowserView):
         context = aq_inner(self.context)
         logger = logging.getLogger('Genweb 4: Migrator')
         for plonesite in listPloneSites(context):
-            logger.info("Upgradant el site %s a GW4") % plonesite.id
+	    import ipdb; ipdb.set_trace()
+            logger.info("Upgradant el site %s a GW4" % plonesite.id)
             # Purgat i varis
-            logger.info("Preparant el site %s") % plonesite.id
+            logger.info("Preparant el site %s" % plonesite.id)
             migracio(plonesite)
             logger.info("Preparacio acabada")
 
             #Upgrade de Plone
-            logger.info("Upgradant el site %s a Plone 4") % plonesite.id
-            pm = getattr(self.context, 'portal_migration')
+            logger.info("Upgradant el site %s a Plone 4" % plonesite.id)
+            pm = getattr(plonesite, 'portal_migration')
             report = pm.upgrade()
 
             # Reinstalacio del upc.genwebupc
@@ -125,7 +126,7 @@ class migracioMassiva(BrowserView):
             try:
                 qi.reinstallProducts(products=[product])
             except:
-                logger.info("XXXXXXXXXXXXX Failed reinstall in %s" % plonesite.id)
+                logger.info("Failed reinstall in %s" % plonesite.id)
             import transaction
             transaction.commit()
-            logger.info("||||||||||||||| Successful installed in %s" % plonesite.id)
+            logger.info("Successful installed in %s" % plonesite.id)
