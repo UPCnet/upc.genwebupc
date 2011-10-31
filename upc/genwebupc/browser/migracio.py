@@ -9,7 +9,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 
 import logging
-
+import mechanize
 
 def migracio(context):
     """Funcio que realitza la migracio de GW3 a GW4"""
@@ -89,6 +89,26 @@ class migracioView(BrowserView):
         return migracio(self.context)
 
 
+def browserUpgrader(plonesite):
+    host = "localhost"
+    port = 8080
+    #logger = logging.getLogger('Genweb 4: Migrator')
+
+    br = mechanize.Browser()
+    br.open("http://%s:%s/%s/%s/login_form" % (host, port, plonesite.id, plonesite.id))
+    br.set_handle_equiv(False)
+    br.select_form(nr=1)
+    br['__ac_name'] = "admin"
+    br['__ac_password'] = "admin"
+    br.submit()
+    import ipdb;ipdb.set_trace()
+    br.open("http://%s:%s/%s/%s/@@plone-upgrade" % (host, port, plonesite.id, plonesite.id))
+    br.select_form(nr=0)
+    br.submit()
+    # logger.info(response.read())
+    br.close()
+
+
 def listPloneSites(context):
     out = []
     for item in context.values():
@@ -104,7 +124,7 @@ def listPloneSites(context):
 def migracioMassiva(App):
     logger = logging.getLogger('Genweb 4: Migrator')
     for plonesite in listPloneSites(App):
-        import ipdb; ipdb.set_trace()
+        # import ipdb; ipdb.set_trace()
         logger.info("Upgradant el site %s a GW4" % plonesite.id)
         # Purgat i varis
         logger.info("Preparant el site %s" % plonesite.id)
@@ -113,8 +133,7 @@ def migracioMassiva(App):
 
         #Upgrade de Plone
         logger.info("Upgradant el site %s a Plone 4" % plonesite.id)
-        pm = getToolByName(plonesite, 'portal_migration')
-        report = pm.upgrade()
+        browserUpgrader(plonesite)
 
         # Reinstalacio del upc.genwebupc
         product = 'upc.genwebupc'
