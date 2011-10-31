@@ -121,28 +121,31 @@ def listPloneSites(context):
     return out
 
 
-def migracioMassiva(App):
-    logger = logging.getLogger('Genweb 4: Migrator')
-    for plonesite in listPloneSites(App):
-        # import ipdb; ipdb.set_trace()
-        logger.info("Upgradant el site %s a GW4" % plonesite.id)
-        # Purgat i varis
-        logger.info("Preparant el site %s" % plonesite.id)
-        migracio(plonesite)
-        logger.info("Preparacio acabada")
+class migracioMassiva(BrowserView):
 
-        #Upgrade de Plone
-        logger.info("Upgradant el site %s a Plone 4" % plonesite.id)
-        browserUpgrader(plonesite)
+    def __call__(self):
+        context = aq_inner(self.context)
+        logger = logging.getLogger('Genweb 4: Migrator')
+        for plonesite in listPloneSites(context):
+            # import ipdb; ipdb.set_trace()
+            logger.info("Upgradant el site %s a GW4" % plonesite.id)
+            # Purgat i varis
+            logger.info("Preparant el site %s" % plonesite.id)
+            migracio(plonesite)
+            logger.info("Preparacio acabada")
 
-        # Reinstalacio del upc.genwebupc
-        product = 'upc.genwebupc'
-        logger.info("Reinstalling product %s in site %s" % (product, plonesite))
-        qi = getattr(plonesite, 'portal_quickinstaller', None)
-        try:
-            qi.reinstallProducts(products=[product])
-        except:
-            logger.info("Failed reinstall in %s" % plonesite.id)
-        import transaction
-        transaction.commit()
-        logger.info("Successful installed in %s" % plonesite.id)
+            #Upgrade de Plone
+            logger.info("Upgradant el site %s a Plone 4" % plonesite.id)
+            browserUpgrader(plonesite)
+
+            # Reinstalacio del upc.genwebupc
+            product = 'upc.genwebupc'
+            logger.info("Reinstalling product %s in site %s" % (product, plonesite))
+            qi = getattr(plonesite, 'portal_quickinstaller', None)
+            try:
+                qi.reinstallProducts(products=[product])
+            except:
+                logger.info("Failed reinstall in %s" % plonesite.id)
+            import transaction
+            transaction.commit()
+            logger.info("Successful installed in %s" % plonesite.id)
