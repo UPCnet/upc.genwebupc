@@ -89,12 +89,16 @@ class migracioView(BrowserView):
         return migracio(self.context)
 
 
-def browserUpgrader(plonesite):
+def browserUpgrades(plonesite):
     import requests
     host = "localhost"
     port = "8080"
     #logger = logging.getLogger('Genweb 4: Migrator')
 
+    # Purgat + preparacio
+    s = requests.get("http://%s:%s/%s/%s/purge" % (host, port, plonesite.id, plonesite.id), auth=('admin', 'admin'))
+
+    # Upgrade a Plone 4
     r = requests.post("http://%s:%s/%s/%s/@@plone-upgrade?form.submitted=True&submit=Actualitzaci\xf3"
 % (host, port, plonesite.id, plonesite.id), auth=('admin', 'admin'))
 
@@ -117,16 +121,9 @@ class migracioMassiva(BrowserView):
         context = aq_inner(self.context)
         logger = logging.getLogger('Genweb 4: Migrator')
         for plonesite in listPloneSites(context):
-            # import ipdb; ipdb.set_trace()
-            logger.info("Upgradant el site %s a GW4" % plonesite.id)
-            # Purgat i varis
-            logger.info("Preparant el site %s" % plonesite.id)
-            migracio(plonesite)
-            logger.info("Preparacio acabada")
-
-            #Upgrade de Plone
+            # Purgat + Upgrade de Plone
             logger.info("Upgradant el site %s a Plone 4" % plonesite.id)
-            browserUpgrader(plonesite)
+            browserUpgrades(plonesite)
 
             # Reinstalacio del upc.genwebupc
             product = 'upc.genwebupc'

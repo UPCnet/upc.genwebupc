@@ -32,6 +32,7 @@ setup(name='upc.genwebupc',
       },
       install_requires=[
           'setuptools',
+          'requests',
           # -*- Extra requirements: -*-
           'genweb.stack',
           'genweb.core',
