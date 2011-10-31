@@ -90,20 +90,13 @@ class migracioView(BrowserView):
 
 
 def browserUpgrader(plonesite):
+    import requests
     host = "localhost"
     port = "8080"
     #logger = logging.getLogger('Genweb 4: Migrator')
 
-    br = mechanize.Browser()
-    br.add_password("http://%s:%s/" % (host, int(port)), "admin", "admin", realm="Zope")
-    cj = mechanize.CookieJar()
-    br.set_cookiejar(cj)
-    import ipdb;ipdb.set_trace()
-    br.open("http://%s:%s/%s/%s/@@plone-upgrade" % (host, port, plonesite.id, plonesite.id))
-    br.select_form(nr=0)
-    br.submit()
-    # logger.info(response.read())
-    br.close()
+    r = requests.post("http://%s:%s/%s/%s/@@plone-upgrade?form.submitted=True&submit=Actualitzaci\xf3"
+% (host, port, plonesite.id, plonesite.id), auth=('admin', 'admin'))
 
 
 def listPloneSites(context):
