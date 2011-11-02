@@ -1,46 +1,20 @@
 from zope.component import adapts
 from zope.interface import implements
-#from Products.Poi.interfaces import IIssue 
+#from Products.Poi.interfaces import IIssue
 
 from Products.Archetypes.atapi import BooleanField
-from Products.Archetypes.atapi import StringField
+#from Products.Archetypes.atapi import StringField
 from Products.Archetypes.atapi import BooleanWidget
 
-from archetypes.schemaextender.interfaces import ISchemaModifier
+#from archetypes.schemaextender.interfaces import ISchemaModifier
 #from Products.Collage.interfaces import ICollageAlias
 from Products.ATContentTypes.interface.link import IATLink
 
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 
-# GW4 nevera
-#class CollageSchemaModifier(object):
-#    """ Modifico el schema del Collage link
-#    """
-#    implements(ISchemaModifier)
-#    adapts(ICollageAlias)
-#
-#    def __init__(self, context):
-#        self.context = context
-#   
-#    def fiddle(self, schema):
-#        #import pdb; pdb.set_trace()
-#        schema['target'].keepReferencesOnCopy = True
-#
-#
-#
-#class PoiIssueSchemaModifier(object):
-#    """Modifico el schema del PoiIssue
-#    """
-#    implements(ISchemaModifier)
-#    adapts(IIssue)
-#    
-#    def __init__(self, context):
-#        self.context = context
-#    
-#    def fiddle(self, schema):
-#        schema['details'].widget.rows = 15
-#        schema['steps'].widget.rows = 6
+from five import grok
+from plone.indexer import indexer
 
 
 # Any field you tack on must have ExtensionField as its first subclass:
@@ -78,3 +52,38 @@ class ATLinkSchemaModifier(object):
         defaultSchemaFields.insert(defaultSchemaFields.index('remoteUrl') + 1,
                                    'obrirfinestra')  # stick "channel" after "description"
         return new
+
+
+@indexer(IATLink)
+def obrirEnFinestraNova(obj):
+    return obj.obrirfinestra
+grok.global_adapter(obrirEnFinestraNova, name="obrirEnFinestraNova")
+
+# GW4 nevera
+#class CollageSchemaModifier(object):
+#    """ Modifico el schema del Collage link
+#    """
+#    implements(ISchemaModifier)
+#    adapts(ICollageAlias)
+#
+#    def __init__(self, context):
+#        self.context = context
+#   
+#    def fiddle(self, schema):
+#        #import pdb; pdb.set_trace()
+#        schema['target'].keepReferencesOnCopy = True
+#
+#
+#
+#class PoiIssueSchemaModifier(object):
+#    """Modifico el schema del PoiIssue
+#    """
+#    implements(ISchemaModifier)
+#    adapts(IIssue)
+#    
+#    def __init__(self, context):
+#        self.context = context
+#    
+#    def fiddle(self, schema):
+#        schema['details'].widget.rows = 15
+#        schema['steps'].widget.rows = 6
