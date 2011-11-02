@@ -61,8 +61,10 @@
     <include package="Products.GenericSetup" file="meta.zcml" />
     
     <!-- Grok the package to initialise schema interfaces and content classes -->
+    <include package="grokcore.component" file="meta.zcml" />
     <grok:grok package=".content" />
-    
+    <grok:grok package=".browser" />
+
     <five:registerPackage package="." initialize=".initialize" />
   
     <genericsetup:registerProfile
