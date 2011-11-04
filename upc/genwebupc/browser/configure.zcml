@@ -18,6 +18,13 @@
       permission="cmf.ManagePortal"
       />
 
+    <browser:page
+      name="getZEO"
+      for="*"
+      class=".helpers.getZEO"
+      permission="zope2.View"
+      template="getzeo.pt"
+      />
 
 <!-- GW4 FixUIDs en la nevera -->
     <!-- <browser:page
