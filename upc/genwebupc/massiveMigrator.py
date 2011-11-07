@@ -24,7 +24,8 @@ skinmap = {'Tema genwebUPC Master': 'GenwebUPC_Master',
            'GenwebUPC_Master': 'GenwebUPC_Master',
            'GenwebUPC_Neutre2': 'GenwebUPC_Neutre2',
            'GenwebUPC_Neutre3': 'GenwebUPC_Neutre3',
-           'GenwebUPC_Unitat': 'GenwebUPC_Unitat'}
+           'GenwebUPC_Unitat': 'GenwebUPC_Unitat',
+           'Plone Default': 'Plone Default'}
 
 getSites = requests.get("http://%s:%s/@@listPloneSites" % (host, port))
 getSkins = requests.get("http://%s:%s/@@getFlavourSites" % (host, port))
