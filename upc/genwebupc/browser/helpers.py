@@ -84,3 +84,18 @@ class getFlavourSiteView(grok.View):
         context = aq_inner(self.context)
         portal_skins = getToolByName(context, 'portal_skins')
         return portal_skins.getDefaultSkin()
+
+
+class getLanguagesSitesView(grok.View):
+    grok.name('getLanguagesSites')
+    grok.context(IApplication)
+    grok.require('zope2.View')
+
+    def render(self):
+        context = aq_inner(self.context)
+        plonesites = listPloneSites(context)
+        out = {}
+        for plonesite in plonesites:
+            portal_languages = getToolByName(plonesite, 'portal_languages')
+            out[plonesite.id] = portal_languages.getSupportedLanguages()
+        return json.dumps(out)

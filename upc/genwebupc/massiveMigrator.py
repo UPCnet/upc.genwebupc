@@ -29,6 +29,7 @@ skinmap = {'Tema genwebUPC Master': 'GenwebUPC_Master',
 
 getSites = requests.get("http://%s:%s/@@listPloneSites" % (host, port))
 getSkins = requests.get("http://%s:%s/@@getFlavourSites" % (host, port))
+getLanguages = requests.get("http://%s:%s/@@getLanguagesSites" % (host, port))
 
 plonesites = json.loads(getSites.content)
 skins = json.loads(getSkins.content)
@@ -48,3 +49,18 @@ for plonesite in plonesites:
 
     # Reaplica el sabor
     flavour = requests.get("http://%s:%s/%s/portal_skins/manage_properties?default_skin=%s&request_varname=plone_skin&submit=Save" % (host, port, plonesite, skinmap[skins[plonesite.split('/')[1]]]), auth=(user, password))
+
+    # Reaplica els llenguatges
+    # &form.available_languages%3Alist=ca&form.available_languages%3Alist=en
+    langstrdef = "&form.available_languages%3Alist="
+    langstr = ""
+    for language in getLanguages[plonesite]:
+        langstr = langstr + langstrdef + language
+
+    from BeautifulSoup import BeautifulSoup
+
+    languages = requests.get("http://%s:%s/%s/@@language-controlpanel" % (host, port, plonesite), auth=(user, password))
+    soup = BeautifulSoup(languages.content)
+    authenticator = soup.find("input", dict(type='hidden', name='_authenticator'))
+
+    languages = requests.get("http://%s:%s/%s/@@language-controlpanel?fieldset.current=&form.default_language=ca&form.default_language-empty-marker=1%s&form.available_languages-empty-marker=1&form.actions.save=Desa&_authenticator=%s" % (host, port, plonesite, langstr, authenticator.get('value')), auth=(user, password))
