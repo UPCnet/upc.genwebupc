@@ -30,9 +30,12 @@ skinmap = {'Tema genwebUPC Master': 'GenwebUPC_Master',
 getSites = requests.get("http://%s:%s/@@listPloneSites" % (host, port))
 getSkins = requests.get("http://%s:%s/@@getFlavourSites" % (host, port))
 getLanguages = requests.get("http://%s:%s/@@getLanguagesSites" % (host, port))
+getDefaultLanguage = requests.get("http://%s:%s/@@getDefaultLanguageSites" % (host, port))
 
 plonesites = json.loads(getSites.content)
 skins = json.loads(getSkins.content)
+languages = json.loads(getLanguages.content)
+deflang = json.loads(getDefaultLanguage.content)
 
 logger.info(skins)
 
@@ -54,13 +57,13 @@ for plonesite in plonesites:
     # &form.available_languages%3Alist=ca&form.available_languages%3Alist=en
     langstrdef = "&form.available_languages%3Alist="
     langstr = ""
-    for language in getLanguages[plonesite]:
+    for language in languages[plonesite]:
         langstr = langstr + langstrdef + language
 
     from BeautifulSoup import BeautifulSoup
 
-    languages = requests.get("http://%s:%s/%s/@@language-controlpanel" % (host, port, plonesite), auth=(user, password))
-    soup = BeautifulSoup(languages.content)
+    languagesauth = requests.get("http://%s:%s/%s/@@language-controlpanel" % (host, port, plonesite), auth=(user, password))
+    soup = BeautifulSoup(languagesauth.content)
     authenticator = soup.find("input", dict(type='hidden', name='_authenticator'))
 
-    languages = requests.get("http://%s:%s/%s/@@language-controlpanel?fieldset.current=&form.default_language=ca&form.default_language-empty-marker=1%s&form.available_languages-empty-marker=1&form.actions.save=Desa&_authenticator=%s" % (host, port, plonesite, langstr, authenticator.get('value')), auth=(user, password))
+    languagesreq = requests.get("http://%s:%s/%s/@@language-controlpanel?fieldset.current=&form.default_language=%s&form.default_language-empty-marker=1%s&form.available_languages-empty-marker=1&form.actions.save=Desa&_authenticator=%s" % (host, port, plonesite, deflang, langstr, authenticator.get('value')), auth=(user, password))
