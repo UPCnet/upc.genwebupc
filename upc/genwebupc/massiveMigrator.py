@@ -57,7 +57,7 @@ for plonesite in plonesites:
     # &form.available_languages%3Alist=ca&form.available_languages%3Alist=en
     langstrdef = "&form.available_languages%3Alist="
     langstr = ""
-    for language in languages[plonesite]:
+    for language in languages[plonesite.split('/')[1]]:
         langstr = langstr + langstrdef + language
 
     from BeautifulSoup import BeautifulSoup
@@ -66,4 +66,4 @@ for plonesite in plonesites:
     soup = BeautifulSoup(languagesauth.content)
     authenticator = soup.find("input", dict(type='hidden', name='_authenticator'))
 
-    languagesreq = requests.get("http://%s:%s/%s/@@language-controlpanel?fieldset.current=&form.default_language=%s&form.default_language-empty-marker=1%s&form.available_languages-empty-marker=1&form.actions.save=Desa&_authenticator=%s" % (host, port, plonesite, deflang, langstr, authenticator.get('value')), auth=(user, password))
+    languagesreq = requests.get("http://%s:%s/%s/@@language-controlpanel?fieldset.current=&form.default_language=%s&form.default_language-empty-marker=1%s&form.available_languages-empty-marker=1&form.actions.save=Desa&_authenticator=%s" % (host, port, plonesite, deflang[plonesite.split('/')[1]], langstr, authenticator.get('value')), auth=(user, password))
