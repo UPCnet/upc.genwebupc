@@ -1,0 +1,24 @@
+<registry>
+  <record name="collective.tinymcetemplates.templateLocations">
+    <field type="plone.registry.field.Tuple">
+      <description>Paths, relative to the portal root, where templates may be found. This will normally be a directory containing Pages.</description>
+      <title>Template locations</title>
+      <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value>
+      <element>/templates</element>
+      <element>/plantilles</element>
+    </value>
+  </record>
+
+  <!-- Discussion -->
+  <record field="globally_enabled" interface="plone.app.discussion.interfaces.IDiscussionSettings" name="plone.app.discussion.interfaces.IDiscussionSettings.globally_enabled">
+    <field type="plone.registry.field.Bool">
+      <default>False</default>
+      <description>help_globally_enabled</description>
+      <required>False</required>
+      <title>label_globally_enabled</title>
+    </field>
+    <value>True</value>
+  </record>
+</registry>
