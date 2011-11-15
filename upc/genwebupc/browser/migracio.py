@@ -1,6 +1,10 @@
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 
+from Products.CMFPlone.utils import _createObjectByType
+from five import grok
+from Products.CMFPlone.interfaces import IPloneSiteRoot
+from Acquisition import aq_inner
 import logging
 
 
@@ -74,11 +78,67 @@ def migracio(context):
     return 'Purgat completat.'
 
 
-class migracioView(BrowserView):
+def crearObjecte(self, context, id, type_name, title, description, exclude=True, constrains=None):
+    pt = getToolByName(context, 'portal_types')
+    if not getattr(context, id, False) and type_name in pt.listTypeTitles().keys():
+        #creem l'objecte i el publiquem
+        _createObjectByType(type_name, context, id)
+    #populem l'objecte
+    created = context[id]
+    self.doWorkflowAction(created)
+    created.setTitle(title)
+    created.setDescription(description)
+    created._at_creation_flag = False
+    created.setExcludeFromNav(exclude)
+    if constrains:
+        created.setConstrainTypesMode(1)
+        if len(constrains) > 1:
+            created.setLocallyAllowedTypes(tuple(constrains[0] + constrains[1]))
+        else:
+            created.setLocallyAllowedTypes(tuple(constrains[0]))
+        created.setImmediatelyAddableTypes(tuple(constrains[0]))
 
+    created.reindexObject()
+    return created
+
+
+class migracioView(BrowserView):
+    """Vista principal que s'ocupa de la migracio"""
     def __init__(self, context, request):
         self.context = context
         self.request = request
 
     def __call__(self):
         return migracio(self.context)
+
+
+class afegirPlantillesTiny(grok.View):
+    """Creacio dels objectes necessaris per a que funcioni el motor de templates de TinyMCE"""
+    grok.name('afegirPlantillesTiny')
+    grok.context(IPloneSiteRoot)
+    grok.require('zope2.ViewManagementScreens')
+
+    def render(self):
+        context = aq_inner(self.context)
+        pw = getToolByName(context, 'portal_workflow')
+        templates = crearObjecte(context, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains=(['Document']))
+        plantilles = crearObjecte(context, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains = (['Document']))
+        pw.doActionFor(templates, "restrict")
+        return "OK"
+
+
+class reaplicarDefaultWF(grok.View):
+    """Reaplica el WF per defecte, donat un WF"""
+    grok.name('reaplicarDefaultWF')
+    grok.context(IPloneSiteRoot)
+    grok.require('zope2.ViewManagementScreens')
+
+    def render(self):
+        context = aq_inner(self.context)
+        wf = self.request.get('wf', None)
+        if wf is not None:
+            pw = getToolByName(context, 'portal_workflow')
+            pw.setDefaultChain(wf)
+            return wf
+        else:
+            return 'No workflow definit.'

@@ -31,13 +31,18 @@ getSites = requests.get("http://%s:%s/@@listPloneSites" % (host, port))
 getSkins = requests.get("http://%s:%s/@@getFlavourSites" % (host, port))
 getLanguages = requests.get("http://%s:%s/@@getLanguagesSites" % (host, port))
 getDefaultLanguage = requests.get("http://%s:%s/@@getDefaultLanguageSites" % (host, port))
+getDefaultWF = requests.get("http://%s:%s/@@getDefaultWFSites" % (host, port))
 
 plonesites = json.loads(getSites.content)
 skins = json.loads(getSkins.content)
 languages = json.loads(getLanguages.content)
 deflang = json.loads(getDefaultLanguage.content)
+defwf = json.loads(getDefaultWF.content)
 
 logger.info(skins)
+logger.info(languages)
+logger.info(deflang)
+logger.info(defwf)
 
 for plonesite in plonesites:
     # Purgat + preparacio
@@ -67,3 +72,9 @@ for plonesite in plonesites:
     authenticator = soup.find("input", dict(type='hidden', name='_authenticator'))
 
     languagesreq = requests.get("http://%s:%s/%s/@@language-controlpanel?fieldset.current=&form.default_language=%s&form.default_language-empty-marker=1%s&form.available_languages-empty-marker=1&form.actions.save=Desa&_authenticator=%s" % (host, port, plonesite, deflang[plonesite.split('/')[1]], langstr, authenticator.get('value')), auth=(user, password))
+
+    # Afegeix les carpetes de templates de TinyMCE
+    templates = requests.get("http://%s:%s/%s/@@afegirPlantillesTiny" % (host, port, plonesite), auth=(user, password))
+
+    # Reaplica el WF per defecte del site
+    dwf = requests.get("http://%s:%s/%s/@@reaplicarDefaultWF?wf=%s" % (host, port, plonesite, defwf[plonesite.split('/')[1]]), auth=(user, password))

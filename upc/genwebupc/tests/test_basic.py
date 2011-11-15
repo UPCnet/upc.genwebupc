@@ -6,7 +6,7 @@ from Products.CMFCore.utils import getToolByName
 
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
-from plone.app.testing import login
+from plone.app.testing import login, logout
 from plone.app.testing import setRoles
 
 from plone.app.testing import applyProfile
@@ -34,6 +34,15 @@ class IntegrationTest(unittest.TestCase):
         self.assertEqual(portal['news'].Title(), u"News")
         self.assertEqual(portal['banners-es'].Title(), u"Banners")
         self.assertEqual(portal['logosfooter-ca'].Title(), u"Logos peu")
+
+    def testTemplatesFolderPermissions(self):
+        portal = self.layer['portal']
+        request = self.layer['request']
+        setRoles(portal, TEST_USER_ID, ['Contributor', 'Editor', 'Reader', 'Reviewer'])
+        login(portal, TEST_USER_NAME)
+        setupview = getMultiAdapter((portal, request), name='setup-view')
+        setupview.createContent()
+        #import ipdb;ipdb.set_trace()
 
     def testBasicProducts(self):
         portal = self.layer['portal']

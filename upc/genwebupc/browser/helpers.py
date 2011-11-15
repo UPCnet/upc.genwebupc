@@ -114,3 +114,18 @@ class getDefaultLanguageSitesView(grok.View):
             portal_languages = getToolByName(plonesite, 'portal_languages')
             out[plonesite.id] = portal_languages.getDefaultLanguage()
         return json.dumps(out)
+
+
+class getDefaultWFSitesView(grok.View):
+    grok.name('getDefaultWFSites')
+    grok.context(IApplication)
+    grok.require('zope2.View')
+
+    def render(self):
+        context = aq_inner(self.context)
+        plonesites = listPloneSites(context)
+        out = {}
+        for plonesite in plonesites:
+            portal_workflow = getToolByName(plonesite, 'portal_workflow')
+            out[plonesite.id] = portal_workflow.getDefaultChain()
+        return json.dumps(out)

@@ -39,6 +39,8 @@ class setup(BrowserView):
                    ('Banners',['banners-ca', 'banners-es', 'banners-en']),
                    ('LogosFooter',['logosfooter-ca', 'logosfooter-es', 'logosfooter-en']),
                    ('Homepage',['benvingut', 'bienvenido', 'welcome']),
+                   ('Templates',['templates', ]),
+                   ('Plantilles',['plantilles', ]),
                    ]  
         result = []           
         portal = getToolByName(self,'portal_url').getPortalObject()
@@ -181,6 +183,12 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
 
         self.setLanguageAndLink([(benvingut,'ca'),(bienvenido,'es'),(welcome,'en')])                
 
+        # Templates TinyMCE
+        templates = self.crearObjecte(portal, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains = (['Document']))
+        plantilles = self.crearObjecte(portal, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains = (['Document']))
+        pw = getToolByName(portal, "portal_workflow")
+        pw.doActionFor(templates, "restrict")
+
         return True    
 
     def setLanguageAndLink(self,items):
@@ -220,7 +228,10 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
         created.setExcludeFromNav(exclude)
         if constrains:
             created.setConstrainTypesMode(1)
-            created.setLocallyAllowedTypes(tuple(constrains[0]+constrains[1]))
+            if len(constrains) > 1:
+                created.setLocallyAllowedTypes(tuple(constrains[0]+constrains[1]))
+            else:
+                created.setLocallyAllowedTypes(tuple(constrains[0]))
             created.setImmediatelyAddableTypes(tuple(constrains[0]))
 
         created.reindexObject()
