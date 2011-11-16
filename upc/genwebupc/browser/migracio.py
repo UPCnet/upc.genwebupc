@@ -142,3 +142,25 @@ class reaplicarDefaultWF(grok.View):
             return wf
         else:
             return 'No workflow definit.'
+
+
+class canviaFCKperTiny(grok.View):
+    """Pues eso..."""
+    grok.name('canviaFCKperTiny')
+    grok.context(IPloneSiteRoot)
+    grok.require('zope2.ViewManagementScreens')
+
+    def render(self):
+        context = aq_inner(self.context)
+        logger = logging.getLogger('Genweb 4: Migrator')
+        pm = getToolByName(context, 'portal_membership')
+        for memberId in pm.listMemberIds():
+            member = pm.getMemberById(memberId)
+            editor = member.getProperty('wysiwyg_editor', None)
+            if editor == 'TinyMCE':
+                logger.info('%s: TinyMCE already selected, leaving alone' % memberId)
+            else:
+                member.setMemberProperties({'wysiwyg_editor': 'TinyMCE'})
+                logger.info('%s: TinyMCE has been set' % memberId)
+
+        return 'OK'

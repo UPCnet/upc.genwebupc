@@ -78,3 +78,6 @@ for plonesite in plonesites:
 
     # Reaplica el WF per defecte del site
     dwf = requests.get("http://%s:%s/%s/@@reaplicarDefaultWF?wf=%s" % (host, port, plonesite, defwf[plonesite.split('/')[1]]), auth=(user, password))
+
+    # Canvia el editor per defecte a tots els users de cada site
+    tiny = requests.get("http://%s:%s/%s/@@canviaFCKperTiny" % (host, port, plonesite), auth=(user, password))
