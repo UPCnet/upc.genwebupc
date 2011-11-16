@@ -74,6 +74,7 @@ class setup(BrowserView):
         if getattr(portal,'Members',False):                        
           portal['Members'].setExcludeFromNav(True)
           portal['Members'].reindexObject()
+          portal['Members'].setLanguage('en')
 
         # Crear carpetes i coleccions, linkades per language, el primer language de la tupla es el canonical
 
