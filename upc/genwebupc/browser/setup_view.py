@@ -190,6 +190,13 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
         pw = getToolByName(portal, "portal_workflow")
         pw.doActionFor(templates, "restrict")
 
+        from plantilles import get_plantilles
+        from Products.CMFPlone.utils import normalizeString
+
+        for plt in get_plantilles():
+            plantilla = self.crearObjecte(templates, normalizeString(plt['titol']), 'Document', plt['titol'], plt['resum'],'')
+            plantilla.setText(plt['cos'],mimetype="text/html")
+
         return True    
 
     def setLanguageAndLink(self,items):
