@@ -78,14 +78,14 @@ def migracio(context):
     return 'Purgat completat.'
 
 
-def crearObjecte(self, context, id, type_name, title, description, exclude=True, constrains=None):
+def crearObjecte(context, id, type_name, title, description, exclude=True, constrains=None):
     pt = getToolByName(context, 'portal_types')
     if not getattr(context, id, False) and type_name in pt.listTypeTitles().keys():
         #creem l'objecte i el publiquem
         _createObjectByType(type_name, context, id)
     #populem l'objecte
     created = context[id]
-    self.doWorkflowAction(created)
+    doWorkflowAction(created)
     created.setTitle(title)
     created.setDescription(description)
     created._at_creation_flag = False
@@ -100,6 +100,17 @@ def crearObjecte(self, context, id, type_name, title, description, exclude=True,
 
     created.reindexObject()
     return created
+
+
+def doWorkflowAction(context):
+    pw = getToolByName(context, "portal_workflow")
+    object_workflow = pw.getWorkflowsFor(context)[0].id
+    object_status = pw.getStatusOf(object_workflow, context)
+    if object_status:
+        try:
+            pw.doActionFor(context, {'genweb_simple': 'publish', 'genweb_review': 'publicaalaintranet'}[object_workflow])
+        except:
+            pass
 
 
 class migracioView(BrowserView):
