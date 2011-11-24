@@ -161,8 +161,8 @@ class setup(BrowserView):
         self.setLanguageAndLink([(benvingut,'ca'),(bienvenido,'es'),(welcome,'en')])                
 
         # Templates TinyMCE
-        templates = self.crearObjecte(portal, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains = (['Document']))
-        plantilles = self.crearObjecte(portal, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains = (['Document']))
+        templates = self.crearObjecte(portal, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains = [('Document', ''),('', '')] )
+        plantilles = self.crearObjecte(portal, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains = [('Document', ''),('', '')])
         pw = getToolByName(portal, "portal_workflow")
         pw.doActionFor(templates, "restrict")
 
