@@ -141,7 +141,7 @@ class afegirPlantillesTiny(grok.View):
         pw.doActionFor(templates, "restrict")
 
         for plt in get_plantilles():
-            plantilla = self.crearObjecte(templates, normalizeString(plt['titol']), 'Document', plt['titol'], plt['resum'], '')
+            plantilla = crearObjecte(templates, normalizeString(plt['titol']), 'Document', plt['titol'], plt['resum'], '')
             plantilla.setText(plt['cos'], mimetype="text/html")
 
         return "OK"
