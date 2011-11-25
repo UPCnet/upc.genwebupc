@@ -4,4 +4,5 @@
         <indexed_attr value="obrirEnFinestraNova"/>
     </index>
     <column value="obrirEnFinestraNova"/>
+    <column value="get_size"/>
 </object>
