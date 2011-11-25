@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '4.1b1'
+version = '4.1'
 
 setup(name='upc.genwebupc',
       version=version,
