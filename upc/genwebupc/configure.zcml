@@ -43,6 +43,7 @@
     <include package="upc.genweb.descriptorTIC" />
     <include package="upc.genweb.kbpuc" />
     <include package="upc.genweb.objectiusCG" />
+    <include package="upc.cloudPrivat" />
 
     <!-- Eines -->
     <include package="upc.remotecontrol" />
