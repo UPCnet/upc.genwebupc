@@ -138,7 +138,10 @@ class afegirPlantillesTiny(grok.View):
         pw = getToolByName(context, 'portal_workflow')
         templates = crearObjecte(context, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains=(['Document']))
         plantilles = crearObjecte(context, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains = (['Document']))
-        pw.doActionFor(templates, "restrict")
+        try:
+            pw.doActionFor(templates, "restrict")
+        except:
+            pass
 
         for plt in get_plantilles():
             plantilla = crearObjecte(templates, normalizeString(plt['titol']), 'Document', plt['titol'], plt['resum'], '')
