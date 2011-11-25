@@ -5,6 +5,10 @@ from Products.CMFPlone.utils import _createObjectByType
 from five import grok
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from Acquisition import aq_inner
+
+from upc.genwebupc.browser.plantilles import get_plantilles
+from Products.CMFPlone.utils import normalizeString
+
 import logging
 
 
@@ -135,6 +139,11 @@ class afegirPlantillesTiny(grok.View):
         templates = crearObjecte(context, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains=(['Document']))
         plantilles = crearObjecte(context, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains = (['Document']))
         pw.doActionFor(templates, "restrict")
+
+        for plt in get_plantilles():
+            plantilla = crearObjecte(templates, normalizeString(plt['titol']), 'Document', plt['titol'], plt['resum'], '')
+            plantilla.setText(plt['cos'], mimetype="text/html")
+
         return "OK"
 
 
