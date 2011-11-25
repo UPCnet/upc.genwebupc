@@ -45,12 +45,14 @@ setup(name='upc.genwebupc',
           'upc.genweb.descriptorTIC',
           'upc.genweb.kbpuc',
           'upc.genweb.objectiusCG',
+          'upc.cloudPrivat',
           'upc.remotecontrol',
           'upcnet.cas',
           'Products.DataGridField',
           'Products.ZMySQLDA',
           'archetypes.schemaextender',
           'upc.genweb.recaptcha',
+          'upcnet.stats',
           # Experimental GW4
           'plone.app.dexterity [grok]',
           'plone.app.referenceablebehavior',
@@ -58,6 +60,7 @@ setup(name='upc.genwebupc',
           'plone.namedfile [blobs]',
           'collective.pfg.dexterity',
           'plone.app.workflowmanager',
+
       ],
       entry_points="""
       # -*- Entry points: -*-

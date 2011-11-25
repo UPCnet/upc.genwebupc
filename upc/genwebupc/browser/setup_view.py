@@ -12,6 +12,9 @@ from plone.app.controlpanel.mail import IMailSchema
 
 from Acquisition import aq_parent
 
+from plantilles import get_plantilles
+from Products.CMFPlone.utils import normalizeString
+
 
 class setup(BrowserView):
     __call__=ViewPageTemplateFile('setup_view.pt')
@@ -124,52 +127,25 @@ class setup(BrowserView):
         #crear pagines de benvinguda        
 
         welcome_string="""<h1>Us donem la benvinguda a Genweb UPC v3</h1>
-<p>&nbsp;</p>
-<p><a href="http://www.upc.edu/comunicacio/www/genweb-upc"><img alt="Genweb UPC" src="logogw.gif" class="image-right" /></a></p>
+<div id="content-core">
+<p> </p>
+<p><a href="http://www.upc.edu/comunicacio/www/genweb-upc"><img alt="Genweb UPC" class="image-right" src="logogw.gif" /></a></p>
 <p>A partir d'aquest moment, ja podeu introduir continguts al vostre espai <a href="http://www.upc.edu/comunicacio/www/genweb-upc" target="_blank">Genweb</a>. A més, us oferim l'allotjament del vostre espai, <a href="http://www.upc.edu/comunicacio/www/dominis-upc" target="_blank">un domini upc.edu</a>, estadístiques, formació i suport tècnic.</p>
 <h2>Abans d'utilitzar Genweb...</h2>
-<p>Consulteu el <a href="http://www.upc.edu/comunicacio/www/genweb-upc/formacio/genweb3_manualUsuari.pdf" target="_blank">manual d'usuari</a> i els <a href="http://www.upc.edu/comunicacio/www/genweb-upc/formacio" target="_blank">videotutorials de formació</a>.<br />
-Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç d'<a href="http://www.upc.edu/comunicacio/www/genweb-upc/formacio" target="_blank">ajuda</a> que apareix a les opcions d'usuari.</p>
+<p>Consulteu el <a href="http://www.upc.edu/comunicacio/www/genweb-upc/formacio/genweb3_manualUsuari.pdf" target="_blank">manual d'usuari</a> i els <a href="http://www.upc.edu/comunicacio/www/genweb-upc/formacio" target="_blank">videotutorials de formació</a>.<br /> Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç d'<a href="http://www.upc.edu/comunicacio/www/genweb-upc/formacio" target="_blank">ajuda</a> que apareix a les opcions d'usuari.</p>
 <h2>Les novetats...</h2>
-<p>Un Genweb més fàcil, més còmode, més complet i més UPC.<br />
-&nbsp;</p>
+<p>El Genweb està a la última, més potent i adaptat<br /><br /></p>
 <ul>
-    <li>Una <strong>imatge institucional renovada</strong>, l'estil UPC al dia</li>
-    <li>Accés a l'<strong>escriptori personal</strong> a través de l'enllaç associat al nom d'usuari</li>
-    <li>Més <strong>plantilles </strong>d'edició: més opcions, més flexibilitat</li>
-    <li>Les dades de <strong>contacte </strong>sempre actualitzades</li>
-    <li>Situeu-vos amb <strong>Google Maps</strong></li>
-    <li>Noves <strong>prestacions </strong>i <strong>eines de col&middot;laboració</strong>:
-    <ul>
-        <li>
-        <p>Fòrums</p>
-        </li>
-        <li>
-        <p>Enquestes</p>
-        </li>
-        <li>
-        <p>Formularis</p>
-        </li>
-        <li>
-        <p>Gestor de sol&middot;licituds</p>
-        </li>
-        <li>
-        <p>Gestor de tasques</p>
-        </li>
-        <li>
-        <p>Gestor de reunions</p>
-        </li>
-        <li>
-        <p>Calendari</p>
-        </li>
-    </ul>
-    </li>
-    <li><strong>Genweb UPC v3 </strong>està desenvolupat amb el gestor de continguts de programari lliure <a href="http://www.plone.org" target="_blank">Plone 3.0</a>, basat en el servidor d'aplicacions Zope.</li>
+<li>Una <strong>imatge actualitzada </strong>al nou programari</li>
+<li><strong>TinyMCE</strong> és el nou editor del Genweb</li>
+<li>Edició més flexible:<strong> crea les teves pròpies </strong><strong>plantilles</strong></li>
+<li><strong>Genweb UPC v3 </strong>està desenvolupat amb el gestor de continguts de programari lliure <a href="http://www.plone.org" target="_blank">Plone 4.0</a>, basat en el servidor d'aplicacions Zope.</li>
 </ul>
 <h2>Participació...</h2>
 <p>Si teniu idees, necessitats o suggeriments per millorar el Genweb, ens ho podeu explicar a la nostra <a href="mailto:servei.comunicacio.promocio@upc.edu">bústia</a>.</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>"""
+<p> </p>
+<p> </p>
+</div>"""
         benvingut = self.crearObjecte(portal,'benvingut','Document','Benvingut','')
         bienvenido = self.crearObjecte(portal,'bienvenido','Document','Bienvenido','')
         welcome = self.crearObjecte(portal,'welcome','Document','Welcome','')                        
@@ -185,10 +161,15 @@ Sempre tindreu accés a la formació i al suport tècnic a través de l'enllaç 
         self.setLanguageAndLink([(benvingut,'ca'),(bienvenido,'es'),(welcome,'en')])                
 
         # Templates TinyMCE
-        templates = self.crearObjecte(portal, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains = (['Document']))
-        plantilles = self.crearObjecte(portal, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains = (['Document']))
+        templates = self.crearObjecte(portal, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains = [('Document', ''),('', '')] )
+        plantilles = self.crearObjecte(portal, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains = [('Document', ''),('', '')])
         pw = getToolByName(portal, "portal_workflow")
         pw.doActionFor(templates, "restrict")
+
+
+        for plt in get_plantilles():
+            plantilla = self.crearObjecte(templates, normalizeString(plt['titol']), 'Document', plt['titol'], plt['resum'],'')
+            plantilla.setText(plt['cos'],mimetype="text/html")
 
         return True    
 
