@@ -46,6 +46,7 @@
 
     <!-- Eines -->
     <include package="upc.remotecontrol" />
+    <include package="upcnet.stats" />
 
     <!-- redefinicions, per a que els tests funcionin -->
     <include package="Products.CMFPlacefulWorkflow" />
