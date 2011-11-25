@@ -1,11 +1,15 @@
 Changelog
 ===========
 
+4.1  (2011-11-25)
+-----------------
+
+* Migració a Plone 4
+
 3.3.5 (dev) (2010-10-08)
 -------------------------
 
 * Mapejat el nom d'un atribut del LDAP "sn" per tal de canviat l'id per el nom complert en els assistents a les reunions 
-
 
 3.3.4 (2010-10-07)
 ------------------
