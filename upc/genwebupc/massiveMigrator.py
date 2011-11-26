@@ -13,7 +13,7 @@ host = sys.argv[1]
 port = sys.argv[2]
 
 user = 'admin'
-password = 'admin'
+password = 'tzmLidT8'
 
 logger = logging.getLogger('Script Migracio GW4')
 logger.addHandler(logging.StreamHandler(sys.stdout))
