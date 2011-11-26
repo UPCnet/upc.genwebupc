@@ -177,13 +177,16 @@ class canviaFCKperTiny(grok.View):
         context = aq_inner(self.context)
         logger = logging.getLogger('Genweb 4: Migrator')
         pm = getToolByName(context, 'portal_membership')
-        for memberId in pm.listMemberIds():
+        pmd = getToolByName(context, 'portal_memberdata')
+        for memberId in pmd._members:
             member = pm.getMemberById(memberId)
-            editor = member.getProperty('wysiwyg_editor', None)
-            if editor == 'TinyMCE':
-                logger.info('%s: TinyMCE already selected, leaving alone' % memberId)
-            else:
-                member.setMemberProperties({'wysiwyg_editor': 'TinyMCE'})
-                logger.info('%s: TinyMCE has been set' % memberId)
+            if member is not None:
+                editor = member.getProperty('wysiwyg_editor', None)
+                if editor == 'TinyMCE':
+                    logger.info('%s: TinyMCE already selected, leaving alone' % memberId)
+                else:
+                    member.setMemberProperties({'wysiwyg_editor': 'TinyMCE'})
+                    logger.info('%s: TinyMCE has been set' % memberId)
 
+        pmd.wysiwyg_editor = 'TinyMCE'
         return 'OK'
