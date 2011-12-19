@@ -33,9 +33,17 @@ def setupVarious(context):
         if tag in nasty:
             del nasty[tag]
 
+    stripped = transform.get_parameter_value('stripped_attributes')
+    # GW4 remove some stripped
+    for tag in ['cellspacing', 'cellpadding', 'valign']:
+        if tag in stripped:
+            stripped.remove(tag)
+
     kwargs = {}
     kwargs['valid_tags'] = valid
     kwargs['nasty_tags'] = nasty
+    kwargs['stripped_attributes'] = stripped
+
     for k in list(kwargs):
         if isinstance(kwargs[k], dict):
             v = kwargs[k]
