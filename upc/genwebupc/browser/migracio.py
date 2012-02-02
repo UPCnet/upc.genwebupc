@@ -209,3 +209,15 @@ class canviaCachePurgeServer(grok.View):
         cachepurginsettings = registry.forInterface(ICachePurgingSettings)
         cacheserver = 'http://sylar.upc.es:900' + getDorsal()
         cachepurginsettings.cachingProxies = (cacheserver,)
+
+
+class canviaRestriccionsPlantilles(grok.View):
+    """Canvia les restriccions de les plantilles per a que es puguin mostrar """
+    grok.name('canviaRestriccionsPlantilles')
+    grok.context(IPloneSiteRoot)
+    grok.require('zope2.ViewManagementScreens')
+
+    def render(self):
+        context = aq_inner(self.context)
+        templates = crearObjecte(context, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains=(['Document'],['']))
+        plantilles = crearObjecte(context, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains = (['Document'],['']))
