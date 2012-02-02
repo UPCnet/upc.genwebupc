@@ -136,3 +136,12 @@ class getDefaultWFSitesView(grok.View):
             portal_workflow = getToolByName(plonesite, 'portal_workflow')
             out[plonesite.id] = portal_workflow.getDefaultChain()
         return json.dumps(out)
+
+
+class configuraCache(grok.View):
+    grok.name('configuraCache')
+    grok.context(IApplication)
+    grok.require('zope2.View')
+
+    def render(self):
+        context = aq_inner(self.context)
