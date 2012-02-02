@@ -32,6 +32,13 @@ class getZEO(BrowserView):
         return DORSALS[self.dorsal()]
 
 
+def getDorsal():
+    config = getConfiguration()
+    configuration = config.product_config.get('genwebconfig', dict())
+    zeo = configuration.get('zeo')
+    return zeo
+
+
 def listPloneSites(zope):
     out = []
     for item in zope.values():

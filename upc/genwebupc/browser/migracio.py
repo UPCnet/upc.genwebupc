@@ -9,6 +9,12 @@ from Acquisition import aq_inner
 from upc.genwebupc.browser.plantilles import get_plantilles
 from Products.CMFPlone.utils import normalizeString
 
+from plone.registry.interfaces import IRegistry
+from zope.component import queryUtility
+from plone.cachepurging.interfaces import ICachePurgingSettings
+
+from upc.genwebupc.browser.helpers import getDorsal
+
 import logging
 
 
@@ -190,3 +196,16 @@ class canviaFCKperTiny(grok.View):
 
         pmd.wysiwyg_editor = 'TinyMCE'
         return 'OK'
+
+
+class canviaCachePurgeServer(grok.View):
+    """.."""
+    grok.name('canviaCachePurgeServer')
+    grok.context(IPloneSiteRoot)
+    grok.require('zope2.ViewManagementScreens')
+
+    def render(self):
+        registry = queryUtility(IRegistry)
+        cachepurginsettings = registry.forInterface(ICachePurgingSettings)
+        cacheserver = 'http://sylar.upc.es:900' + getDorsal()
+        cachepurginsettings.cachingProxies = (cacheserver,)
