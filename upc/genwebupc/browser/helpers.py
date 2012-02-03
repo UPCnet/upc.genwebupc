@@ -7,6 +7,8 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 from five import grok
 from OFS.interfaces import IApplication
+from zope.component import queryUtility
+from plone.registry.interfaces import IRegistry
 import json
 
 
@@ -138,10 +140,24 @@ class getDefaultWFSitesView(grok.View):
         return json.dumps(out)
 
 
-class configuraCache(grok.View):
-    grok.name('configuraCache')
-    grok.context(IApplication)
-    grok.require('zope2.View')
+class configuraSiteCache(grok.View):
+    grok.name('configuraSiteCache')
+    grok.context(IPloneSiteRoot)
+    grok.require('zope2.ViewManagementScreens')
 
     def render(self):
         context = aq_inner(self.context)
+        from Products.GenericSetup.tests.common import DummyImportContext
+        from plone.app.registry.exportimport.handler import RegistryImporter
+        from upc.genwebupc.browser.cachesettings import cacheprofile
+        from plone.cachepurging.interfaces import ICachePurgingSettings
+        contextImport = DummyImportContext(context, purge=False)
+        registry = queryUtility(IRegistry)
+        importer = RegistryImporter(registry, contextImport)
+        importer.importDocument(cacheprofile)
+
+        cachepurginsettings = registry.forInterface(ICachePurgingSettings)
+        cacheserver = 'http://sylar.upc.es:900' + getDorsal()
+        cachepurginsettings.cachingProxies = (cacheserver,)
+
+        return 'Configuracio de cache importada correctament.'
