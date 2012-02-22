@@ -1,6 +1,11 @@
 Changelog
 ===========
 
+4.1.5 (unreleased)
+------------------
+
+* Migrador per PloneSurvey
+
 4.1.4 (2012-02-10)
 ------------------
 * Nous migradors i helpers
