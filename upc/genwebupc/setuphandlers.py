@@ -105,6 +105,6 @@ def setupVarious(context):
     # configurem els estats del calendari
     pct = getToolByName(portal, 'portal_calendar')
     pct.calendar_states = ('published', 'intranet')
-    # Fixem el primer dia de la setamana com dilluns (0)
+    # Fixem el primer dia de la setmana com dilluns (0)
     pct.firstweekday = 0
     transaction.commit()
