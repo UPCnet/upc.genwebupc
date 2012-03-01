@@ -1,9 +1,8 @@
 Changelog
 ===========
 
-4.1.5 (unreleased)
+4.1.5 (2012-03-01)
 ------------------
-
 * Migrador per PloneSurvey
 
 4.1.4 (2012-02-10)
