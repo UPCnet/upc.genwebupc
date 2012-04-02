@@ -16,6 +16,7 @@ from plone.cachepurging.interfaces import ICachePurgingSettings
 from upc.genwebupc.browser.helpers import getDorsal
 
 import logging
+import re
 
 
 def migracio(context):
@@ -221,3 +222,27 @@ class canviaRestriccionsPlantilles(grok.View):
         context = aq_inner(self.context)
         templates = crearObjecte(context, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains=(['Document'],['']))
         plantilles = crearObjecte(context, 'plantilles', 'Folder', 'Plantilles', 'En aquesta carpeta podeu posar les plantilles per ser usades a l\'editor.', constrains = (['Document'],['']))
+
+
+
+class canviaPropietatsSurvey(grok.View):
+    """ Canvia el portal_type dels objectes del PloneSurvey que tinguin espais en el nom del tipus"""
+
+    grok.name('canviaPropietatsSurvey')
+    grok.context(IPloneSiteRoot)
+    grok.require('zope2.ViewManagementScreens')
+
+    def update(self):
+        # Busquem tots els objectes del PloneSurvey per canviar
+        catalog = getToolByName(self.context, 'portal_catalog')
+        search = catalog.searchResults({'portal_type': ['Sub Survey', 'Survey Date Question', 'Survey Matrix', 'Survey Matrix Question', 'Survey Select Question', 'Survey Text Question']})
+
+        for item in search:
+            objecte = item.getObject()
+            # Eliminem tots els espais en blanc
+            objecte.portal_type = re.sub(r'\s', '', objecte.Type())
+            #Reindexem l'objecte
+            objecte.reindexObject()
+
+    def render(self):
+        print "Objectes del PloneSurvey Actualitzats"

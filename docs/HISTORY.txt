@@ -1,6 +1,15 @@
 Changelog
 ===========
 
+4.1.5 (2012-03-01)
+------------------
+* Migrador per PloneSurvey
+
+4.1.4 (2012-02-10)
+------------------
+* Nous migradors i helpers
+* Afegit upc.genweb.soa
+
 4.1.3 (2011-12-19)
 ------------------
 * Stripped tags a setuphandlers
