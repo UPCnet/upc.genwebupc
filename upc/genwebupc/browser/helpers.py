@@ -161,3 +161,21 @@ class configuraSiteCache(grok.View):
         cachepurginsettings.cachingProxies = (cacheserver,)
 
         return 'Configuracio de cache importada correctament.'
+
+
+class listLDAPInfo(grok.View):
+    grok.name('listLDAPInfo')
+    grok.context(IApplication)
+    grok.require('zope2.ViewManagementScreens')
+
+    def render(self):
+        context = aq_inner(self.context)
+        plonesites = listPloneSites(context)
+        out = {}
+        for plonesite in plonesites:
+            acl_users = getToolByName(plonesite, 'acl_users')
+            try:
+                out[plonesite.id] = acl_users.ldapUPC.acl_users.getServers()
+            except:
+                print "Plonesite %s doesn't have a valid ldapUPC instance." % plonesite.id
+        return json.dumps(out)
