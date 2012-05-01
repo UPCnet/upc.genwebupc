@@ -4,8 +4,8 @@ from AccessControl import Unauthorized
 from zope.component import getMultiAdapter
 from Products.CMFCore.utils import getToolByName
 
-from plone.app.testing import TEST_USER_ID
-from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import TEST_USER_ID, TEST_USER_NAME
+from plone.app.testing import SITE_OWNER_NAME
 from plone.app.testing import login, logout
 from plone.app.testing import setRoles
 
@@ -38,11 +38,17 @@ class IntegrationTest(unittest.TestCase):
     def testTemplatesFolderPermissions(self):
         portal = self.layer['portal']
         request = self.layer['request']
-        setRoles(portal, TEST_USER_ID, ['Contributor', 'Editor', 'Reader', 'Reviewer'])
+        # Login as manager
+        setRoles(portal, TEST_USER_ID, ['Manager'])
         login(portal, TEST_USER_NAME)
         setupview = getMultiAdapter((portal, request), name='setup-view')
         setupview.createContent()
-        #import ipdb;ipdb.set_trace()
+        logout()
+        acl_users = getToolByName(portal, 'acl_users')
+        acl_users.userFolderAddUser('user1', 'secret', ['Member', 'Contributor', 'Editor', 'Reader', 'Reviewer'], [])
+        # setRoles(portal, 'user1', ['Contributor', 'Editor', 'Reader', 'Reviewer'])
+        login(portal, 'user1')
+        self.assertRaises(Unauthorized, portal.manage_delObjects, 'templates')
 
     def testBasicProducts(self):
         portal = self.layer['portal']
