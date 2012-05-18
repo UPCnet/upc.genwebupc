@@ -62,7 +62,7 @@ setup(name='upc.genwebupc',
           'plone.namedfile [blobs]',
           'collective.pfg.dexterity',
           'plone.app.workflowmanager',
-
+          'Solgema.fullcalendar',
       ],
       entry_points="""
       # -*- Entry points: -*-
