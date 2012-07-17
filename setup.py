@@ -25,15 +25,10 @@ setup(name='upc.genwebupc',
       namespace_packages=['upc'],
       include_package_data=True,
       zip_safe=False,
-      extras_require = {
-          'test': [
-              'plone.app.testing',
-          ]
-      },
+      extras_require={'test': ['plone.app.testing', ]},
       install_requires=[
           'setuptools',
           'requests',
-          # -*- Extra requirements: -*-
           'genweb.stack',
           'genweb.core',
           'genweb.portlets',
@@ -55,14 +50,16 @@ setup(name='upc.genwebupc',
           'archetypes.schemaextender',
           'upc.genweb.recaptcha',
           'upcnet.stats',
-          # Experimental GW4
           'plone.app.dexterity [grok]',
           'plone.app.referenceablebehavior',
           'plone.app.relationfield',
           'plone.namedfile [blobs]',
           'collective.pfg.dexterity',
           'plone.app.workflowmanager',
+          # Experimental GW4
           'Solgema.fullcalendar',
+          'plone.app.toolbar',
+          'collective.panels',
       ],
       entry_points="""
       # -*- Entry points: -*-
