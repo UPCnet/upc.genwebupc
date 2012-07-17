@@ -8,7 +8,7 @@ from plone.app.testing import TEST_USER_ID, TEST_USER_NAME
 from plone.app.testing import SITE_OWNER_NAME
 from plone.app.testing import login, logout
 from plone.app.testing import setRoles
-
+from plone.testing import z2
 from plone.app.testing import applyProfile
 
 
