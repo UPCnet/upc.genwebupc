@@ -58,7 +58,6 @@ setup(name='upc.genwebupc',
           'plone.app.workflowmanager',
           # Experimental GW4
           'Solgema.fullcalendar',
-          'plone.app.toolbar',
           'collective.panels',
       ],
       entry_points="""
