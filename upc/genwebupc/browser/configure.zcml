@@ -3,7 +3,8 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="upc.genwebupc">
 
-    <browser:page
+<!-- Traspassades a genweb.core -->
+<!--     <browser:page
       name="setup-view"
       for="*"
       class=".setup_view.setup"
@@ -24,7 +25,7 @@
       class=".helpers.getZEO"
       permission="zope2.View"
       template="getzeo.pt"
-      />
+      /> -->
 
 <!-- GW4 FixUIDs en la nevera -->
     <!-- <browser:page
@@ -33,12 +34,12 @@
       class=".fixuids.fixUIDs"
       permission="cmf.ManagePortal"
       />
-      
+
     <browser:page
       name="fix-all-uids"
       for="*"
       class=".fixuids.fixAllUIDs"
       permission="cmf.ManagePortal"
       /> -->
-      
+
 </configure>
