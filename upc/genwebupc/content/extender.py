@@ -54,10 +54,11 @@ class ATLinkSchemaModifier(object):
         return new
 
 
-@indexer(IATLink)
-def obrirEnFinestraNova(obj):
-    return obj.obrirfinestra
-grok.global_adapter(obrirEnFinestraNova, name="obrirEnFinestraNova")
+# Traspassed to genweb.core
+# @indexer(IATLink)
+# def obrirEnFinestraNova(obj):
+#     return obj.obrirfinestra
+# grok.global_adapter(obrirEnFinestraNova, name="obrirEnFinestraNova")
 
 # GW4 nevera
 #class CollageSchemaModifier(object):
@@ -68,7 +69,7 @@ grok.global_adapter(obrirEnFinestraNova, name="obrirEnFinestraNova")
 #
 #    def __init__(self, context):
 #        self.context = context
-#   
+#
 #    def fiddle(self, schema):
 #        #import pdb; pdb.set_trace()
 #        schema['target'].keepReferencesOnCopy = True
@@ -80,10 +81,10 @@ grok.global_adapter(obrirEnFinestraNova, name="obrirEnFinestraNova")
 #    """
 #    implements(ISchemaModifier)
 #    adapts(IIssue)
-#    
+#
 #    def __init__(self, context):
 #        self.context = context
-#    
+#
 #    def fiddle(self, schema):
 #        schema['details'].widget.rows = 15
 #        schema['steps'].widget.rows = 6

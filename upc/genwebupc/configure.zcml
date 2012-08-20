@@ -3,7 +3,7 @@
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:grok="http://namespaces.zope.org/grok"
-    xmlns:i18n="http://namespaces.zope.org/i18n"    
+    xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="upc.genwebupc">
 
     <!-- Compat amb Plone 4.1 -->
@@ -11,7 +11,7 @@
 
     <include package=".browser" />
     <include package=".content" />
-    
+
     <!-- Productes -->
     <include package="Products.LinguaPlone" />
     <include package="upc.genwebupctheme" />
@@ -46,7 +46,7 @@
     <include package="upc.cloudPrivat" />
 
     <!-- Eines -->
-    <include package="upc.remotecontrol" />
+    <!-- <include package="upc.remotecontrol" /> -->
     <include package="upcnet.stats" />
 
     <!-- redefinicions, per a que els tests funcionin -->
@@ -54,21 +54,16 @@
 
     <!-- temporalment deshabilitats -->
     <!-- <include package="archetypes.configure" file="meta.zcml" /> -->
-    
-    <!-- Encara no afegits -->
-    <!--
-    <include package="upc.permalink" />
-    -->
-     
+
     <include package="Products.GenericSetup" file="meta.zcml" />
-    
+
     <!-- Grok the package to initialise schema interfaces and content classes -->
     <include package="grokcore.component" file="meta.zcml" />
     <grok:grok package=".content" />
     <grok:grok package=".browser" />
 
     <five:registerPackage package="." initialize=".initialize" />
-  
+
     <genericsetup:registerProfile
       name="default"
       title="Genweb UPC"
@@ -85,10 +80,7 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       /> -->
 
-    <!-- GW4 Extenders en standby -->
-    <!-- <adapter factory=".content.extender.PoiIssueSchemaModifier" />
-    <adapter factory=".content.extender.CollageSchemaModifier" />-->
-    
-    <adapter factory=".content.extender.ATLinkSchemaModifier" /> 
-      
+    <!-- Traspassed to genweb.core -->
+    <!-- <adapter factory=".content.extender.ATLinkSchemaModifier" /> -->
+
 </configure>
