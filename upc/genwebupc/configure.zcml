@@ -10,7 +10,7 @@
     <include package="Products.CMFCore" file="permissions.zcml" />
 
     <include package=".browser" />
-    <include package=".content" />
+    <!-- <include package=".content" /> -->
 
     <!-- Productes -->
     <include package="Products.LinguaPlone" />
@@ -58,11 +58,13 @@
     <include package="Products.GenericSetup" file="meta.zcml" />
 
     <!-- Grok the package to initialise schema interfaces and content classes -->
-    <include package="grokcore.component" file="meta.zcml" />
-    <grok:grok package=".content" />
-    <grok:grok package=".browser" />
+    <!-- Traspassed to genweb.core -->
+    <!-- <include package="grokcore.component" file="meta.zcml" />
+     <grok:grok package=".content" />
+     <grok:grok package=".browser" /> -->
 
-    <five:registerPackage package="." initialize=".initialize" />
+    <!-- No longer used -->
+    <!-- <five:registerPackage package="." initialize=".initialize" /> -->
 
     <genericsetup:registerProfile
       name="default"

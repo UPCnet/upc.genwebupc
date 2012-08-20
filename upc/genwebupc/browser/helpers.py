@@ -157,7 +157,7 @@ class configuraSiteCache(grok.View):
         importer.importDocument(cacheprofile)
 
         cachepurginsettings = registry.forInterface(ICachePurgingSettings)
-        cacheserver = 'http://sylar.upc.es:900' + getDorsal()
+        cacheserver = 'http://sylar.upc.es:90%02d' % int(getDorsal())
         cachepurginsettings.cachingProxies = (cacheserver,)
 
         return 'Configuracio de cache importada correctament.'

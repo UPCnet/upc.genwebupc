@@ -208,7 +208,7 @@ class canviaCachePurgeServer(grok.View):
     def render(self):
         registry = queryUtility(IRegistry)
         cachepurginsettings = registry.forInterface(ICachePurgingSettings)
-        cacheserver = 'http://sylar.upc.es:900' + getDorsal()
+        cacheserver = 'http://sylar.upc.es:90%02d' % int(getDorsal())
         cachepurginsettings.cachingProxies = (cacheserver,)
 
 
