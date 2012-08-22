@@ -7,13 +7,13 @@
     i18n_domain="upc.genwebupc">
 
     <!-- Compat amb Plone 4.1 -->
-    <include package="Products.CMFCore" file="permissions.zcml" />
+    <!-- <include package="Products.CMFCore" file="permissions.zcml" /> -->
 
-    <include package=".browser" />
+    <!-- <include package=".browser" /> -->
     <!-- <include package=".content" /> -->
 
     <!-- Productes -->
-    <include package="Products.LinguaPlone" />
+<!--     <include package="Products.LinguaPlone" />
     <include package="upc.genwebupctheme" />
     <include package="genweb.core" />
     <include package="upc.genweb.banners" />
@@ -33,29 +33,29 @@
     <include package="plone.app.caching" />
     <include package="upc.genweb.recaptcha" />
     <include package="archetypes.schemaextender" />
-
+ -->
     <!-- Paquets candidats a ser obsolets -->
-    <include package="upc.genweb.meetings" />
+<!--     <include package="upc.genweb.meetings" />
     <include package="upcnet.simpleTask" />
-
+ -->
     <!-- Paquets utilitzats nomes per una instancia o algunes instancies  -->
-    <include package="upc.genweb.serveis" />
+<!--     <include package="upc.genweb.serveis" />
     <include package="upc.genweb.descriptorTIC" />
     <include package="upc.genweb.kbpuc" />
     <include package="upc.genweb.objectiusCG" />
-    <include package="upc.cloudPrivat" />
+    <include package="upc.cloudPrivat" /> -->
 
     <!-- Eines -->
     <!-- <include package="upc.remotecontrol" /> -->
-    <include package="upcnet.stats" />
+    <!-- <include package="upcnet.stats" /> -->
 
     <!-- redefinicions, per a que els tests funcionin -->
-    <include package="Products.CMFPlacefulWorkflow" />
+    <!-- <include package="Products.CMFPlacefulWorkflow" /> -->
 
     <!-- temporalment deshabilitats -->
     <!-- <include package="archetypes.configure" file="meta.zcml" /> -->
 
-    <include package="Products.GenericSetup" file="meta.zcml" />
+    <!-- <include package="Products.GenericSetup" file="meta.zcml" /> -->
 
     <!-- Grok the package to initialise schema interfaces and content classes -->
     <!-- Traspassed to genweb.core -->
@@ -66,13 +66,13 @@
     <!-- No longer used -->
     <!-- <five:registerPackage package="." initialize=".initialize" /> -->
 
-    <genericsetup:registerProfile
+<!--     <genericsetup:registerProfile
       name="default"
       title="Genweb UPC"
       description="GenWeb UPC main package"
       directory="profiles/default"
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
+      /> -->
 
     <!-- <genericsetup:registerProfile
       name="v333tov334"
