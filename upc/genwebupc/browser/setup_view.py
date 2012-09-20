@@ -82,12 +82,12 @@ class setup(BrowserView):
         # Crear carpetes i coleccions, linkades per language, el primer language de la tupla es el canonical
 
         news = self.crearObjecte(portal,'news','Folder','News','Site News',constrains=(['News Item'],['Image']))
-        noticias = self.crearObjecte(portal,'noticias','Folder','Notícias','Notícias del sitio',constrains=(['News Item'],['Image']))
+        noticias = self.crearObjecte(portal,'noticias','Folder','Noticias','Noticias del sitio',constrains=(['News Item'],['Image']))
         noticies = self.crearObjecte(portal,'noticies','Folder','Notícies','Notícies del lloc',constrains=(['News Item'],['Image']))        
         self.setLanguageAndLink([(noticies,'ca'),(noticias,'es'),(news,'en')])
 
         self.addCollection(news,'aggregator','News','Site News','News Item')
-        self.addCollection(noticias,'aggregator','Notícias','Notícias del sitio','News Item')
+        self.addCollection(noticias,'aggregator','Noticias','Noticias del sitio','News Item')
         self.addCollection(noticies,'aggregator','Notícies','Notícies del lloc','News Item')        
         self.setLanguageAndLink([(noticies.aggregator,'ca'),(noticias.aggregator,'es'),(news.aggregator,'en')])    
 
