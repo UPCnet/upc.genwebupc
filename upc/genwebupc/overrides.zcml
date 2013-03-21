@@ -6,7 +6,7 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="upc.genwebupc">
 
-    <include package="upc.genwebupctheme" file="overrides.zcml" />
+    <!-- <include package="upc.genwebupctheme" file="overrides.zcml" /> -->
 
     <!-- Traspassed to genweb.core -->
 <!--     <browser:page
