@@ -44,8 +44,8 @@ class setup(BrowserView):
                    ('Homepage',['benvingut', 'bienvenido', 'welcome']),
                    ('Templates',['templates', ]),
                    ('Plantilles',['plantilles', ]),
-                   ]  
-        result = []           
+                   ]
+        result = []
         portal = getToolByName(self,'portal_url').getPortalObject()
         for o in objects:
             tr = [o[0]]
@@ -61,7 +61,7 @@ class setup(BrowserView):
 
         # configurem mail
         portal = getToolByName(self,'portal_url').getPortalObject()
-        mail = IMailSchema(portal) 
+        mail = IMailSchema(portal)
         mail.smtp_host = u'localhost'
         mail.email_from_name = "Administrador del Genweb"
         mail.email_from_address = "noreply@upc.edu"
@@ -71,10 +71,10 @@ class setup(BrowserView):
         if getattr(portal,'news',False):
           if not self.getObjectStatus(portal.news):
             portal.manage_delObjects('news')
-        if getattr(portal,'events',False):            
+        if getattr(portal,'events',False):
           if not self.getObjectStatus(portal.events):
             portal.manage_delObjects('events')
-        if getattr(portal,'Members',False):                        
+        if getattr(portal,'Members',False):
           portal['Members'].setExcludeFromNav(True)
           portal['Members'].reindexObject()
           portal['Members'].setLanguage('en')
@@ -83,13 +83,13 @@ class setup(BrowserView):
 
         news = self.crearObjecte(portal,'news','Folder','News','Site News',constrains=(['News Item'],['Image']))
         noticias = self.crearObjecte(portal,'noticias','Folder','Noticias','Noticias del sitio',constrains=(['News Item'],['Image']))
-        noticies = self.crearObjecte(portal,'noticies','Folder','Notícies','Notícies del lloc',constrains=(['News Item'],['Image']))        
+        noticies = self.crearObjecte(portal,'noticies','Folder','Notícies','Notícies del lloc',constrains=(['News Item'],['Image']))
         self.setLanguageAndLink([(noticies,'ca'),(noticias,'es'),(news,'en')])
 
         self.addCollection(news,'aggregator','News','Site News','News Item')
         self.addCollection(noticias,'aggregator','Noticias','Noticias del sitio','News Item')
-        self.addCollection(noticies,'aggregator','Notícies','Notícies del lloc','News Item')        
-        self.setLanguageAndLink([(noticies.aggregator,'ca'),(noticias.aggregator,'es'),(news.aggregator,'en')])    
+        self.addCollection(noticies,'aggregator','Notícies','Notícies del lloc','News Item')
+        self.setLanguageAndLink([(noticies.aggregator,'ca'),(noticias.aggregator,'es'),(news.aggregator,'en')])
 
         noticies.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
         noticias.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
@@ -102,8 +102,8 @@ class setup(BrowserView):
 
         self.addCollection(events,'aggregator','Events','Site Events',('Event','Meeting'),date_filter=True)
         self.addCollection(eventos,'aggregator','Eventos','Eventos del sitio',('Event','Meeting'),date_filter=True)
-        self.addCollection(esdeveniments,'aggregator','Esdeveniments','Esdeveniments del lloc',('Event','Meeting'),date_filter=True)            
-        self.setLanguageAndLink([(esdeveniments.aggregator,'ca'),(eventos.aggregator,'es'),(events.aggregator,'en')])    
+        self.addCollection(esdeveniments,'aggregator','Esdeveniments','Esdeveniments del lloc',('Event','Meeting'),date_filter=True)
+        self.setLanguageAndLink([(esdeveniments.aggregator,'ca'),(eventos.aggregator,'es'),(events.aggregator,'en')])
 
         esdeveniments.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
         eventos.aggregator.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
@@ -111,20 +111,20 @@ class setup(BrowserView):
 
         self.addCollection(events.aggregator,'previous','Past Events','Events which have already happened. ','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)
         self.addCollection(eventos.aggregator,'anteriores','Eventos pasados','Eventos del sitio que ya han sucedido','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)
-        self.addCollection(esdeveniments.aggregator,'anteriors','Esdeveniments passats','Esdeveniments del lloc que ja han passat','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)            
+        self.addCollection(esdeveniments.aggregator,'anteriors','Esdeveniments passats','Esdeveniments del lloc que ja han passat','Event',dateRange=u'-',operation=u'less',setDefault=False,path='grandfather',date_filter=True)
         self.setLanguageAndLink([(esdeveniments.aggregator.anteriors,'ca'),(eventos.aggregator.anteriores,'es'),(events.aggregator.previous,'en')])
 
         banners_en = self.crearObjecte(portal,'banners-en','BannerContainer','Banners','English Banners')
         banners_es = self.crearObjecte(portal,'banners-es','BannerContainer','Banners','Banners en Español')
-        banners_ca = self.crearObjecte(portal,'banners-ca','BannerContainer','Banners','Banners en Català')    
+        banners_ca = self.crearObjecte(portal,'banners-ca','BannerContainer','Banners','Banners en Català')
         self.setLanguageAndLink([(banners_ca,'ca'),(banners_es,'es'),(banners_en,'en')])
 
         logosfooter_en = self.crearObjecte(portal,'logosfooter-en','Logos_Container','Footer Logos','English footer logos')
         logosfooter_es = self.crearObjecte(portal,'logosfooter-es','Logos_Container','Logos pie','Logos en español del pie de página')
-        logosfooter_ca = self.crearObjecte(portal,'logosfooter-ca','Logos_Container','Logos peu','Logos en català del peu de pàgina')    
+        logosfooter_ca = self.crearObjecte(portal,'logosfooter-ca','Logos_Container','Logos peu','Logos en català del peu de pàgina')
         self.setLanguageAndLink([(logosfooter_ca,'ca'),(logosfooter_es,'es'),(logosfooter_en,'en')])
 
-        #crear pagines de benvinguda        
+        #crear pagines de benvinguda
 
         welcome_string="""<h1>Us donem la benvinguda a Genweb UPC v3</h1>
 <div id="content-core">
@@ -142,13 +142,13 @@ class setup(BrowserView):
 <li><strong>Genweb UPC v3 </strong>està desenvolupat amb el gestor de continguts de programari lliure <a href="http://www.plone.org" target="_blank">Plone 4.0</a>, basat en el servidor d'aplicacions Zope.</li>
 </ul>
 <h2>Participació...</h2>
-<p>Si teniu idees, necessitats o suggeriments per millorar el Genweb, ens ho podeu explicar a la nostra <a href="mailto:servei.comunicacio.promocio@upc.edu">bústia</a>.</p>
+<p>Si teniu idees, necessitats o suggeriments per millorar el Genweb, ens ho podeu explicar a la nostra <a href="mailto:gestio.genweb@upc.edu">bústia</a>.</p>
 <p> </p>
 <p> </p>
 </div>"""
         benvingut = self.crearObjecte(portal,'benvingut','Document','Benvingut','')
         bienvenido = self.crearObjecte(portal,'bienvenido','Document','Bienvenido','')
-        welcome = self.crearObjecte(portal,'welcome','Document','Welcome','')                        
+        welcome = self.crearObjecte(portal,'welcome','Document','Welcome','')
 
         benvingut.setText(welcome_string, mimetype='text/html')
         bienvenido.setText(welcome_string, mimetype='text/html')
@@ -158,7 +158,7 @@ class setup(BrowserView):
         bienvenido.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
         welcome.manage_permission(permissions.DeleteObjects, roles = ["Manager"], acquire=False)
 
-        self.setLanguageAndLink([(benvingut,'ca'),(bienvenido,'es'),(welcome,'en')])                
+        self.setLanguageAndLink([(benvingut,'ca'),(bienvenido,'es'),(welcome,'en')])
 
         # Templates TinyMCE
         templates = self.crearObjecte(portal, 'templates', 'Folder', 'Templates', 'Plantilles per defecte administrades per l\'SCP.', constrains = (['Document'],['']))
@@ -171,7 +171,7 @@ class setup(BrowserView):
             plantilla = self.crearObjecte(templates, normalizeString(plt['titol']), 'Document', plt['titol'], plt['resum'],'')
             plantilla.setText(plt['cos'],mimetype="text/html")
 
-        return True    
+        return True
 
     def setLanguageAndLink(self,items):
         canonical,canonical_lang = items[0]
@@ -181,13 +181,13 @@ class setup(BrowserView):
                 item.addTranslationReference(canonical)
 
     def getObjectStatus(self,context):
-        pw = getToolByName(context, "portal_workflow") 
+        pw = getToolByName(context, "portal_workflow")
         object_workflow = pw.getWorkflowsFor(context)[0].id
         object_status = pw.getStatusOf(object_workflow,context)
         return object_status
 
     def doWorkflowAction(self,context):
-        pw = getToolByName(context, "portal_workflow") 
+        pw = getToolByName(context, "portal_workflow")
         object_workflow = pw.getWorkflowsFor(context)[0].id
         object_status = pw.getStatusOf(object_workflow,context)
         if object_status:
@@ -202,8 +202,8 @@ class setup(BrowserView):
             #creem l'objecte i el publiquem
             _createObjectByType(type_name, context, id)
         #populem l'objecte
-        created = context[id]            
-        self.doWorkflowAction(created)    
+        created = context[id]
+        self.doWorkflowAction(created)
         created.setTitle(title)
         created.setDescription(description)
         created._at_creation_flag=False
@@ -232,13 +232,13 @@ class setup(BrowserView):
             ('path','ATPathCriterion'),
             ('modified','ATSortCriterion')]
         if date_filter:
-           criteris.append(('start','ATFriendlyDateCriteria'))    
+           criteris.append(('start','ATFriendlyDateCriteria'))
         if state_filter:
            criteris.append(('review_state','ATSimpleStringCriterion'))
 
         for crit in criteris:
             if not 'crit__%s_%s' % (crit[0],crit[1]) in topic.keys():
-                topic.addCriterion(crit[0],crit[1])    
+                topic.addCriterion(crit[0],crit[1])
 
         # Criteri tipus
         criteri_tipus = topic['crit__Type_ATPortalTypeCriterion']
@@ -276,4 +276,4 @@ class setup(BrowserView):
 
         if setDefault:
             context.setDefaultPage(id)
-        return          
+        return
