@@ -3,7 +3,9 @@ Changelog
 
 4.1.6 (unreleased)
 ------------------
-* Corregir ortografía carpeta "Noticias" en setup_view.py
+
+- Nothing changed yet.
+
 
 4.1.5 (2012-03-01)
 ------------------
@@ -30,7 +32,7 @@ Changelog
 3.3.5 (dev) (2010-10-08)
 -------------------------
 
-* Mapejat el nom d'un atribut del LDAP "sn" per tal de canviat l'id per el nom complert en els assistents a les reunions 
+* Mapejat el nom d'un atribut del LDAP "sn" per tal de canviat l'id per el nom complert en els assistents a les reunions
 
 3.3.4 (2010-10-07)
 ------------------
