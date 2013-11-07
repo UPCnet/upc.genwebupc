@@ -1,11 +1,9 @@
 Changelog
 ===========
 
-4.1.6 (unreleased)
+4.1.6 (2013-11-07)
 ------------------
-
-- Nothing changed yet.
-
+* Corregir ortografía carpeta "Noticias" en setup_view.py
 
 4.1.5 (2012-03-01)
 ------------------
