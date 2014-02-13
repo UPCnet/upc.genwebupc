@@ -71,7 +71,6 @@ class ATLinkSchemaModifier(object):
 #        self.context = context
 #
 #    def fiddle(self, schema):
-#        #import pdb; pdb.set_trace()
 #        schema['target'].keepReferencesOnCopy = True
 #
 #
