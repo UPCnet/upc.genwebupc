@@ -5,6 +5,9 @@ from Products.LDAPUserFolder.LDAPUserFolder import LDAPUserFolder
 from plone.app.controlpanel.site import ISiteSchema
 
 import transaction
+import os
+
+LDAP_PASSWORD = os.environ.get('ldapbindpasswd')
 
 
 def setupVarious(context):
@@ -54,14 +57,17 @@ def setupVarious(context):
     transform._p_changed = True
     transform.reload()
     try:
-            manage_addPloneLDAPMultiPlugin(portal.acl_users, "ldapUPC",
+            manage_addPloneLDAPMultiPlugin(
+                portal.acl_users,
+                "ldapUPC",
                 title="ldapUPC", use_ssl=1, login_attr="cn", uid_attr="cn", local_groups=0,
                 users_base="ou=Users,dc=upc,dc=edu", users_scope=2,
                 roles="Authenticated", groups_base="ou=Groups,dc=upc,dc=edu",
-                groups_scope=2, read_only=True, binduid="cn=ldap.upc,ou=Users,dc=upc,dc=edu", bindpwd="secret",
+                groups_scope=2, read_only=True, binduid="cn=ldap.upc,ou=Users,dc=upc,dc=edu", bindpwd=LDAP_PASSWORD,
                 rdn_attr="cn", LDAP_server="ldap.upc.edu", encryption="SSHA")
-            portal.acl_users.ldapUPC.acl_users.manage_edit("ldapUPC", "cn", "cn", "ou=Users,dc=upc,dc=edu", 2, "Authenticated",
-                "ou=Groups,dc=upc,dc=edu", 2, "cn=ldap.upc,ou=Users,dc=upc,dc=edu", "secret", 1, "cn",
+            portal.acl_users.ldapUPC.acl_users.manage_edit(
+                "ldapUPC", "cn", "cn", "ou=Users,dc=upc,dc=edu", 2, "Authenticated",
+                "ou=Groups,dc=upc,dc=edu", 2, "cn=ldap.upc,ou=Users,dc=upc,dc=edu", LDAP_PASSWORD, 1, "cn",
                 "top,person", 0, 0, "SSHA", 1, '')
             plugin = portal.acl_users['ldapUPC']
 
@@ -69,7 +75,7 @@ def setupVarious(context):
             #Comentem la linia per a que no afegeixi
             #LDAPUserFolder.manage_addServer(portal.acl_users.ldapUPC.acl_users, "ldap.upc.edu", '636', use_ssl=1)
 
-            LDAPUserFolder.manage_deleteLDAPSchemaItems(portal.acl_users.ldapUPC.acl_users, ldap_names = ['sn'], REQUEST = None)
+            LDAPUserFolder.manage_deleteLDAPSchemaItems(portal.acl_users.ldapUPC.acl_users, ldap_names=['sn'], REQUEST=None)
             LDAPUserFolder.manage_addLDAPSchemaItem(portal.acl_users.ldapUPC.acl_users, ldap_name='sn', friendly_name='Last Name', public_name='name')
 
             # Move the ldapUPC to the top of the active plugins.
