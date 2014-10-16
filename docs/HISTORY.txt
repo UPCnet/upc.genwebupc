@@ -1,11 +1,12 @@
 Changelog
 ===========
 
-4.1.7 (unreleased)
+4.1.7 (2014-10-16)
 ------------------
 
-- Nothing changed yet.
-
+* Update ldap username [Victor Fernandez de Alba]
+* Change LDAP password retrieval method [Carles Bruguera]
+* Added manifest [Victor Fernandez de Alba]
 
 4.1.6 (2013-11-07)
 ------------------
