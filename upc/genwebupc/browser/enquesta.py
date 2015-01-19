@@ -39,4 +39,5 @@ class enquestaTokens(grok.View):
     def render(self):
         mdata = getToolByName(self.context, 'portal_memberdata')
         users = [api.user.get(a) for a in mdata._members]
+        users = [user for user in users if user]
         return '\n'.join(['%s,%s' % (user.id, user.getProperty('asepeyo_hash')) for user in users if user.getProperty('asepeyo_hash')])
