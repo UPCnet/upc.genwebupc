@@ -1,11 +1,10 @@
 Changelog
 ===========
 
-4.1.8 (unreleased)
+4.1.8 (2015-01-19)
 ------------------
 
-- Nothing changed yet.
-
+* Asepeyo poll redirect view [Carles Bruguera]
 
 4.1.7 (2014-10-16)
 ------------------
