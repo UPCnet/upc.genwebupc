@@ -1,11 +1,10 @@
 Changelog
 ===========
 
-4.1.9 (unreleased)
+4.1.9 (2015-01-19)
 ------------------
 
-- Nothing changed yet.
-
+* Fix for invalid users [Carles Bruguera]
 
 4.1.8 (2015-01-19)
 ------------------
