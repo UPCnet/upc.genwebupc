@@ -11,7 +11,7 @@ import datetime
 
 
 class enquestaRedirect(grok.View):
-    grok.name('enquesta-asepeyo')
+    grok.name('enquesta2015aspy')
     grok.context(Interface)
     grok.require('zope2.View')
 
@@ -32,7 +32,7 @@ class enquestaRedirect(grok.View):
 
 
 class enquestaTokens(grok.View):
-    grok.name('enquesta-asepeyo-tokens')
+    grok.name('enquesta2015aspy-tokens')
     grok.context(Interface)
     grok.require('cmf.ManagePortal')
 
