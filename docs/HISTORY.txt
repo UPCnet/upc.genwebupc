@@ -1,11 +1,10 @@
 Changelog
 ===========
 
-4.1.10 (unreleased)
+4.1.10 (2015-01-21)
 -------------------
 
-- Nothing changed yet.
-
+* Change view name [Carles Bruguera]
 
 4.1.9 (2015-01-19)
 ------------------
